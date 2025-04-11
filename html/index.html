@@ -9,12 +9,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Styles moved to app.css */
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            background-image: url('../images/Taj Mahal Hero Image.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(67, 74, 84, 0.9) 0%, rgba(217, 83, 79, 0.7) 100%);
+            background: linear-gradient(to right, rgba(67, 74, 84, 0.9), rgba(217, 83, 79, 0.7));
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .search-box .form-control {
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-box .btn {
+            border-radius: 0 5px 5px 0;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="../images/logo.jpg" alt="Map my Heritage Logo" height="40" class="d-inline-block align-top mr-auto">
+            <img src="../images/logo2.jpg" alt="Map my Heritage Logo" height="40" class="d-inline-block align-top mr-auto">
             Map my Heritage
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,18 +71,34 @@
         </div>
     </nav>
 
-    <header class="jumbotron text-center" style="color: white;">
-        <h1>Explore World Heritage</h1>
-        <p>Discover thousands of cultural and natural landmarks across the globe</p>
-        <a href="#" class="btn btn-primary">Start Exploring</a>
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="display-3 text-white font-weight-bold">Discover India's Heritage</h1>
+                    <p class="lead text-white mb-4">Explore the rich cultural heritage and architectural marvels of India</p>
+                    <div class="search-box">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Search heritage sites, cities or countries">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary btn-lg" type="button">
+                                    <i class="fas fa-search"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-outline-light btn-lg mr-3">Explore Destinations</a>
+                        <a href="#" class="btn btn-primary btn-lg">Plan Your Trip</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="search-bar my-4">
-            <input type="text" class="form-control" placeholder="Search heritage sites, cities or countries">
-        </div>
-
-        <h2>Explore by Category</h2>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Explore by Category</h2>
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
@@ -86,14 +138,14 @@
             </div>
         </div>
 
-        <h2 class="mt-5">Popular Destinations</h2>
+        <h2 class="text-center mt-5 mb-4">Popular Destinations</h2>
         <div class="row">
             <div class="col-md-4">
                 <img src="../images/Agra-Fort.jpg" class="img-fluid" alt="Agra Fort">
                 <p class="text-center">Agra Fort</p>
             </div>
             <div class="col-md-4">
-                <img src="../images/qutub1_042717100950.jpg" class="img-fluid" alt="Qutab Minar">
+                <img src="../images/licensed-image.jpg" class="img-fluid" alt="Qutab Minar">
                 <p class="text-center">Qutab Minar</p>
             </div>
             <div class="col-md-4">
@@ -102,14 +154,14 @@
             </div>
         </div>
 
-        <h2 class="mt-5">Recent Reviews</h2>
+        <h2 class="text-center mt-5 mb-4">Recent Reviews</h2>
         <ul class="list-group">
             <li class="list-group-item">Great Wall of China - Sarah L. - Breathtaking views and rich history. A must-visit!</li>
             <li class="list-group-item">Petra, Jordan - Michael T. - The Treasury at sunset is an unforgettable experience.</li>
             <li class="list-group-item">Angkor Wat - Elena K. - Stunning architecture and peaceful atmosphere.</li>
         </ul>
 
-        <h2 class="mt-5">Trending Itineraries</h2>
+        <h2 class="text-center mt-5 mb-4">Trending Itineraries</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
