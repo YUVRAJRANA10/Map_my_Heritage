@@ -6,52 +6,14 @@
     <title>Heritage Explorer</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/app.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Styles moved to app.css */
-        .hero-section {
-            position: relative;
-            height: 80vh;
-            background-image: url('../images/Taj Mahal Hero Image.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(67, 74, 84, 0.9) 0%, rgba(217, 83, 79, 0.7) 100%);
-            background: linear-gradient(to right, rgba(67, 74, 84, 0.9), rgba(217, 83, 79, 0.7));
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-
-        .search-box .form-control {
-            border: none;
-            border-radius: 5px 0 0 5px;
-        }
-
-        .search-box .btn {
-            border-radius: 0 5px 5px 0;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="../images/logo2.jpg" alt="Map my Heritage Logo" height="40" class="d-inline-block align-top mr-auto">
-            Map my Heritage
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+            <span class="brand-text">Map my Heritage</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -101,37 +63,45 @@
         <h2 class="text-center mb-4">Explore by Category</h2>
         <div class="row">
             <div class="col-md-3">
-                <div class="card">
+                <div class="card category-card">
                     <div class="card-body">
-                        <h5 class="card-title">UNESCO Sites</h5>
-                        <p class="card-text">World heritage landmarks</p>
+                        <div>
+                            <h5 class="card-title">UNESCO Sites</h5>
+                            <p class="card-text">World heritage landmarks</p>
+                        </div>
                         <a href="#" class="btn btn-primary">Explore</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card category-card">
                     <div class="card-body">
-                        <h5 class="card-title">Ancient Ruins</h5>
-                        <p class="card-text">Historical archaeological sites</p>
+                        <div>
+                            <h5 class="card-title">Ancient Ruins</h5>
+                            <p class="card-text">Historical archaeological sites</p>
+                        </div>
                         <a href="#" class="btn btn-primary">Explore</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card category-card">
                     <div class="card-body">
-                        <h5 class="card-title">Museums</h5>
-                        <p class="card-text">Cultural artifacts & exhibits</p>
+                        <div>
+                            <h5 class="card-title">Museums</h5>
+                            <p class="card-text">Cultural artifacts & exhibits</p>
+                        </div>
                         <a href="#" class="btn btn-primary">Explore</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card category-card">
                     <div class="card-body">
-                        <h5 class="card-title">Monuments</h5>
-                        <p class="card-text">Iconic structures & memorials</p>
+                        <div>
+                            <h5 class="card-title">Monuments</h5>
+                            <p class="card-text">Iconic structures & memorials</p>
+                        </div>
                         <a href="#" class="btn btn-primary">Explore</a>
                     </div>
                 </div>
@@ -141,25 +111,139 @@
         <h2 class="text-center mt-5 mb-4">Popular Destinations</h2>
         <div class="row">
             <div class="col-md-4">
-                <img src="../images/Agra-Fort.jpg" class="img-fluid" alt="Agra Fort">
-                <p class="text-center">Agra Fort</p>
+                <img src="../images/Jaipur-Palace.webp" class="popular-destination-img" alt="Agra Fort">
+                <p class="popular-destination-title">Agra Fort</p>
             </div>
             <div class="col-md-4">
-                <img src="../images/licensed-image.jpg" class="img-fluid" alt="Qutab Minar">
-                <p class="text-center">Qutab Minar</p>
+                <img src="../images/licensed-image.jpg" class="popular-destination-img" alt="Qutab Minar">
+                <p class="popular-destination-title">Ellora Caves</p>
             </div>
             <div class="col-md-4">
-                <img src="../images/sun_temple_konark.jpg" class="img-fluid" alt="Sun Temple Konark">
-                <p class="text-center">Sun Temple Konark</p>
+                <img src="../images/sun_temple_konark.jpg" class="popular-destination-img" alt="Sun Temple Konark">
+                <p class="popular-destination-title">Sun Temple Konark</p>
             </div>
         </div>
 
-        <h2 class="text-center mt-5 mb-4">Recent Reviews</h2>
-        <ul class="list-group">
-            <li class="list-group-item">Great Wall of China - Sarah L. - Breathtaking views and rich history. A must-visit!</li>
-            <li class="list-group-item">Petra, Jordan - Michael T. - The Treasury at sunset is an unforgettable experience.</li>
-            <li class="list-group-item">Angkor Wat - Elena K. - Stunning architecture and peaceful atmosphere.</li>
-        </ul>
+        <h2 class="text-center mb-4">Recent Reviews</h2>
+        <div class="row" id="reviews-container">
+            <div class="col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="../images/review-avatar1.jpg" alt="Rajesh Kumar" class="review-avatar">
+                        <div class="review-meta">
+                            <h5 class="reviewer-name">Rajesh Kumar</h5>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h6 class="review-title">Taj Mahal - A Dream Come True</h6>
+                        <p class="review-text">"Finally visited the Taj Mahal after years of dreaming about it. The morning view during sunrise was absolutely magical. The intricate marble work and the love story behind it makes it even more special. A must-visit for every Indian!"</p>
+                        <span class="review-date">Visited March 2024</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="../images/review-avatar2.jpg" alt="Priya Sharma" class="review-avatar">
+                        <div class="review-meta">
+                            <h5 class="reviewer-name">Priya Sharma</h5>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h6 class="review-title">Hawa Mahal - The Pink City's Crown</h6>
+                        <p class="review-text">"The Hawa Mahal is a masterpiece of Rajput architecture. The honeycomb structure and the 953 windows are simply breathtaking. Best time to visit is early morning when the sun's rays create a magical glow on the pink facade."</p>
+                        <span class="review-date">Visited February 2024</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="../images/review-avatar3.jpg" alt="Amit Patel" class="review-avatar">
+                        <div class="review-meta">
+                            <h5 class="reviewer-name">Amit Patel</h5>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h6 class="review-title">Taj Mahal - Beyond Words</h6>
+                        <p class="review-text">"No photograph can do justice to the beauty of Taj Mahal. The symmetry, the marble work, and the changing colors throughout the day make it a living monument. The moonlight viewing was an experience of a lifetime!"</p>
+                        <span class="review-date">Visited January 2024</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="../images/review-avatar4.jpg" alt="Neha Gupta" class="review-avatar">
+                        <div class="review-meta">
+                            <h5 class="reviewer-name">Neha Gupta</h5>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h6 class="review-title">Hawa Mahal - A Historical Gem</h6>
+                        <p class="review-text">"The Hawa Mahal's architecture is simply stunning. The lattice work and the way it was designed for royal women to observe street festivals while maintaining privacy is fascinating. A perfect example of ingenious design!"</p>
+                        <span class="review-date">Visited December 2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-primary see-more-btn" onclick="toggleMoreReviews()">
+                <i class="fas fa-chevron-down"></i> See More Reviews
+            </button>
+        </div>
+        <div class="row" id="more-reviews" style="display: none;">
+            <div class="col-md-6">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="../images/review-avatar5.jpg" alt="Suresh Verma" class="review-avatar">
+                        <div class="review-meta">
+                            <h5 class="reviewer-name">Suresh Verma</h5>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h6 class="review-title">Taj Mahal - India's Pride</h6>
+                        <p class="review-text">"As an Indian, I feel immense pride visiting the Taj Mahal. The love story of Shah Jahan and Mumtaz Mahal, the architectural brilliance, and the perfect symmetry make it truly deserving of being one of the Seven Wonders of the World."</p>
+                        <span class="review-date">Visited November 2023</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <h2 class="text-center mt-5 mb-4">Trending Itineraries</h2>
         <div class="row">
@@ -199,5 +283,18 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleMoreReviews() {
+            var moreReviews = document.getElementById('more-reviews');
+            var seeMoreBtn = document.querySelector('.see-more-btn');
+            if (moreReviews.style.display === 'none') {
+                moreReviews.style.display = 'block';
+                seeMoreBtn.textContent = 'See Less Reviews';
+            } else {
+                moreReviews.style.display = 'none';
+                seeMoreBtn.textContent = 'See More Reviews';
+            }
+        }
+    </script>
 </body>
 </html>
