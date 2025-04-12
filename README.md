@@ -53,3 +53,62 @@ MapMYHeritage/
 - Booking functionality for guided tours
 - Community features for heritage enthusiasts
 
+# Map My Heritage Website
+
+A website for exploring India's heritage sites and cultural landmarks.
+
+## Local Development Server
+
+To preview the website locally, follow these steps:
+
+### Option 1: Using Python (Recommended)
+
+1. Make sure you have Python installed on your computer
+2. Open a terminal/command prompt
+3. Navigate to the project directory
+4. Run the server script:
+   ```
+   python server.py
+   ```
+5. The website will automatically open in your default browser at http://localhost:8000/html/index.html
+6. To stop the server, press Ctrl+C in the terminal
+
+### Option 2: Using Node.js
+
+If you prefer Node.js, you can install a simple HTTP server:
+
+1. Install Node.js if you don't have it already
+2. Install the http-server package globally:
+   ```
+   npm install -g http-server
+   ```
+3. Navigate to the project directory in your terminal
+4. Run:
+   ```
+   http-server
+   ```
+5. Open your browser and go to http://localhost:8080/html/index.html
+
+### Sharing with Team Members
+
+To share your local server with team members on the same network:
+
+1. Find your computer's IP address:
+   - On Windows: Open Command Prompt and type `ipconfig`
+   - On Mac/Linux: Open Terminal and type `ifconfig` or `ip addr`
+2. Share the IP address with your team
+3. Team members can access the site by entering `http://YOUR_IP_ADDRESS:8000/html/index.html` in their browser
+
+## Project Structure
+
+- `html/` - Contains all HTML files
+- `css/` - Contains stylesheets
+- `images/` - Contains all images
+- `server.py` - Python script to run the local server
+
+## Notes
+
+- The server must be running to view the website
+- Any changes you make to the files will be immediately visible when you refresh the browser
+- Make sure all team members have the latest version of the files before testing
+
