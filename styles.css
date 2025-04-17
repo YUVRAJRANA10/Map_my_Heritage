@@ -1,0 +1,35 @@
+/* 3D Model Canvas Styling */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Lower z-index so overlay and content appear on top */
+    background: linear-gradient(135deg, rgba(67, 74, 84, 0.8) 0%, rgba(217, 83, 79, 0.6) 100%);
+}
+
+/* Make sure canvas works on mobile */
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Make sure content appears on top of 3D */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fallback background in case 3D doesn't load */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    /* background-image: url('../images/Taj\ Mahal\ Herho\ Image.png'); */
+    background-size: cover;
+    background-position: center;
+}
