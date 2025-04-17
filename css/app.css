@@ -105,6 +105,70 @@ body {
     }
 }
 
+/* Apple-style text animation for hero heading - with continuous loop */
+.hero-heading-animated {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-heading-animated span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation-name: charAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: brightness(1.2); /* Make all text brighter */
+}
+
+@keyframes charAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make sure text remains readable with text shadow but more prominent */
+.hero-heading-animated span {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+  font-weight: 700; /* Bolder text */
+}
+
+/* Add a subtle color variation to make it even more elegant - with brighter colors */
+.hero-heading-animated .char-gold {
+  color: #FFD700; /* Brighter gold */
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.4));
+}
+
+.hero-heading-animated .char-accent {
+  color: #FF4136; /* Brighter red */
+  filter: drop-shadow(0 0 3px rgba(255, 65, 54, 0.4));
+}
+
+/* Add continuous glow effects for letters */
+@keyframes glowPulse {
+  0% { filter: brightness(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 4px rgba(255, 255, 255, 0.5)); }
+  100% { filter: brightness(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); }
+}
+
+.hero-heading-animated span.animated {
+  animation: glowPulse 3s infinite;
+  animation-delay: calc(var(--char-index) * 0.1s);
+}
+
+/* Make sure animation pauses for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading-animated span {
+    animation-duration: 0s;
+    opacity: 1;
+    transform: translateY(0);
+    filter: brightness(1.2);
+  }
+}
+
 /* Cards */
 .card {
     border: none;

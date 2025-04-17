@@ -100,4 +100,79 @@ document.addEventListener('DOMContentLoaded', function() {
         card.classList.add('animate__fadeInUp');
         card.style.animationDelay = `${index * 0.2}s`;
     });
+    
+    // Apple-style text animation for hero heading with continuous animation
+    const heroHeading = document.getElementById('heroHeading');
+    
+    if (heroHeading) {
+        // Get the original text
+        const text = heroHeading.textContent;
+        
+        // Clear the heading
+        heroHeading.textContent = '';
+        
+        // Split the text into individual characters
+        const chars = text.split('');
+        
+        // Create and append spans for each character
+        chars.forEach((char, index) => {
+            const span = document.createElement('span');
+            
+            // Add special classes for certain characters to create color variation
+            if (['D', 'I', 'H'].includes(char)) {
+                span.classList.add('char-accent');
+            } else if (['s', 'v', 'r', 'g', 'a'].includes(char)) {
+                span.classList.add('char-gold');
+            }
+            
+            // Set a custom property for staggered animation
+            span.style.setProperty('--char-index', index);
+            
+            span.textContent = char === ' ' ? '\u00A0' : char; // Replace spaces with non-breaking spaces
+            span.style.animationDelay = `${index * 0.05}s`; // Stagger the animation
+            heroHeading.appendChild(span);
+        });
+        
+        // After all initial animations complete, start the continuous effects
+        setTimeout(() => {
+            // Enable the continuous animation for all spans
+            const spans = heroHeading.querySelectorAll('span');
+            
+            // Function for highlight sweep effect
+            const highlightSweep = () => {
+                spans.forEach((span, index) => {
+                    // Add temporary highlight class
+                    setTimeout(() => {
+                        span.classList.add('animated');
+                        
+                        // Remove it after the effect completes
+                        setTimeout(() => {
+                            span.classList.remove('animated');
+                        }, 3000);
+                    }, index * 80);
+                });
+            };
+            
+            // Start continuous animation loops
+            // Initial highlight sweep
+            highlightSweep();
+            
+            // Repeat the full sequence every 8 seconds
+            setInterval(() => {
+                highlightSweep();
+            }, 8000);
+            
+            // Add a continuous subtle pulse to all characters
+            setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * spans.length);
+                if (spans[randomIndex].textContent.trim() !== '') {
+                    spans[randomIndex].classList.add('animated');
+                    setTimeout(() => {
+                        spans[randomIndex].classList.remove('animated');
+                    }, 3000);
+                }
+            }, 1000);
+            
+        }, chars.length * 50 + 500);
+    }
 });
