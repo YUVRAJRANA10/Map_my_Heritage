@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.animationDelay = `${index * 0.2}s`;
     });
     
-    // Apple-style text animation for hero heading with continuous animation
+    // Apple-style text animation for hero heading with India tricolor theme
     const heroHeading = document.getElementById('heroHeading');
     
     if (heroHeading) {
@@ -118,61 +118,50 @@ document.addEventListener('DOMContentLoaded', function() {
         chars.forEach((char, index) => {
             const span = document.createElement('span');
             
-            // Add special classes for certain characters to create color variation
-            if (['D', 'I', 'H'].includes(char)) {
-                span.classList.add('char-accent');
-            } else if (['s', 'v', 'r', 'g', 'a'].includes(char)) {
-                span.classList.add('char-gold');
+            // Distribute India's tricolor evenly across the text
+            // Using modulo to create repeating pattern of saffron, white, green
+            if (index % 3 === 0) {
+                span.classList.add('char-saffron');
+            } else if (index % 3 === 1) {
+                span.classList.add('char-white');
+            } else {
+                span.classList.add('char-green');
             }
             
-            // Set a custom property for staggered animation
-            span.style.setProperty('--char-index', index);
-            
             span.textContent = char === ' ' ? '\u00A0' : char; // Replace spaces with non-breaking spaces
-            span.style.animationDelay = `${index * 0.05}s`; // Stagger the animation
+            
+            // Use more predictable timing to avoid the "here and there" effect
+            const delay = index * 0.05; // Consistent delay between characters
+            span.style.animationDelay = `${delay}s`;
+            
             heroHeading.appendChild(span);
         });
         
         // After all initial animations complete, start the continuous effects
         setTimeout(() => {
-            // Enable the continuous animation for all spans
+            // Get all spans
             const spans = heroHeading.querySelectorAll('span');
             
-            // Function for highlight sweep effect
+            // Function for synchronized highlight sweep effect
             const highlightSweep = () => {
+                // Use forEach with a fixed delay pattern
                 spans.forEach((span, index) => {
-                    // Add temporary highlight class
                     setTimeout(() => {
                         span.classList.add('animated');
                         
-                        // Remove it after the effect completes
                         setTimeout(() => {
                             span.classList.remove('animated');
-                        }, 3000);
-                    }, index * 80);
+                        }, 2000); // Keep the glow for 2 seconds
+                    }, index * 50); // More consistent timing (50ms between each)
                 });
             };
             
-            // Start continuous animation loops
-            // Initial highlight sweep
-            highlightSweep();
+            // First sweep after initial animation
+            setTimeout(highlightSweep, 500);
             
-            // Repeat the full sequence every 8 seconds
-            setInterval(() => {
-                highlightSweep();
-            }, 8000);
+            // Repeat the sweep at regular intervals
+            setInterval(highlightSweep, 6000);
             
-            // Add a continuous subtle pulse to all characters
-            setInterval(() => {
-                const randomIndex = Math.floor(Math.random() * spans.length);
-                if (spans[randomIndex].textContent.trim() !== '') {
-                    spans[randomIndex].classList.add('animated');
-                    setTimeout(() => {
-                        spans[randomIndex].classList.remove('animated');
-                    }, 3000);
-                }
-            }, 1000);
-            
-        }, chars.length * 50 + 500);
+        }, chars.length * 50 + 500); // Wait until all characters have appeared
     }
 });

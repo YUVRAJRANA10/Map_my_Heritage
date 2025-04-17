@@ -105,7 +105,7 @@ body {
     }
 }
 
-/* Apple-style text animation for hero heading - with continuous loop */
+/* Apple-style text animation for hero heading - with better sync */
 .hero-heading-animated {
   display: inline-block;
   overflow: hidden;
@@ -119,11 +119,37 @@ body {
   animation-name: charAnimation;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   filter: brightness(1.2); /* Make all text brighter */
 }
 
+/* Add a subtle color variation with India's tricolor */
+.hero-heading-animated span {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Stronger shadow for better contrast */
+  font-weight: 700; /* Bolder text */
+}
+
+/* India flag colors: Saffron, White, Green */
+.hero-heading-animated .char-saffron {
+  color: #FF9933; /* Saffron (India flag top color) */
+  filter: drop-shadow(0 0 3px rgba(255, 153, 51, 0.6));
+}
+
+.hero-heading-animated .char-white {
+  color: #FFFFFF; /* White (India flag middle color) */
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+}
+
+.hero-heading-animated .char-green {
+  color: #138808; /* Green (India flag bottom color) */
+  filter: drop-shadow(0 0 3px rgba(19, 136, 8, 0.6));
+}
+
 @keyframes charAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -147,26 +173,26 @@ body {
   filter: drop-shadow(0 0 3px rgba(255, 65, 54, 0.4));
 }
 
-/* Add continuous glow effects for letters */
+/* Add continuous glow effects for letters in a more synchronized way */
 @keyframes glowPulse {
   0% { filter: brightness(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); }
-  50% { filter: brightness(1.3) drop-shadow(0 0 4px rgba(255, 255, 255, 0.5)); }
+  50% { filter: brightness(1.4) drop-shadow(0 0 5px rgba(255, 255, 255, 0.6)); }
   100% { filter: brightness(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.3)); }
 }
 
-.hero-heading-animated span.animated {
-  animation: glowPulse 3s infinite;
-  animation-delay: calc(var(--char-index) * 0.1s);
+/* Add special animation for white characters to make them more visible */
+@keyframes whiteGlowPulse {
+  0% { filter: brightness(1) drop-shadow(0 0 3px rgba(0, 0, 0, 0.5)); }
+  50% { filter: brightness(1.4) drop-shadow(0 0 5px rgba(0, 0, 0, 0.7)); }
+  100% { filter: brightness(1) drop-shadow(0 0 3px rgba(0, 0, 0, 0.5)); }
 }
 
-/* Make sure animation pauses for reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-heading-animated span {
-    animation-duration: 0s;
-    opacity: 1;
-    transform: translateY(0);
-    filter: brightness(1.2);
-  }
+.hero-heading-animated span.animated {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.hero-heading-animated .char-white.animated {
+  animation: whiteGlowPulse 3s ease-in-out infinite;
 }
 
 /* Cards */
