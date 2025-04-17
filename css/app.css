@@ -359,3 +359,52 @@ h2 {
 #more-reviews {
     transition: all 0.5s ease;
 }
+
+/* Performance Optimizations */
+.animate__animated {
+    will-change: transform, opacity;
+}
+
+/* Standardize category card animations */
+.category-card {
+    animation-duration: 0.6s;
+}
+
+/* Use hardware acceleration for smoother animations */
+.review-card, 
+.card, 
+.popular-destination-img,
+.animate__animated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Reduce painting area for card hover effects */
+.card:hover {
+    transform: translateY(-5px) translateZ(0);
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+    .animate__animated {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* Remove animations on mobile for better performance */
+@media (max-width: 768px) {
+    .animate__delay-1s,
+    .animate__delay-2s,
+    .animate__delay-3s {
+        animation-delay: 0s !important;
+    }
+    
+    .popular-destination-img:hover {
+        transform: none;
+    }
+    
+    .review-card:hover {
+        transform: none;
+    }
+}
