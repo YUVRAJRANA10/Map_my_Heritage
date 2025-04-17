@@ -6,6 +6,7 @@
     <title>Heritage Explorer</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -35,26 +36,28 @@
     </nav>
 
     <header class="hero-section">
+        <div id="canvas-container"></div>
         <div class="hero-overlay"></div>
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 text-center">
-                    <h1 class="display-3 text-white font-weight-bold animate__animated animate__fadeInDown">Discover India's Heritage</h1>
-                    <p class="lead text-white mb-4 animate__animated animate__fadeIn animate__delay-1s">Explore the rich cultural heritage and architectural marvels of India</p>
-                    <div class="search-box animate__animated animate__fadeIn animate__delay-1s">
-                        <!-- Search box content remains the same -->
-                        <div class="input-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Search heritage sites, cities or countries">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary btn-lg" type="button" onclick="simulateSearch(this)">
-                                    <i class="fas fa-search"></i> <span>Search</span>
-                                </button>
+        <div class="hero-content">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 text-center">
+                        <h1 class="display-3 text-white font-weight-bold animate__animated animate__fadeInDown">Discover India's Heritage</h1>
+                        <p class="lead text-white mb-4 animate__animated animate__fadeIn animate__delay-1s">Explore the rich cultural heritage and architectural marvels of India</p>
+                        <div class="search-box animate__animated animate__fadeIn animate__delay-1s">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-lg" placeholder="Search heritage sites, cities or countries">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-lg" type="button" onclick="simulateSearch(this)">
+                                        <i class="fas fa-search"></i> <span>Search</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
-                        <a href="#" class="btn btn-outline-light btn-lg mr-3">Explore Destinations</a>
-                        <a href="#" class="btn btn-primary btn-lg">Plan Your Trip</a>
+                        <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
+                            <a href="#" class="btn btn-outline-light btn-lg mr-3">Explore Destinations</a>
+                            <a href="#" class="btn btn-primary btn-lg">Plan Your Trip</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -291,6 +294,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="../script.js"></script>
     <script src="../js/app.js"></script>
 </body>
 </html>
