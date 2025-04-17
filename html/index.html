@@ -46,11 +46,11 @@
                         <div class="input-group">
                             <input type="text" class="form-control form-control-lg" placeholder="Search heritage sites, cities or countries">
                             <div class="input-group-append">
-                                <button class="btn btn-primary btn-lg" type="button">
-                                    <i class="fas fa-search"></i> Search
+                                <button class="btn btn-primary btn-lg" type="button" onclick="simulateSearch(this)">
+                                    <i class="fas fa-search"></i> <span>Search</span>
                                 </button>
                             </div>
-                            </div>
+                        </div>
                     </div>
                     <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
                         <a href="#" class="btn btn-outline-light btn-lg mr-3">Explore Destinations</a>
@@ -62,10 +62,10 @@
     </header>
 
     <div class="container py-5">
-        <h2 class="text-center mb-4">Explore by Category</h2>
+        <h2 class="text-center mb-4 animate__animated animate__fadeIn">Explore by Category</h2>
         <div class="row">
             <div class="col-md-3">
-                <div class="card category-card">
+                <div class="card category-card animate__animated animate__fadeInUp">
                     <div class="card-body">
                         <div>
                             <h5 class="card-title">UNESCO Sites</h5>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card category-card">
+                <div class="card category-card animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="card-body">
                         <div>
                             <h5 class="card-title">Ancient Ruins</h5>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card category-card">
+                <div class="card category-card animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="card-body">
                         <div>
                             <h5 class="card-title">Museums</h5>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card category-card">
+                <div class="card category-card animate__animated animate__fadeInUp animate__delay-3s">
                     <div class="card-body">
                         <div>
                             <h5 class="card-title">Monuments</h5>
@@ -110,26 +110,32 @@
             </div>
         </div>
 
-        <h2 class="text-center mt-5 mb-4">Popular Destinations</h2>
+        <h2 class="text-center mt-5 mb-4 animate__animated animate__fadeIn">Popular Destinations</h2>
         <div class="row">
             <div class="col-md-4">
-                <img src="../images/Jaipur-Palace.webp" class="popular-destination-img" alt="Agra Fort">
-                <p class="popular-destination-title">Agra Fort</p>
+                <div class="animate__animated animate__zoomIn">
+                    <img src="../images/Jaipur-Palace.webp" class="popular-destination-img" alt="Agra Fort">
+                    <p class="popular-destination-title">Agra Fort</p>
+                </div>
             </div>
             <div class="col-md-4">
-                <img src="../images/licensed-image.jpg" class="popular-destination-img" alt="Qutab Minar">
-                <p class="popular-destination-title">Ellora Caves</p>
+                <div class="animate__animated animate__zoomIn animate__delay-1s">
+                    <img src="../images/licensed-image.jpg" class="popular-destination-img" alt="Qutab Minar">
+                    <p class="popular-destination-title">Ellora Caves</p>
+                </div>
             </div>
             <div class="col-md-4">
-                <img src="../images/sun_temple_konark.jpg" class="popular-destination-img" alt="Sun Temple Konark">
-                <p class="popular-destination-title">Sun Temple Konark</p>
+                <div class="animate__animated animate__zoomIn animate__delay-2s">
+                    <img src="../images/sun_temple_konark.jpg" class="popular-destination-img" alt="Sun Temple Konark">
+                    <p class="popular-destination-title">Sun Temple Konark</p>
+                </div>
             </div>
         </div>
 
-        <h2 class="text-center mb-4">Recent Reviews</h2>
+        <h2 class="text-center mb-4 animate__animated animate__fadeIn">Recent Reviews</h2>
         <div class="row" id="reviews-container">
             <div class="col-md-6">
-                <div class="review-card">
+                <div class="review-card animate__animated animate__fadeInLeft">
                     <div class="review-header">
                         <img src="../images/rev_rajesh.webp" alt="Rajesh Kumar" class="review-avatar">
                         <div class="review-meta">
@@ -151,7 +157,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="review-card">
+                <div class="review-card animate__animated animate__fadeInRight">
                     <div class="review-header">
                         <img src="../images/rev3.webp" alt="Priya Sharma" class="review-avatar">
                         <div class="review-meta">
@@ -218,7 +224,7 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <button class="btn btn-outline-primary see-more-btn" onclick="toggleMoreReviews()">
+            <button class="btn btn-outline-primary see-more-btn animate__animated animate__pulse animate__infinite animate__slow" onclick="toggleMoreReviews()">
                 <i class="fas fa-chevron-down"></i> See More Reviews
             </button>
         </div>
@@ -247,33 +253,33 @@
             </div>
         </div>
 
-        <h2 class="text-center mt-5 mb-4">Trending Itineraries</h2>
+        <h2 class="text-center mt-5 mb-4 animate__animated animate__fadeIn">Trending Itineraries</h2>
         <div class="row">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card animate__animated animate__fadeInUp">
                     <div class="card-body">
-                        <h5 class="card-title">European Classics</h5>
-                        <p class="card-text">14-day tour of iconic landmarks</p>
+                        <h5 class="card-title">North India Heritage</h5>
+                        <p class="card-text">7-day tour of Delhi, Agra, and Jaipur</p>
                         <a href="#" class="btn btn-primary">View</a>
                         <a href="#" class="btn btn-secondary">Save</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card">
+                <div class="card animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="card-body">
-                        <h5 class="card-title">Asian Heritage</h5>
-                        <p class="card-text">10-day exploration of ancient sites</p>
+                        <h5 class="card-title">South India Temples</h5>
+                        <p class="card-text">10-day exploration of ancient temples</p>
                         <a href="#" class="btn btn-primary">View</a>
                         <a href="#" class="btn btn-secondary">Save</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card">
+                <div class="card animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="card-body">
-                        <h5 class="card-title">Ancient Wonders</h5>
-                        <p class="card-text">7-day journey through history</p>
+                        <h5 class="card-title">UNESCO Wonders</h5>
+                        <p class="card-text">14-day journey through India's UNESCO sites</p>
                         <a href="#" class="btn btn-primary">View</a>
                         <a href="#" class="btn btn-secondary">Save</a>
                     </div>
@@ -286,16 +292,105 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // Update your toggleMoreReviews function
         function toggleMoreReviews() {
             var moreReviews = document.getElementById('more-reviews');
             var seeMoreBtn = document.querySelector('.see-more-btn');
+            
             if (moreReviews.style.display === 'none') {
                 moreReviews.style.display = 'block';
-                seeMoreBtn.textContent = 'See Less Reviews';
+                seeMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> See Less Reviews';
+                seeMoreBtn.classList.remove('animate__pulse', 'animate__infinite');
+                
+                // Add animation to newly revealed reviews
+                const hiddenReviews = moreReviews.querySelectorAll('.review-card');
+                hiddenReviews.forEach((card, index) => {
+                    card.classList.add('animate__animated', 'animate__fadeInUp');
+                    card.style.animationDelay = `${index * 0.2}s`;
+                });
             } else {
                 moreReviews.style.display = 'none';
-                seeMoreBtn.textContent = 'See More Reviews';
+                seeMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> See More Reviews';
+                seeMoreBtn.classList.add('animate__pulse', 'animate__infinite');
             }
+        }
+        
+        // Replace your existing isInViewport function with this more forgiving one
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            // Element is considered "in viewport" if at least 25% is visible
+            return (
+                rect.top <= windowHeight * 0.75 && // Element's top is within 75% of viewport height
+                rect.bottom >= windowHeight * 0.25 // Element's bottom is at least 25% into view
+            );
+        }
+        
+        // Add this new code for scroll-triggered animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            // Get all animated elements that should trigger on scroll
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            
+            // Function to add animation classes when elements come into view
+            function checkAnimations() {
+                animatedElements.forEach(element => {
+                    if (isInViewport(element) && !element.classList.contains('animate__animated--triggered')) {
+                        // Keep the animate__animated class but remove any animate__delay classes
+                        const currentClasses = [...element.classList];
+                        const delayClasses = currentClasses.filter(cls => cls.startsWith('animate__delay'));
+                        
+                        // Add triggered flag
+                        element.classList.add('animate__animated--triggered');
+                        
+                        // Re-add the classes to restart the animation
+                        requestAnimationFrame(() => {
+                            delayClasses.forEach(cls => {
+                                element.classList.remove(cls);
+                                void element.offsetWidth; // Force reflow
+                                element.classList.add(cls);
+                            });
+                        });
+                    }
+                });
+            }
+            
+            // Initial check for elements in viewport
+            checkAnimations();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkAnimations);
+        });
+
+        // Add this function to simulate a search
+        function simulateSearch(button) {
+            const originalContent = button.innerHTML;
+            button.disabled = true;
+            button.classList.add('animate__animated', 'animate__pulse', 'animate__infinite');
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Searching...</span>';
+            
+            // Simulate search delay
+            setTimeout(() => {
+                button.classList.remove('animate__animated', 'animate__pulse', 'animate__infinite');
+                button.innerHTML = originalContent;
+                button.disabled = false;
+                
+                // Show a success animation
+                button.classList.add('animate__animated', 'animate__bounceIn');
+                setTimeout(() => {
+                    button.classList.remove('animate__animated', 'animate__bounceIn');
+                }, 1000);
+            }, 1500);
         }
     </script>
 </body>
