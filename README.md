@@ -1,9 +1,7 @@
-Collecting workspace information# Map My Heritage
-
 ## Overview
 
 Map My Heritage is an immersive web platform designed to help users discover, explore, and plan visits to cultural and historical heritage sites across India. The platform features an interactive 3D showcase of the Taj Mahal and provides detailed information about UNESCO World Heritage sites, ancient ruins, museums, and monuments throughout India.
-
+![Shiny Floor](./images/site.png)
 ## Features
 
 - **Interactive 3D Experience**: Explore the Taj Mahal in stunning 3D with realistic marble textures, reflections, and dynamic lighting
@@ -131,5 +129,3 @@ The website includes several optimizations to ensure smooth performance:
 - Any changes you make to the files will be immediately visible when you refresh the browser
 - Make sure all team members have the latest version of the files before testing
 - The 3D model requires a modern browser with WebGL support
-
-![Shiny Floor](./images/site.png)
