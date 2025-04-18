@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heritage Explorer</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./css/app.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -25,7 +25,6 @@
                 <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
             </ul>
-            <!-- Replace the current navbar-nav div with this code -->
             <div class="navbar-nav">
                 <a class="btn btn-primary" href="#" style="margin-right: 10px;">
                     <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
@@ -33,6 +32,36 @@
             </div>
         </div>
     </nav>
-    
+
+    <!-- Main Content -->
+    <main class="mt-5 pt-5">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h1 class="text-center">Blog Page</h1>
+                    <p class="text-center text-muted">Explore reviews and blogs about heritage destinations.</p>
+                </div>
+            </div>
+
+            <!-- Review Cards -->
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://sacredsites.com/images/asia/india/golden_temple_1200.jpg" class="card-img-top" alt="Sri Harmandir Sahib">
+                        <div class="card-body">
+                            <h5 class="card-title">Sri Harmandir Sahib</h5>
+                            <p class="card-text">The gleaming heart of Sikhism and a symbol of universal brotherhood.</p>
+                        </div>
+                    </div>
+                </div>
+                
+    <script>
+        function toggleNav() {
+            const navbarCollapse = document.getElementById('navbarContent');
+            navbarCollapse.classList.toggle('active');
+        }
+    </script>
+                
 </body>
 </html>
