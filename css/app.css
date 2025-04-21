@@ -310,6 +310,40 @@ body {
     box-shadow: none;
 }
 
+/* Tour package toggle button styling */
+.btn-group .btn-outline-primary {
+    color: #434A54;
+    border-color: #FF9933;
+}
+
+.btn-group .btn-outline-primary.active,
+.btn-group .btn-outline-primary:hover {
+    background: linear-gradient(135deg, #FF9933, #FF7E33);
+    border-color: #FF7E33;
+    color: #fff;
+}
+
+/* Price difference styling */
+.package-premium .alert-success {
+    background-color: rgba(255, 153, 51, 0.1);
+    border-color: #FF9933;
+}
+
+.package-standard .alert-success {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ccc;
+}
+
+.package-budget .alert-success {
+    background-color: rgba(19, 136, 8, 0.1);
+    border-color: #138808;
+}
+
+/* Animation for package switching */
+.tour-option {
+    transition: all 0.3s ease;
+}
+
 /* Popular Destinations */
 .img-fluid {
     border-radius: 8px;
