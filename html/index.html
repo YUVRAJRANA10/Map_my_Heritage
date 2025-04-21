@@ -288,33 +288,315 @@
 
         <h2 class="text-center mt-5 mb-4 animate__animated animate__fadeIn">Trending Itineraries</h2>
         <div class="row">
+            <!-- North India Heritage -->
             <div class="col-md-4">
                 <div class="card animate__animated animate__fadeInUp">
                     <div class="card-body">
                         <h5 class="card-title">North India Heritage</h5>
                         <p class="card-text">7-day tour of Delhi, Agra, and Jaipur</p>
-                        <a href="#" class="btn btn-primary">View</a>
-                        <a href="#" class="btn btn-secondary">Save</a>
+                        <button class="btn btn-primary view-btn" onclick="toggleItinerary('north-india')">View</button>
+                        <button class="btn btn-secondary" onclick="saveItineraryPDF('north-india')">Save</button>
                     </div>
                 </div>
             </div>
+            
+            <!-- South India Temples -->
             <div class="col-md-4">
                 <div class="card animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="card-body">
                         <h5 class="card-title">South India Temples</h5>
                         <p class="card-text">10-day exploration of ancient temples</p>
-                        <a href="#" class="btn btn-primary">View</a>
-                        <a href="#" class="btn btn-secondary">Save</a>
+                        <button class="btn btn-primary view-btn" onclick="toggleItinerary('south-india')">View</button>
+                        <button class="btn btn-secondary" onclick="saveItineraryPDF('south-india')">Save</button>
                     </div>
                 </div>
             </div>
+            
+            <!-- UNESCO Wonders -->
             <div class="col-md-4">
                 <div class="card animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="card-body">
                         <h5 class="card-title">UNESCO Wonders</h5>
                         <p class="card-text">14-day journey through India's UNESCO sites</p>
-                        <a href="#" class="btn btn-primary">View</a>
-                        <a href="#" class="btn btn-secondary">Save</a>
+                        <button class="btn btn-primary view-btn" onclick="toggleItinerary('unesco-wonders')">View</button>
+                        <button class="btn btn-secondary" onclick="saveItineraryPDF('unesco-wonders')">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expandable Itinerary Details -->
+        <div class="row mt-3">
+            <!-- North India Heritage Details -->
+            <div class="col-12 itinerary-details" id="north-india-details" style="display: none;">
+                <div class="card animate__animated animate__fadeIn">
+                    <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);">
+                        <h5 class="mb-0">North India Heritage Tour Package</h5>
+                        <button type="button" class="close" onclick="toggleItinerary('north-india')">&times;</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Inclusions -->
+                            <div class="col-md-4">
+                                <h6 class="font-weight-bold"><i class="fas fa-check-circle text-success mr-2"></i>Package Inclusions</h6>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">6 nights accommodation in 4-star hotels</li>
+                                    <li class="list-group-item">Daily breakfast and dinner</li>
+                                    <li class="list-group-item">Private air-conditioned vehicle</li>
+                                    <li class="list-group-item">English-speaking tour guide</li>
+                                    <li class="list-group-item">All entrance fees to monuments</li>
+                                    <li class="list-group-item">Elephant ride at Amer Fort, Jaipur</li>
+                                    <li class="list-group-item">Sunrise view of Taj Mahal</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Itinerary -->
+                            <div class="col-md-8">
+                                <h6 class="font-weight-bold"><i class="fas fa-route text-primary mr-2"></i>Day-by-Day Itinerary</h6>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 1: Delhi Arrival</h6>
+                                            <p>Airport pickup, welcome dinner and overnight in Delhi</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 2: Delhi Exploration</h6>
+                                            <p>Visit Qutub Minar, Humayun's Tomb, Red Fort, and India Gate</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 3: Delhi to Agra</h6>
+                                            <p>Drive to Agra, visit Agra Fort and Itimad-ud-Daulah</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 4: Agra to Jaipur</h6>
+                                            <p>Sunrise visit to Taj Mahal, then drive to Jaipur via Fatehpur Sikri</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 5: Jaipur Exploration</h6>
+                                            <p>Visit Amer Fort, Hawa Mahal, City Palace, and Jantar Mantar</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 6: Jaipur Local Culture</h6>
+                                            <p>Visit local markets, cooking class, and cultural show</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 7: Departure</h6>
+                                            <p>Return to Delhi for departure, souvenir shopping en route</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Price and Booking -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="alert alert-success" role="alert">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-0">Starting from ₹45,000 per person</h6>
+                                            <small>*Based on double occupancy. Single supplement applies.</small>
+                                        </div>
+                                        <button class="btn btn-primary">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- South India Temples Details -->
+            <div class="col-12 itinerary-details" id="south-india-details" style="display: none;">
+                <div class="card animate__animated animate__fadeIn">
+                    <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);">
+                        <h5 class="mb-0">South India Temples Tour Package</h5>
+                        <button type="button" class="close" onclick="toggleItinerary('south-india')">&times;</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Inclusions -->
+                            <div class="col-md-4">
+                                <h6 class="font-weight-bold"><i class="fas fa-check-circle text-success mr-2"></i>Package Inclusions</h6>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">9 nights accommodation in heritage hotels</li>
+                                    <li class="list-group-item">All meals included (vegetarian options available)</li>
+                                    <li class="list-group-item">AC vehicle with experienced driver</li>
+                                    <li class="list-group-item">Temple specialist guide</li>
+                                    <li class="list-group-item">Special pujas and ceremonies</li>
+                                    <li class="list-group-item">Classical dance performance in Thanjavur</li>
+                                    <li class="list-group-item">Ayurvedic spa treatment</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Itinerary -->
+                            <div class="col-md-8">
+                                <h6 class="font-weight-bold"><i class="fas fa-route text-primary mr-2"></i>Day-by-Day Itinerary</h6>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 1-2: Chennai & Mahabalipuram</h6>
+                                            <p>Kapaleeshwarar Temple, Shore Temple, Arjuna's Penance</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 3-4: Kanchipuram & Tiruvannamalai</h6>
+                                            <p>Kailasanathar Temple, Ekambareswarar Temple, Arunachaleswarar Temple</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 5-6: Thanjavur & Madurai</h6>
+                                            <p>Brihadeeswara Temple, Meenakshi Amman Temple, evening aarti ceremony</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 7-8: Rameswaram & Kanyakumari</h6>
+                                            <p>Ramanathaswamy Temple, Dhanushkodi, Vivekananda Rock Memorial</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 9-10: Kerala & Departure</h6>
+                                            <p>Padmanabhaswamy Temple, backwater cruise, departure</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Price and Booking -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="alert alert-success" role="alert">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-0">Starting from ₹65,000 per person</h6>
+                                            <small>*Based on double occupancy. Single supplement applies.</small>
+                                        </div>
+                                        <button class="btn btn-primary">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UNESCO Wonders Details -->
+            <div class="col-12 itinerary-details" id="unesco-wonders-details" style="display: none;">
+                <div class="card animate__animated animate__fadeIn">
+                    <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);">
+                        <h5 class="mb-0">UNESCO Wonders of India Tour Package</h5>
+                        <button type="button" class="close" onclick="toggleItinerary('unesco-wonders')">&times;</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Inclusions -->
+                            <div class="col-md-4">
+                                <h6 class="font-weight-bold"><i class="fas fa-check-circle text-success mr-2"></i>Package Inclusions</h6>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">13 nights in luxury accommodations</li>
+                                    <li class="list-group-item">All meals with regional specialties</li>
+                                    <li class="list-group-item">Domestic flights between cities</li>
+                                    <li class="list-group-item">UNESCO expert guides</li>
+                                    <li class="list-group-item">Private sightseeing and transfers</li>
+                                    <li class="list-group-item">Special permission for restricted areas</li>
+                                    <li class="list-group-item">Photography sessions at sunset/sunrise</li>
+                                    <li class="list-group-item">Commemorative UNESCO sites book</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Itinerary -->
+                            <div class="col-md-8">
+                                <h6 class="font-weight-bold"><i class="fas fa-route text-primary mr-2"></i>Day-by-Day Itinerary</h6>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 1-3: Delhi & Agra</h6>
+                                            <p>Qutub Minar, Humayun's Tomb, Red Fort, Taj Mahal, Agra Fort, Fatehpur Sikri</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 4-5: Khajuraho & Sanchi</h6>
+                                            <p>Western Group of Temples, Great Stupa of Sanchi</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 6-7: Ajanta & Ellora Caves</h6>
+                                            <p>Buddhist, Hindu and Jain cave temples and monasteries</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 8-9: Hampi</h6>
+                                            <p>Virupaksha Temple, Vittala Temple, Stone Chariot, Queen's Bath</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 10-11: Pattadakal & Aihole</h6>
+                                            <p>Group of Monuments at Pattadakal, Aihole temple complex</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-marker"></div>
+                                        <div class="timeline-content">
+                                            <h6 class="timeline-title">Day 12-14: Konark & Departure</h6>
+                                            <p>Sun Temple of Konark, Puri Jagannath Temple, departure</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Price and Booking -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="alert alert-success" role="alert">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-0">Starting from ₹1,25,000 per person</h6>
+                                            <small>*Based on double occupancy. Single supplement applies.</small>
+                                        </div>
+                                        <button class="btn btn-primary">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -346,8 +346,21 @@ body {
 .list-group-item {
     border-left: none;
     border-right: none;
-    padding: 15px;
-    background-color: transparent;
+    border-top: none;
+    padding: 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.list-group-item:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FF9933;
+}
+
+.list-group-item:nth-child(even):before {
+    color: #138808;
 }
 
 /* Headings */
@@ -567,4 +580,56 @@ h2:after {
     .review-card:hover {
         transform: none;
     }
+}
+
+/* Itinerary Details Styling */
+.itinerary-details {
+    margin-bottom: 30px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(180deg, #FF9933 0%, #138808 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #FF9933;
+    left: -30px;
+    top: 3px;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    border-color: #138808;
+}
+
+.timeline-content {
+    padding-left: 10px;
+}
+
+.timeline-title {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #434A54;
 }

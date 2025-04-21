@@ -68,6 +68,93 @@ function simulateSearch(button) {
     }, 1500);
 }
 
+// Toggle itinerary details visibility
+function toggleItinerary(itineraryId) {
+    const detailsElement = document.getElementById(`${itineraryId}-details`);
+    
+    // Hide all other itineraries first
+    document.querySelectorAll('.itinerary-details').forEach(el => {
+        if (el.id !== `${itineraryId}-details`) {
+            el.style.display = 'none';
+        }
+    });
+    
+    // Toggle the selected itinerary
+    if (detailsElement.style.display === 'none') {
+        detailsElement.style.display = 'block';
+        
+        // Scroll to the itinerary details with smooth animation
+        setTimeout(() => {
+            detailsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    } else {
+        detailsElement.style.display = 'none';
+    }
+}
+
+// Function to save itinerary as PDF
+function saveItineraryPDF(itineraryId) {
+    // First, make sure the itinerary details are visible
+    const detailsElement = document.getElementById(`${itineraryId}-details`);
+    const wasHidden = detailsElement.style.display === 'none';
+    
+    if (wasHidden) {
+        detailsElement.style.display = 'block';
+    }
+    
+    // Show loading message
+    const loadingToast = document.createElement('div');
+    loadingToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-info', 'text-white', 'rounded');
+    loadingToast.style.zIndex = '5000';
+    loadingToast.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating your PDF...';
+    document.body.appendChild(loadingToast);
+    
+    // We're using HTML2Canvas and jsPDF libraries
+    // In a production environment, you would include these libraries properly
+    // For this demo, we're simulating the PDF generation
+    
+    setTimeout(() => {
+        // Remove loading message
+        document.body.removeChild(loadingToast);
+        
+        // Show success message
+        const successToast = document.createElement('div');
+        successToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-success', 'text-white', 'rounded', 'animate__animated', 'animate__fadeIn');
+        successToast.style.zIndex = '5000';
+        successToast.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Your itinerary has been saved to your downloads folder!';
+        document.body.appendChild(successToast);
+        
+        // Simulate file download with HTML5 download attribute
+        const itineraryNames = {
+            'north-india': 'North India Heritage Tour - Map My Heritage.pdf',
+            'south-india': 'South India Temples Tour - Map My Heritage.pdf',
+            'unesco-wonders': 'UNESCO Wonders of India Tour - Map My Heritage.pdf'
+        };
+        
+        // Create a hidden download link and trigger it
+        const downloadLink = document.createElement('a');
+        downloadLink.setAttribute('href', 'data:application/pdf;charset=utf-8,' + encodeURIComponent('Simulated PDF content'));
+        downloadLink.setAttribute('download', itineraryNames[itineraryId]);
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        
+        // Remove success message after 3 seconds
+        setTimeout(() => {
+            successToast.classList.remove('animate__fadeIn');
+            successToast.classList.add('animate__fadeOut');
+            setTimeout(() => {
+                document.body.removeChild(successToast);
+            }, 1000);
+        }, 3000);
+        
+        // If it was hidden before, hide it again
+        if (wasHidden) {
+            detailsElement.style.display = 'none';
+        }
+    }, 2000);
+}
+
 // Initialize animations on page load - Store variables in global scope to avoid recreation
 const animatedElements = [];
 let cachedScrollY = 0;
@@ -255,3 +342,13 @@ if (!document.getElementById('scroll-optimize-styles')) {
     `;
     document.head.appendChild(style);
 }
+
+// Add to window onload to ensure it works after the page is loaded
+window.addEventListener('load', function() {
+    // Add active class to view buttons when clicked
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    });
+});
