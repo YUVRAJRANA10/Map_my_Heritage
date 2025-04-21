@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heritage Explorer</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./css/app.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,7 +26,6 @@
                 <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
             </ul>
-            <!-- Replace the current navbar-nav div with this code -->
             <div class="navbar-nav">
                 <a class="btn btn-primary" href="#" style="margin-right: 10px;">
                     <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
@@ -42,30 +41,61 @@
             <div class="row mb-5">
                 <div class="col-12">
                     <h1 class="text-center">Blog Page</h1>
-                    <p class="text-center text-muted"></p>
+                    <p class="text-center text-muted">Explore reviews and blogs about heritage destinations.</p>
                 </div>
             </div>
 
-    <div class="places-grid">
-        <!-- Repeat this card -->
-        <div class="place-card">
-            <img src="https://sacredsites.com/images/asia/india/golden_temple_1200.jpg"alt="Sri Harmandir Sahib" />
-            <h3>Sri Harmandir Sahib</h3>
-            <p>Sri Harmandir Sahib is the gleaming heart of Sikhism and a symbol of universal brotherhood.</p>
+            <!-- Review Cards -->
+            <div class="row">
+                <!-- card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://sacredsites.com/images/asia/india/golden_temple_1200.jpg" class="card-img-top" alt="Sri Harmandir Sahib">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">"Visiting Sri Harmandir Sahib was a life-changing experience. The serenity is unmatched!"</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://theheritageart.com/wp-content/uploads/2022/11/Amer-Fort-photo-1.jpeg" class="card-img-top" alt="Amber Fort">
+                        <div class="card-body">
+                            <h5 class="card-title">Jane Smith</h5>
+                            <p class="card-text">"Amber Fort is a masterpiece of architecture. The views from the top are breathtaking!"</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://theheritageart.com/wp-content/uploads/2022/11/Amer-Fort-photo-1.jpeg" class="card-img-top" alt="Amber Fort">
+                        <div class="card-body">
+                            <h5 class="card-title">Ram Chandra</h5>
+                            <p class="card-text">"Amber Fort is a masterpiece of architecture. The views from the top are breathtaking!"</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://theheritageart.com/wp-content/uploads/2022/11/Amer-Fort-photo-1.jpeg" class="card-img-top" alt="Amber Fort">
+                        <div class="card-body">
+                            <h5 class="card-title">Ashok Kumar</h5>
+                            <p class="card-text">"Amber Fort is a masterpiece of architecture. The views from the top are breathtaking!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="place-card">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=700&h=400&s=1"alt="Amber Fort" />
-            <h3>Amber Fort</h3>
-            <p>Discover ancient Rajput glory and Mughal architecture.</p>
-        </div>
-
-
-
-<script>
+    </main>
+                
+    <script>
         function toggleNav() {
             const navbarCollapse = document.getElementById('navbarContent');
             navbarCollapse.classList.toggle('active');
         }
-</script>   
+    </script>
 </body>
 </html>
