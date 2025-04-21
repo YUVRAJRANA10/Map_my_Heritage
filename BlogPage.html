@@ -127,59 +127,70 @@
 
             <!-- Ancient Ruins Section -->
             <h1 class="section-heading">Ancient Ruins</h1>
-            <div class="row">
-                <!-- Card 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="./images/hawa-mahal.jpg" class="card-img-top" alt="Hawa Mahal">
-                        <div class="card-body">
-                            <h5 class="card-title">Sophia Davis</h5>
-                            <p class="card-text">"Hawa Mahal is a stunning piece of art. The intricate designs are mesmerizing."</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <div id="ancientRuinsCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <div class="carousel-inner">
+                    <!-- Card 1 -->
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <img src="./images/hawa-mahal.jpg" class="card-img-top" alt="Hawa Mahal">
+                            <div class="card-body">
+                                <h5 class="card-title">Sophia Davis</h5>
+                                <p class="card-text">"Hawa Mahal is a stunning piece of art. The intricate designs are mesmerizing."</p>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="./images/charminar.jpg" class="card-img-top" alt="Charminar">
+                            <div class="card-body">
+                                <h5 class="card-title">Chris Wilson</h5>
+                                <p class="card-text">"Charminar is an iconic landmark. The bustling market around it adds to the charm."</p>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="./images/taj-mahal.jpg" class="card-img-top" alt="Taj Mahal">
+                            <div class="card-body">
+                                <h5 class="card-title">Emily Johnson</h5>
+                                <p class="card-text">"The Taj Mahal is a true symbol of love. Seeing it in person is unforgettable."</p>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="./images/qutub-minar.jpg" class="card-img-top" alt="Qutub Minar">
+                            <div class="card-body">
+                                <h5 class="card-title">Michael Brown</h5>
+                                <p class="card-text">"Qutub Minar is a marvel of history and architecture. A must-visit for history enthusiasts."</p>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="./images/charminar.jpg" class="card-img-top" alt="Charminar">
-                        <div class="card-body">
-                            <h5 class="card-title">Chris Wilson</h5>
-                            <p class="card-text">"Charminar is an iconic landmark. The bustling market around it adds to the charm."</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="./images/taj-mahal.jpg" class="card-img-top" alt="Taj Mahal">
-                        <div class="card-body">
-                            <h5 class="card-title">Emily Johnson</h5>
-                            <p class="card-text">"The Taj Mahal is a true symbol of love. Seeing it in person is unforgettable."</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="./images/qutub-minar.jpg" class="card-img-top" alt="Qutub Minar">
-                        <div class="card-body">
-                            <h5 class="card-title">Michael Brown</h5>
-                            <p class="card-text">"Qutub Minar is a marvel of history and architecture. A must-visit for history enthusiasts."</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Carousel Controls -->
+                <a class="carousel-control-prev" href="#ancientRuinsCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#ancientRuinsCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
     </main>
@@ -190,5 +201,8 @@
             navbarCollapse.classList.toggle('active');
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
