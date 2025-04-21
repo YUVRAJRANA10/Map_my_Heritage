@@ -1,8 +1,14 @@
+/* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    color: #D9534F;
-    background-color: #F5F7FA;
+    background-color: #f9fafb;
+    /* background: linear-gradient(180deg, #FF9933 0%, #FFFFFF 50%, #138808 100%); */
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
+
 
 /* Navbar Styles - Updated with tricolor theme */
 .navbar {
@@ -44,45 +50,101 @@ body {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
 }
-.places-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-}
 
+/* Place Cards */
 .place-card {
-    background: rgb(230, 230, 232);
-    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s ease;
-}
-
-.place-card:hover {
-    transform: translateY(-5px);
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    height: 350px; /* Set a fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .place-card img {
     width: 100%;
-    height: 160px;
+    height: 200px;
     object-fit: cover;
 }
 
+/* Place Card Titles (Site Names) */
 .place-card h3 {
-    margin: 0.5rem 0 0.2rem;
-    color: #0c3c6c;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FF9933, #a4a2a2, #138808);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .place-card p {
+    padding: 0 10px 10px;
     color: #555;
-    font-size: 0.9rem;
-    padding: 0 0.5rem 1rem;
+    font-size: 14px;
+    flex-grow: 1; /* Ensures the description takes up remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
+.place-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 2px 2px 4px #FF9933, 4px 4px 6px #FFFFFF, 6px 6px 8px #138808;
+}
+
+/* Search Bar */
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar select {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    /* background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808); */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-bar button:hover {
+    background: linear-gradient(45deg, #138808, #8f8e8e, #FF9933);
+}
+
+.search-bar select, .search-bar button {
+    margin-left: 10px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    body{
-        background-image: url(https://sdmntprwestus.oaiusercontent.com/files/00000000-3ec0-6230-a4db-d7d9229fd8aa/raw?se=2025-04-12T09%3A16%3A55Z&sp=r&sv=2024-08-04&sr=b&scid=e5e14c3b-ef55-5acc-bb7c-54c1d6b0dc07&skoid=aa8389fc-fad7-4f8c-9921-3c583664d512&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-12T06%3A44%3A25Z&ske=2025-04-13T06%3A44%3A25Z&sks=b&skv=2024-08-04&sig=MSfCusarL4YC651nz4XeOSYKE5B%2B5cZv4KXq/qmxwOc%3D);
-    }
+    
     nav ul {
         display: none;
     }
