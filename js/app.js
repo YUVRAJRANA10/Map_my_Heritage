@@ -269,6 +269,38 @@ function saveItineraryPDF(itineraryId) {
     });
 }
 
+// Function to switch between tour package options
+function showTourOption(packageType, buttonElement) {
+    // Get the parent container
+    const parentId = packageType.includes('-') ? packageType.split('-')[0] : 'north-india';
+    const container = document.getElementById(`${parentId}-details`);
+    
+    // Hide all packages in this container
+    const packages = container.querySelectorAll('.tour-option');
+    packages.forEach(pkg => {
+        pkg.style.display = 'none';
+    });
+    
+    // Show the selected package
+    const selectedPackage = document.getElementById(`${packageType}-package`);
+    if (selectedPackage) {
+        selectedPackage.style.display = 'block';
+    }
+    
+    // Update button active states
+    const buttons = buttonElement.parentElement.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    buttonElement.classList.add('active');
+    
+    // Add animation to the newly displayed package
+    selectedPackage.classList.add('animate__animated', 'animate__fadeIn');
+    setTimeout(() => {
+        selectedPackage.classList.remove('animate__animated', 'animate__fadeIn');
+    }, 1000);
+}
+
 // Initialize animations on page load - Store variables in global scope to avoid recreation
 const animatedElements = [];
 let cachedScrollY = 0;
