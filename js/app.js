@@ -75,7 +75,7 @@ function toggleItinerary(itineraryId) {
     // Hide all other itineraries first
     document.querySelectorAll('.itinerary-details').forEach(el => {
         if (el.id !== `${itineraryId}-details`) {
-            el.style.display = 'none';
+        el.style.display = 'none';
         }
     });
     
