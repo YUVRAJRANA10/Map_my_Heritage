@@ -92,7 +92,7 @@ function toggleItinerary(itineraryId) {
     }
 }
 
-// Function to save itinerary as PDF
+// Function to save itinerary as PDF with proper content
 function saveItineraryPDF(itineraryId) {
     // First, make sure the itinerary details are visible
     const detailsElement = document.getElementById(`${itineraryId}-details`);
@@ -109,50 +109,164 @@ function saveItineraryPDF(itineraryId) {
     loadingToast.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating your PDF...';
     document.body.appendChild(loadingToast);
     
-    // We're using HTML2Canvas and jsPDF libraries
-    // In a production environment, you would include these libraries properly
-    // For this demo, we're simulating the PDF generation
+    // Load jsPDF library dynamically if not already loaded
+    function loadJsPDF() {
+        return new Promise((resolve) => {
+            if (window.jspdf) {
+                resolve(window.jspdf.jsPDF);
+                return;
+            }
+            
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+            script.onload = () => resolve(window.jspdf.jsPDF);
+            document.body.appendChild(script);
+        });
+    }
     
-    setTimeout(() => {
-        // Remove loading message
-        document.body.removeChild(loadingToast);
+    // Generate PDF content
+    loadJsPDF().then((jsPDF) => {
+        // Create new PDF document
+        const doc = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
         
-        // Show success message
-        const successToast = document.createElement('div');
-        successToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-success', 'text-white', 'rounded', 'animate__animated', 'animate__fadeIn');
-        successToast.style.zIndex = '5000';
-        successToast.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Your itinerary has been saved to your downloads folder!';
-        document.body.appendChild(successToast);
-        
-        // Simulate file download with HTML5 download attribute
+        // Get itinerary data
         const itineraryNames = {
-            'north-india': 'North India Heritage Tour - Map My Heritage.pdf',
-            'south-india': 'South India Temples Tour - Map My Heritage.pdf',
-            'unesco-wonders': 'UNESCO Wonders of India Tour - Map My Heritage.pdf'
+            'north-india': 'North India Heritage Tour',
+            'south-india': 'South India Temples Tour',
+            'unesco-wonders': 'UNESCO Wonders of India Tour'
         };
         
-        // Create a hidden download link and trigger it
-        const downloadLink = document.createElement('a');
-        downloadLink.setAttribute('href', 'data:application/pdf;charset=utf-8,' + encodeURIComponent('Simulated PDF content'));
-        downloadLink.setAttribute('download', itineraryNames[itineraryId]);
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+        const itineraryTitle = itineraryNames[itineraryId];
         
-        // Remove success message after 3 seconds
-        setTimeout(() => {
-            successToast.classList.remove('animate__fadeIn');
-            successToast.classList.add('animate__fadeOut');
+        // Add logo and header
+        // Since we can't directly add images in this example, we'll create a text-based header
+        doc.setFontSize(22);
+        doc.setTextColor(255, 153, 51); // Saffron color from Indian flag
+        doc.text('Map My Heritage', 105, 20, { align: 'center' });
+        
+        // Add title
+        doc.setFontSize(18);
+        doc.setTextColor(0, 0, 0);
+        doc.text(itineraryTitle, 105, 30, { align: 'center' });
+        
+        // Add horizontal line
+        doc.setDrawColor(19, 136, 8); // Green from Indian flag
+        doc.setLineWidth(0.5);
+        doc.line(20, 35, 190, 35);
+        
+        // Extract and add itinerary content
+        const packageTitle = detailsElement.querySelector('.card-header h5').textContent;
+        doc.setFontSize(14);
+        doc.text(packageTitle, 20, 45);
+        
+        // Add package inclusions
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text('Package Inclusions:', 20, 55);
+        
+        const inclusionItems = Array.from(detailsElement.querySelectorAll('.list-group-item')).slice(0, 5);
+        inclusionItems.forEach((item, index) => {
+            doc.text(`• ${item.textContent.trim()}`, 25, 65 + (index * 7));
+        });
+        
+        // Add itinerary days
+        doc.text('Itinerary Overview:', 20, 105);
+        
+        const timelineItems = Array.from(detailsElement.querySelectorAll('.timeline-item')).slice(0, 5);
+        timelineItems.forEach((item, index) => {
+            const title = item.querySelector('.timeline-title').textContent;
+            const description = item.querySelector('.timeline-content p').textContent;
+            doc.text(`${title}`, 25, 115 + (index * 14));
+            doc.setFontSize(10);
+            doc.text(`${description}`, 25, 120 + (index * 14));
+            doc.setFontSize(12);
+        });
+        
+        // Add price information
+        const priceInfo = detailsElement.querySelector('.alert-success h6').textContent;
+        doc.setFontSize(12);
+        doc.text('Price Information:', 20, 195);
+        doc.setFontSize(11);
+        doc.text(priceInfo, 25, 202);
+        
+        // Add footer with contact info
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text('Map My Heritage - Your gateway to India\'s cultural treasures', 105, 280, { align: 'center' });
+        doc.text('Contact: info@mapmyheritage.in | www.mapmyheritage.in | +91-123-456-7890', 105, 285, { align: 'center' });
+        
+        // Save the PDF
+        try {
+            doc.save(`${itineraryNames[itineraryId]} - Map My Heritage.pdf`);
+            
+            // Remove loading message
+            document.body.removeChild(loadingToast);
+            
+            // Show success message
+            const successToast = document.createElement('div');
+            successToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-success', 'text-white', 'rounded', 'animate__animated', 'animate__fadeIn');
+            successToast.style.zIndex = '5000';
+            successToast.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Your itinerary has been saved to your downloads folder!';
+            document.body.appendChild(successToast);
+            
+            // Remove success message after 3 seconds
             setTimeout(() => {
-                document.body.removeChild(successToast);
-            }, 1000);
-        }, 3000);
+                successToast.classList.remove('animate__fadeIn');
+                successToast.classList.add('animate__fadeOut');
+                setTimeout(() => {
+                    document.body.removeChild(successToast);
+                }, 1000);
+            }, 3000);
+        } catch (e) {
+            console.error("PDF generation failed:", e);
+            
+            // Show error message
+            document.body.removeChild(loadingToast);
+            const errorToast = document.createElement('div');
+            errorToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-danger', 'text-white', 'rounded', 'animate__animated', 'animate__fadeIn');
+            errorToast.style.zIndex = '5000';
+            errorToast.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i> There was an error generating your PDF. Please try again.';
+            document.body.appendChild(errorToast);
+            
+            // Remove error message after 3 seconds
+            setTimeout(() => {
+                errorToast.classList.remove('animate__fadeIn');
+                errorToast.classList.add('animate__fadeOut');
+                setTimeout(() => {
+                    document.body.removeChild(errorToast);
+                }, 1000);
+            }, 3000);
+        }
         
         // If it was hidden before, hide it again
         if (wasHidden) {
             detailsElement.style.display = 'none';
         }
-    }, 2000);
+    }).catch(err => {
+        console.error("Failed to load jsPDF:", err);
+        document.body.removeChild(loadingToast);
+        
+        // Show error message
+        const errorToast = document.createElement('div');
+        errorToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-danger', 'text-white', 'rounded');
+        errorToast.style.zIndex = '5000';
+        errorToast.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i> Failed to load PDF generation library. Please check your internet connection.';
+        document.body.appendChild(errorToast);
+        
+        // Remove error message after 3 seconds
+        setTimeout(() => {
+            document.body.removeChild(errorToast);
+        }, 4000);
+        
+        // If it was hidden before, hide it again
+        if (wasHidden) {
+            detailsElement.style.display = 'none';
+        }
+    });
 }
 
 // Initialize animations on page load - Store variables in global scope to avoid recreation
