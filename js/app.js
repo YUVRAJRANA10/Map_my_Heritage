@@ -92,14 +92,84 @@ function toggleItinerary(itineraryId) {
     }
 }
 
-// Function to save itinerary as PDF with proper content
+// Improved function to switch between tour package options
+function showTourOption(packageType, buttonElement) {
+    // Get the parent container ID
+    const parentId = packageType.includes('-') ? packageType.split('-')[0] : 'north-india';
+    const container = document.getElementById(`${parentId}-details`);
+    
+    if (!container) {
+        console.error(`Container with ID ${parentId}-details not found`);
+        return;
+    }
+    
+    // Hide all packages in this container
+    const packages = container.querySelectorAll('.tour-option');
+    packages.forEach(pkg => {
+        pkg.style.display = 'none';
+    });
+    
+    // Show the selected package
+    const packageId = `${packageType}-package`;
+    const selectedPackage = document.getElementById(packageId);
+    
+    if (selectedPackage) {
+        selectedPackage.style.display = 'block';
+        
+        // Store the currently active package ID on the container for PDF generation
+        container.dataset.activePackage = packageId;
+    } else {
+        console.error(`Package with ID ${packageId} not found`);
+    }
+    
+    // Update button active states
+    const buttons = buttonElement.parentElement.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    buttonElement.classList.add('active');
+    
+    // Add animation to the newly displayed package
+    if (selectedPackage) {
+        selectedPackage.classList.add('animate__animated', 'animate__fadeIn');
+        setTimeout(() => {
+            selectedPackage.classList.remove('animate__animated', 'animate__fadeIn');
+        }, 1000);
+    }
+}
+
+// Modified function to save itinerary as PDF with proper content
 function saveItineraryPDF(itineraryId) {
     // First, make sure the itinerary details are visible
     const detailsElement = document.getElementById(`${itineraryId}-details`);
+    if (!detailsElement) {
+        console.error(`Details element with ID ${itineraryId}-details not found`);
+        return;
+    }
+    
     const wasHidden = detailsElement.style.display === 'none';
     
     if (wasHidden) {
         detailsElement.style.display = 'block';
+    }
+    
+    // Get the currently active package or default to the first one
+    let activePackageId = detailsElement.dataset.activePackage;
+    if (!activePackageId) {
+        // Try to find the visible package
+        const visiblePackage = detailsElement.querySelector('.tour-option[style*="display: block"]');
+        if (visiblePackage) {
+            activePackageId = visiblePackage.id;
+        } else {
+            // Default to first package if none are visible
+            activePackageId = `${itineraryId === 'north-india' ? 'premium' : itineraryId + '-premium'}-package`;
+        }
+    }
+    
+    const activePackage = document.getElementById(activePackageId);
+    if (!activePackage) {
+        console.error(`Active package with ID ${activePackageId} not found`);
+        return;
     }
     
     // Show loading message
@@ -140,10 +210,17 @@ function saveItineraryPDF(itineraryId) {
             'unesco-wonders': 'UNESCO Wonders of India Tour'
         };
         
-        const itineraryTitle = itineraryNames[itineraryId];
+        // Determine package type from active package ID
+        let packageType = "Premium";
+        if (activePackageId.includes('standard')) {
+            packageType = "Standard";
+        } else if (activePackageId.includes('budget')) {
+            packageType = "Budget";
+        }
+        
+        const itineraryTitle = `${itineraryNames[itineraryId]} - ${packageType} Package`;
         
         // Add logo and header
-        // Since we can't directly add images in this example, we'll create a text-based header
         doc.setFontSize(22);
         doc.setTextColor(255, 153, 51); // Saffron color from Indian flag
         doc.text('Map My Heritage', 105, 20, { align: 'center' });
@@ -159,7 +236,7 @@ function saveItineraryPDF(itineraryId) {
         doc.line(20, 35, 190, 35);
         
         // Extract and add itinerary content
-        const packageTitle = detailsElement.querySelector('.card-header h5').textContent;
+        const packageTitle = activePackage.querySelector('h6.font-weight-bold').textContent;
         doc.setFontSize(14);
         doc.text(packageTitle, 20, 45);
         
@@ -168,7 +245,7 @@ function saveItineraryPDF(itineraryId) {
         doc.setTextColor(0, 0, 0);
         doc.text('Package Inclusions:', 20, 55);
         
-        const inclusionItems = Array.from(detailsElement.querySelectorAll('.list-group-item')).slice(0, 5);
+        const inclusionItems = Array.from(activePackage.querySelectorAll('.list-group-item')).slice(0, 5);
         inclusionItems.forEach((item, index) => {
             doc.text(`• ${item.textContent.trim()}`, 25, 65 + (index * 7));
         });
@@ -176,7 +253,7 @@ function saveItineraryPDF(itineraryId) {
         // Add itinerary days
         doc.text('Itinerary Overview:', 20, 105);
         
-        const timelineItems = Array.from(detailsElement.querySelectorAll('.timeline-item')).slice(0, 5);
+        const timelineItems = Array.from(activePackage.querySelectorAll('.timeline-item')).slice(0, 5);
         timelineItems.forEach((item, index) => {
             const title = item.querySelector('.timeline-title').textContent;
             const description = item.querySelector('.timeline-content p').textContent;
@@ -187,7 +264,7 @@ function saveItineraryPDF(itineraryId) {
         });
         
         // Add price information
-        const priceInfo = detailsElement.querySelector('.alert-success h6').textContent;
+        const priceInfo = activePackage.querySelector('.alert-success h6').textContent;
         doc.setFontSize(12);
         doc.text('Price Information:', 20, 195);
         doc.setFontSize(11);
@@ -201,7 +278,7 @@ function saveItineraryPDF(itineraryId) {
         
         // Save the PDF
         try {
-            doc.save(`${itineraryNames[itineraryId]} - Map My Heritage.pdf`);
+            doc.save(`${itineraryTitle}.pdf`);
             
             // Remove loading message
             document.body.removeChild(loadingToast);
@@ -267,38 +344,6 @@ function saveItineraryPDF(itineraryId) {
             detailsElement.style.display = 'none';
         }
     });
-}
-
-// Function to switch between tour package options
-function showTourOption(packageType, buttonElement) {
-    // Get the parent container
-    const parentId = packageType.includes('-') ? packageType.split('-')[0] : 'north-india';
-    const container = document.getElementById(`${parentId}-details`);
-    
-    // Hide all packages in this container
-    const packages = container.querySelectorAll('.tour-option');
-    packages.forEach(pkg => {
-        pkg.style.display = 'none';
-    });
-    
-    // Show the selected package
-    const selectedPackage = document.getElementById(`${packageType}-package`);
-    if (selectedPackage) {
-        selectedPackage.style.display = 'block';
-    }
-    
-    // Update button active states
-    const buttons = buttonElement.parentElement.querySelectorAll('.btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-    });
-    buttonElement.classList.add('active');
-    
-    // Add animation to the newly displayed package
-    selectedPackage.classList.add('animate__animated', 'animate__fadeIn');
-    setTimeout(() => {
-        selectedPackage.classList.remove('animate__animated', 'animate__fadeIn');
-    }, 1000);
 }
 
 // Initialize animations on page load - Store variables in global scope to avoid recreation
