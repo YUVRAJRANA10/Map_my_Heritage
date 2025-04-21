@@ -791,7 +791,192 @@
                                     </div>
                                 </div>
                             </div>
-
+                        
+                        <!-- Budget Package (Hidden initially) -->
+                        <div id="south-budget-package" class="tour-option" style="display: none;">
+                            <div class="row">
+                                <!-- Inclusions -->
+                                <div class="col-md-4">
+                                    <h6 class="font-weight-bold"><i class="fas fa-check-circle text-success mr-2"></i>Budget Package Inclusions</h6>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">9 nights in comfortable 3-star hotels</li>
+                                        <li class="list-group-item">Daily breakfast and select meals</li>
+                                        <li class="list-group-item">Mixed transport (shared AC vehicles and trains)</li>
+                                        <li class="list-group-item">Guide at major temple sites</li>
+                                        <li class="list-group-item">All entrance fees</li>
+                                        <li class="list-group-item">Group temple visits</li>
+                                        <li class="list-group-item">Cultural show in Madurai</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Itinerary -->
+                                <div class="col-md-8">
+                                    <h6 class="font-weight-bold"><i class="fas fa-route text-primary mr-2"></i>Budget Itinerary</h6>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 1-2: Chennai</h6>
+                                                <p>Group tour of Marina Beach, Kapaleeshwarar Temple, and Government Museum</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 3-4: Mahabalipuram & Kanchipuram</h6>
+                                                <p>Day trip to Shore Temple and Arjuna's Penance, half-day visit to Kanchipuram temples</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 5-6: Thanjavur & Madurai</h6>
+                                                <p>Morning visit to Brihadeeswara Temple, train to Madurai, evening visit to Meenakshi Temple</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 7-8: Rameswaram & Kanyakumari</h6>
+                                                <p>Day trip to Ramanathaswamy Temple, shared transport to Kanyakumari</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 9-10: Kerala & Departure</h6>
+                                                <p>Visit to Padmanabhaswamy Temple, group backwater tour, departure</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Price and Booking -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="alert alert-success" role="alert">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-0">Starting from ₹32,000 per person</h6>
+                                                <small>*Based on double occupancy. Single supplement applies.</small>
+                                            </div>
+                                            <button class="btn btn-primary">Book Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UNESCO Wonders Details -->
+            <div class="col-12 itinerary-details" id="unesco-wonders-details" style="display: none;">
+                <!-- Similar structure for UNESCO packages with premium, standard, budget options -->
+                <!-- Add the same structure as above with UNESCO-specific content -->
+                <div class="card animate__animated animate__fadeIn">
+                    <div class="card-header d-flex justify-content-between align-items-center" style="background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);">
+                        <h5 class="mb-0">UNESCO Wonders of India Tour Package</h5>
+                        <button type="button" class="close" onclick="toggleItinerary('unesco-wonders')">&times;</button>
+                    </div>
+                    <div class="card-body">
+                        <!-- Tour Package Selector -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-outline-primary active" onclick="showTourOption('unesco-premium', this)">Premium</button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="showTourOption('unesco-standard', this)">Standard</button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="showTourOption('unesco-budget', this)">Budget</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Premium Package (Default Visible) -->
+                        <div id="unesco-premium-package" class="tour-option">
+                            <!-- Premium UNESCO content here -->
+                            <div class="row">
+                                <!-- Inclusions -->
+                                <div class="col-md-4">
+                                    <h6 class="font-weight-bold"><i class="fas fa-check-circle text-success mr-2"></i>Premium Package Inclusions</h6>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">13 nights in luxury heritage properties</li>
+                                        <li class="list-group-item">All gourmet meals with wine pairings</li>
+                                        <li class="list-group-item">Private helicopter transfers between sites</li>
+                                        <li class="list-group-item">UNESCO heritage specialists as guides</li>
+                                        <li class="list-group-item">After-hours private access to select sites</li>
+                                        <li class="list-group-item">Professional photography service</li>
+                                        <li class="list-group-item">Luxury leather-bound UNESCO sites book</li>
+                                        <li class="list-group-item">Meet with site conservation experts</li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Itinerary -->
+                                <div class="col-md-8">
+                                    <h6 class="font-weight-bold"><i class="fas fa-route text-primary mr-2"></i>Premium Itinerary</h6>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 1-3: Delhi & Agra</h6>
+                                                <p>Private tour of Qutub Minar and Humayun's Tomb with archaeologist, VIP access to Taj Mahal at sunrise and sunset</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 4-5: Khajuraho & Sanchi</h6>
+                                                <p>Helicopter transfer to Khajuraho, exclusive tour with art historian, private meditation session at Great Stupa</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 6-7: Ajanta & Ellora Caves</h6>
+                                                <p>Private access to caves with lighting technicians for perfect photography, expert lectures on Buddhist and Hindu art</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 8-9: Hampi</h6>
+                                                <p>Exclusive balloon ride over Hampi ruins, private musical performance at Vittala Temple, dinner amidst ruins with special permission</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 10-11: Pattadakal & Aihole</h6>
+                                                <p>Helicopter tour of the entire temple complex, expert-guided tour focusing on architectural evolution, exclusive cultural performance</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-marker"></div>
+                                            <div class="timeline-content">
+                                                <h6 class="timeline-title">Day 12-14: Konark & Puri</h6>
+                                                <p>Private sunrise photography at Sun Temple, meeting with temple restoration team, luxury beachfront accommodation with private farewell ceremony</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Price and Booking -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="alert alert-success" role="alert">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-0">Starting from ₹4,25,000 per person</h6>
+                                                <small>*Based on double occupancy. Single supplement applies.</small>
+                                            </div>
+                                            <button class="btn btn-primary">Book Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
 
     <!-- Preload critical scripts -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js" as="script">
