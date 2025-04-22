@@ -1,10 +1,12 @@
-// Toggle more reviews function
+// Toggle more reviews function with button repositioning
 function toggleMoreReviews() {
     const moreReviews = document.getElementById('more-reviews');
     const seeMoreBtn = document.querySelector('.see-more-btn');
+    const buttonContainer = document.getElementById('reviews-button-container');
     
     if (moreReviews.style.display === 'none') {
-        moreReviews.style.display = 'block';
+        // Show more reviews
+        moreReviews.style.display = 'flex';
         seeMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> See Less Reviews';
         seeMoreBtn.classList.remove('animate__pulse', 'animate__infinite');
         
@@ -14,10 +16,17 @@ function toggleMoreReviews() {
             card.classList.add('animate__animated', 'animate__fadeInUp');
             card.style.animationDelay = `${index * 0.2}s`;
         });
+        
+        // Move button after the additional reviews
+        document.querySelector('.additional-reviews').after(buttonContainer);
     } else {
+        // Hide more reviews
         moreReviews.style.display = 'none';
         seeMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> See More Reviews';
         seeMoreBtn.classList.add('animate__pulse', 'animate__infinite');
+        
+        // Move button back to its original position after initial reviews
+        document.getElementById('reviews-container').after(buttonContainer);
     }
 }
 
