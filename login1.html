@@ -67,5 +67,47 @@
             <button class="tab-button active" id="login-tab">Login</button>
             <button class="tab-button" id="register-tab">Register</button>
         </div>
+        <!-- Login Form -->
+        <div id="login-form" class="animate_animated animate_fadeIn">
+            <h2>Welcome Back</h2>
+            <p class="text-muted mb-4">Sign in to continue your heritage journey</p>
+            
+            <form action="index.html" method="GET">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" id="password" placeholder="Your password" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="remember-me">
+                        <label class="form-check-label" for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block login-btn">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login
+                </button>
+
+
 
 
