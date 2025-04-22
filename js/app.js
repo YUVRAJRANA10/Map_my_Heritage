@@ -709,3 +709,98 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Make hero section buttons functional
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the hero section buttons
+    const exploreBtn = document.querySelector('.hero-content .btn-outline-light');
+    const planTripBtn = document.querySelector('.hero-content .btn-primary');
+    
+    // Explore Destinations button
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add a nice click animation
+            this.classList.add('animate__animated', 'animate__pulse');
+            
+            // Navigate to the destinations page after animation
+            setTimeout(() => {
+                window.location.href = '../Place1.html';
+            }, 300);
+        });
+    }
+    
+    // Plan Your Trip button
+    if (planTripBtn) {
+        planTripBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add a nice click animation
+            this.classList.add('animate__animated', 'animate__pulse');
+            
+            // Scroll to the itineraries section
+            setTimeout(() => {
+                const itinerariesSection = document.querySelector('h2:contains("Trending Itineraries")');
+                if (itinerariesSection) {
+                    itinerariesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    // Fallback to a fixed scroll position if section not found
+                    window.scrollTo({
+                        top: window.innerHeight + 200, // Scroll past hero section
+                        behavior: 'smooth'
+                    });
+                    
+                    // Show a tooltip informing the user what happened
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'plan-trip-tooltip animate__animated animate__fadeIn';
+                    tooltip.innerHTML = '<div>Explore our suggested itineraries below</div>';
+                    tooltip.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: #333;
+                        color: white;
+                        padding: 10px 15px;
+                        border-radius: 8px;
+                        z-index: 1000;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    `;
+                    
+                    document.body.appendChild(tooltip);
+                    
+                    // Remove tooltip after 3 seconds
+                    setTimeout(() => {
+                        tooltip.classList.remove('animate__fadeIn');
+                        tooltip.classList.add('animate__fadeOut');
+                        setTimeout(() => {
+                            document.body.removeChild(tooltip);
+                        }, 1000);
+                    }, 3000);
+                }
+            }, 300);
+        });
+    }
+    
+    // Add support for the :contains selector if not available
+    if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || 
+                                    Element.prototype.webkitMatchesSelector;
+    }
+    
+    if (!document.querySelector(':contains')) {
+        // Add a custom selector for finding elements containing specific text
+        document.querySelectorAll = (function(originalQueriesSelector) {
+            return function(selector) {
+                if (selector.includes(':contains')) {
+                    const containsText = selector.match(/:contains\(["'](.*?)["']\)/)[1];
+                    const baseSelector = selector.replace(/:contains\(["'].*?["']\)/, '');
+                    const elements = originalQueriesSelector.call(this, baseSelector);
+                    return Array.from(elements).filter(el => el.textContent.includes(containsText));
+                }
+                return originalQueriesSelector.call(this, selector);
+            };
+        })(document.querySelectorAll);
+    }
+});
