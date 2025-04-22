@@ -816,11 +816,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to get virtual tour URL based on destination
     function getVirtualTourUrl(destinationName) {
         const tourUrls = {
-            'Hawa Mahal': 'https://panels-assets.dazl.io/prod/uploads/95e5a14a-1f20-4e64-ac1c-523789cd6fd0/pano-outside-hawa-mahal-front-side.jpg',
-            'Ellora Caves': 'https://www.explorations.co.nz/wp-content/uploads/2023/01/ellora-caves-1024x512.jpg',
-            'Sun Temple Konark': 'https://cdn.pixabay.com/photo/2016/05/02/14/54/sun-temple-1367242_1280.jpg',
+            'Hawa Mahal': 'https://i.imgur.com/GC3zJhk.jpg', // Reliable Imgur hosted panorama
+            'Ellora Caves': 'https://i.imgur.com/jTD3dIZ.jpg', // Reliable Imgur hosted panorama
+            'Sun Temple Konark': 'https://i.imgur.com/5Tm3nRf.jpg', // Reliable Imgur hosted panorama
             // Add more destinations as needed
-            'default': 'https://cdn.pixabay.com/photo/2016/05/02/14/54/sun-temple-1367242_1280.jpg'
+            'default': 'https://i.imgur.com/GC3zJhk.jpg' // Default fallback
         };
         
         return tourUrls[destinationName] || tourUrls['default'];
