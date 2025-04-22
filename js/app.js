@@ -849,17 +849,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Function to get virtual tour URL based on destination
+    // Update this function to use a different approach for virtual tours
     function getVirtualTourUrl(destinationName) {
-        const tourUrls = {
-            'Hawa Mahal': 'https://i.imgur.com/GC3zJhk.jpg', // Reliable Imgur hosted panorama
-            'Ellora Caves': 'https://i.imgur.com/jTD3dIZ.jpg', // Reliable Imgur hosted panorama
-            'Sun Temple Konark': 'https://i.imgur.com/5Tm3nRf.jpg', // Reliable Imgur hosted panorama
-            // Add more destinations as needed
-            'default': 'https://i.imgur.com/GC3zJhk.jpg' // Default fallback
-        };
-        
-        return tourUrls[destinationName] || tourUrls['default'];
+        // Instead of using external URLs, we'll use a solid color background with text
+        // This is a reliable fallback that doesn't require external resources
+        return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg" width="4096" height="2048" viewBox="0 0 4096 2048">
+                <defs>
+                    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0074D9"/>
+                        <stop offset="100%" stop-color="#7FDBFF"/>
+                    </linearGradient>
+                    <linearGradient id="ground" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#3D9970"/>
+                        <stop offset="100%" stop-color="#2ECC40"/>
+                    </linearGradient>
+                </defs>
+                <rect width="4096" height="1024" fill="url(#sky)"/>
+                <rect y="1024" width="4096" height="1024" fill="url(#ground)"/>
+                <text x="2048" y="1024" font-family="Arial" font-size="120" fill="white" text-anchor="middle">${destinationName} - 360° Tour Demo</text>
+                <text x="2048" y="1200" font-family="Arial" font-size="60" fill="white" text-anchor="middle">This is a demonstration of the 360° tour feature.</text>
+                <text x="2048" y="1300" font-family="Arial" font-size="60" fill="white" text-anchor="middle">In a production environment, this would be replaced with actual 360° photographs.</text>
+            </svg>
+        `)}`;
     }
     
     // Function to create virtual tour modal
