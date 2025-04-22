@@ -710,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Make hero section buttons functional
+// Fix the "Plan Your Trip" button functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get the hero section buttons
     const exploreBtn = document.querySelector('.hero-content .btn-outline-light');
@@ -731,7 +731,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Plan Your Trip button
+    // Plan Your Trip button - FIXED VERSION
     if (planTripBtn) {
         planTripBtn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -739,10 +739,21 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add a nice click animation
             this.classList.add('animate__animated', 'animate__pulse');
             
-            // Scroll to the itineraries section
+            // Find the itineraries section directly by heading text
             setTimeout(() => {
-                const itinerariesSection = document.querySelector('h2:contains("Trending Itineraries")');
+                const headings = document.querySelectorAll('h2');
+                let itinerariesSection = null;
+                
+                // Find the heading with "Trending Itineraries" text
+                for (let i = 0; i < headings.length; i++) {
+                    if (headings[i].textContent.includes('Trending Itineraries')) {
+                        itinerariesSection = headings[i];
+                        break;
+                    }
+                }
+                
                 if (itinerariesSection) {
+                    // Scroll to the itineraries section
                     itinerariesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 } else {
                     // Fallback to a fixed scroll position if section not found
@@ -781,26 +792,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }, 300);
         });
-    }
-    
-    // Add support for the :contains selector if not available
-    if (!Element.prototype.matches) {
-        Element.prototype.matches = Element.prototype.msMatchesSelector || 
-                                    Element.prototype.webkitMatchesSelector;
-    }
-    
-    if (!document.querySelector(':contains')) {
-        // Add a custom selector for finding elements containing specific text
-        document.querySelectorAll = (function(originalQueriesSelector) {
-            return function(selector) {
-                if (selector.includes(':contains')) {
-                    const containsText = selector.match(/:contains\(["'](.*?)["']\)/)[1];
-                    const baseSelector = selector.replace(/:contains\(["'].*?["']\)/, '');
-                    const elements = originalQueriesSelector.call(this, baseSelector);
-                    return Array.from(elements).filter(el => el.textContent.includes(containsText));
-                }
-                return originalQueriesSelector.call(this, selector);
-            };
-        })(document.querySelectorAll);
     }
 });
