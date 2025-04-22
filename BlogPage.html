@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heritage Explorer</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./css/app.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,7 +26,6 @@
                 <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
             </ul>
-            <!-- Replace the current navbar-nav div with this code -->
             <div class="navbar-nav">
                 <a class="btn btn-primary" href="#" style="margin-right: 10px;">
                     <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
@@ -42,30 +41,157 @@
             <div class="row mb-5">
                 <div class="col-12">
                     <h1 class="text-center">Blog Page</h1>
-                    <p class="text-center text-muted"></p>
+                    <p class="text-center text-muted">Explore reviews and blogs about heritage destinations.</p>
                 </div>
             </div>
 
-    <div class="places-grid">
-        <!-- Repeat this card -->
-        <div class="place-card">
-            <img src="https://sacredsites.com/images/asia/india/golden_temple_1200.jpg"alt="Sri Harmandir Sahib" />
-            <h3>Sri Harmandir Sahib</h3>
-            <p>Sri Harmandir Sahib is the gleaming heart of Sikhism and a symbol of universal brotherhood.</p>
+            <!-- UNESCO Sites Section -->
+            <h1 class="section-heading">UNESCO Sites</h1>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="https://sacredsites.com/images/asia/india/golden_temple_1200.jpg" class="card-img-top" alt="Sri Harmandir Sahib">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">"Visiting Sri Harmandir Sahib was a life-changing experience. The serenity is unmatched!"</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monuments Section -->
+            <h1 class="section-heading">Monuments</h1>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="./images/qutub-minar.jpg" class="card-img-top" alt="Qutub Minar">
+                        <div class="card-body">
+                            <h5 class="card-title">Michael Brown</h5>
+                            <p class="card-text">"Qutub Minar is a marvel of history and architecture. A must-visit for history enthusiasts."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="./images/hawa-mahal.jpg" class="card-img-top" alt="Hawa Mahal">
+                        <div class="card-body">
+                            <h5 class="card-title">Sophia Davis</h5>
+                            <p class="card-text">"Hawa Mahal is a stunning piece of art. The intricate designs are mesmerizing."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Museums Section -->
+            <h1 class="section-heading">Museums</h1>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="./images/charminar.jpg" class="card-img-top" alt="Charminar">
+                        <div class="card-body">
+                            <h5 class="card-title">Chris Wilson</h5>
+                            <p class="card-text">"Charminar is an iconic landmark. The bustling market around it adds to the charm."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="./images/taj-mahal.jpg" class="card-img-top" alt="Taj Mahal">
+                        <div class="card-body">
+                            <h5 class="card-title">Emily Johnson</h5>
+                            <p class="card-text">"The Taj Mahal is a true symbol of love. Seeing it in person is unforgettable."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ancient Ruins Section -->
+            <h1 class="section-heading">Ancient Ruins</h1>
+            <div class="row card-container">
+                <!-- Card 1 -->
+                <div class="col-md-3 mb-4 card-item">
+                    <div class="card">
+                        <img src="./images/hawa-mahal.jpg" class="card-img-top" alt="Hawa Mahal">
+                        <div class="card-body">
+                            <h5 class="card-title">Sophia Davis</h5>
+                            <p class="card-text">"Hawa Mahal is a stunning piece of art. The intricate designs are mesmerizing."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3 mb-4 card-item">
+                    <div class="card">
+                        <img src="./images/charminar.jpg" class="card-img-top" alt="Charminar">
+                        <div class="card-body">
+                            <h5 class="card-title">Chris Wilson</h5>
+                            <p class="card-text">"Charminar is an iconic landmark. The bustling market around it adds to the charm."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-3 mb-4 card-item">
+                    <div class="card">
+                        <img src="./images/taj-mahal.jpg" class="card-img-top" alt="Taj Mahal">
+                        <div class="card-body">
+                            <h5 class="card-title">Emily Johnson</h5>
+                            <p class="card-text">"The Taj Mahal is a true symbol of love. Seeing it in person is unforgettable."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-3 mb-4 card-item">
+                    <div class="card">
+                        <img src="./images/qutub-minar.jpg" class="card-img-top" alt="Qutub Minar">
+                        <div class="card-body">
+                            <h5 class="card-title">Michael Brown</h5>
+                            <p class="card-text">"Qutub Minar is a marvel of history and architecture. A must-visit for history enthusiasts."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="place-card">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=700&h=400&s=1"alt="Amber Fort" />
-            <h3>Amber Fort</h3>
-            <p>Discover ancient Rajput glory and Mughal architecture.</p>
-        </div>
-
-
-
-<script>
+    </main>
+                
+    <script>
         function toggleNav() {
             const navbarCollapse = document.getElementById('navbarContent');
             navbarCollapse.classList.toggle('active');
         }
-</script>   
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
