@@ -94,32 +94,53 @@ function toggleItinerary(itineraryId) {
 
 // Improved function to switch between tour package options
 function showTourOption(packageType, buttonElement) {
-    // Get the parent container ID
-    const parentId = packageType.includes('-') ? packageType.split('-')[0] : 'north-india';
-    const container = document.getElementById(`${parentId}-details`);
+    console.log(`showTourOption called with packageType: ${packageType}`);
     
+    // Get the parent container ID - FIXED LOGIC HERE
+    let parentId;
+    if (packageType.startsWith('unesco')) {
+        parentId = 'unesco-wonders';
+    } else if (packageType.startsWith('south')) {
+        parentId = 'south-india';
+    } else {
+        parentId = 'north-india';
+    }
+    
+    console.log(`Determined parentId: ${parentId}`);
+    
+    const container = document.getElementById(`${parentId}-details`);
     if (!container) {
-        console.error(`Container with ID ${parentId}-details not found`);
+        console.error(`Container with ID ${parentId}-details not found!`);
         return;
     }
     
+    // Log all tour-option elements in this container
+    const allPackages = container.querySelectorAll('.tour-option');
+    console.log(`Found ${allPackages.length} packages in container ${parentId}-details`);
+    allPackages.forEach(pkg => {
+        console.log(`Package ID: ${pkg.id}, display: ${pkg.style.display}`);
+    });
+    
     // Hide all packages in this container
-    const packages = container.querySelectorAll('.tour-option');
-    packages.forEach(pkg => {
+    allPackages.forEach(pkg => {
         pkg.style.display = 'none';
+        console.log(`Hidden package: ${pkg.id}`);
     });
     
     // Show the selected package
     const packageId = `${packageType}-package`;
-    const selectedPackage = document.getElementById(packageId);
+    console.log(`Looking for package with ID: ${packageId}`);
     
+    const selectedPackage = document.getElementById(packageId);
     if (selectedPackage) {
         selectedPackage.style.display = 'block';
+        console.log(`Made package visible: ${packageId}`);
         
         // Store the currently active package ID on the container for PDF generation
         container.dataset.activePackage = packageId;
+        console.log(`Set activePackage attribute on container to: ${packageId}`);
     } else {
-        console.error(`Package with ID ${packageId} not found`);
+        console.error(`Package with ID ${packageId} not found!`);
     }
     
     // Update button active states
@@ -128,6 +149,7 @@ function showTourOption(packageType, buttonElement) {
         btn.classList.remove('active');
     });
     buttonElement.classList.add('active');
+    console.log(`Updated active button state for: ${packageType}`);
     
     // Add animation to the newly displayed package
     if (selectedPackage) {
@@ -374,6 +396,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial check for animations
     checkAnimations();
+    
+    // Add this at the end of your existing DOMContentLoaded function
+    setTimeout(debugPackageDisplay, 2000); // Wait 2 seconds to make sure everything is loaded
 });
 
 // Separate scroll handler for better performance
@@ -543,3 +568,32 @@ window.addEventListener('load', function() {
         });
     });
 });
+
+// Add this to your app.js file at the end
+function debugPackageDisplay() {
+    console.log("Debugging package display...");
+    
+    // Debug helper function
+    const checkPackage = (id) => {
+        const el = document.getElementById(id);
+        console.log(`${id}: ${el ? 'exists' : 'MISSING'}, display: ${el ? el.style.display : 'N/A'}`);
+        return el;
+    };
+    
+    // Check north india packages
+    checkPackage('premium-package');
+    checkPackage('standard-package');
+    checkPackage('budget-package');
+    
+    // Check south india packages
+    checkPackage('south-premium-package');
+    checkPackage('south-standard-package');
+    checkPackage('south-budget-package');
+    
+    // Check unesco packages
+    checkPackage('unesco-premium-package');
+    checkPackage('unesco-standard-package');
+    checkPackage('unesco-budget-package');
+    
+    console.log("Debug complete");
+}
