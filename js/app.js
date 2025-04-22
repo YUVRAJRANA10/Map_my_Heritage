@@ -761,3 +761,157 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Virtual Tour Implementation
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize virtual tour buttons
+    const virtualTourBtns = document.querySelectorAll('.virtual-tour-btn');
+    
+    // Load the Pannellum panorama viewer library dynamically
+    function loadPannellum(callback) {
+        // Check if already loaded
+        if (window.pannellum) {
+            callback();
+            return;
+        }
+        
+        // Load CSS
+        const pannellumCSS = document.createElement('link');
+        pannellumCSS.rel = 'stylesheet';
+        pannellumCSS.href = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css';
+        document.head.appendChild(pannellumCSS);
+        
+        // Load JS
+        const pannellumJS = document.createElement('script');
+        pannellumJS.src = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js';
+        pannellumJS.onload = callback;
+        document.body.appendChild(pannellumJS);
+    }
+
+    virtualTourBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Get destination name from the card
+            const card = this.closest('.destination-card');
+            const destinationName = card.querySelector('.destination-title').textContent;
+            
+            // Show loading state
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            this.disabled = true;
+            
+            // Get panorama URL based on destination
+            const panoramaUrl = getVirtualTourUrl(destinationName);
+            
+            // Load Pannellum library and create viewer
+            loadPannellum(() => {
+                // Create modal for the virtual tour
+                createVirtualTourModal(destinationName, panoramaUrl);
+                
+                // Reset button
+                this.innerHTML = '<i class="fas fa-vr-cardboard"></i> 360° Tour';
+                this.disabled = false;
+            });
+        });
+    });
+    
+    // Function to get virtual tour URL based on destination
+    function getVirtualTourUrl(destinationName) {
+        const tourUrls = {
+            'Hawa Mahal': 'https://panels-assets.dazl.io/prod/uploads/95e5a14a-1f20-4e64-ac1c-523789cd6fd0/pano-outside-hawa-mahal-front-side.jpg',
+            'Ellora Caves': 'https://www.explorations.co.nz/wp-content/uploads/2023/01/ellora-caves-1024x512.jpg',
+            'Sun Temple Konark': 'https://cdn.pixabay.com/photo/2016/05/02/14/54/sun-temple-1367242_1280.jpg',
+            // Add more destinations as needed
+            'default': 'https://cdn.pixabay.com/photo/2016/05/02/14/54/sun-temple-1367242_1280.jpg'
+        };
+        
+        return tourUrls[destinationName] || tourUrls['default'];
+    }
+    
+    // Function to create virtual tour modal
+    function createVirtualTourModal(destinationName, panoramaUrl) {
+        // Create modal container
+        const modalContainer = document.createElement('div');
+        modalContainer.className = 'virtual-tour-modal';
+        
+        // Create modal content
+        const modalContent = document.createElement('div');
+        modalContent.className = 'virtual-tour-content';
+        
+        // Create header
+        const header = document.createElement('div');
+        header.className = 'virtual-tour-header';
+        header.innerHTML = `
+            <h3>${destinationName} - 360° Virtual Tour</h3>
+            <div class="virtual-tour-controls">
+                <button class="btn btn-sm btn-outline-light fullscreen-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-light close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+        
+        // Create panorama viewer container
+        const panoramaContainer = document.createElement('div');
+        panoramaContainer.id = 'panorama-viewer';
+        panoramaContainer.className = 'panorama-container';
+        
+        // Create tour info panel
+        const infoPanel = document.createElement('div');
+        infoPanel.className = 'tour-info-panel';
+        infoPanel.innerHTML = `
+            <div class="tour-info-content">
+                <h4>About ${destinationName}</h4>
+                <p>Explore this magnificent site in 360° view. Use your mouse or touch to look around. Scroll to zoom in and out.</p>
+                <p class="tour-controls-guide">
+                    <i class="fas fa-mouse-pointer"></i> Click and drag to look around<br>
+                    <i class="fas fa-search-plus"></i> Scroll to zoom in/out<br>
+                    <i class="fas fa-expand"></i> Click for fullscreen
+                </p>
+            </div>
+        `;
+        
+        // Assemble modal
+        modalContent.appendChild(header);
+        modalContent.appendChild(panoramaContainer);
+        modalContent.appendChild(infoPanel);
+        modalContainer.appendChild(modalContent);
+        
+        // Add to body
+        document.body.appendChild(modalContainer);
+        
+        // Initialize panorama viewer
+        const viewer = pannellum.viewer('panorama-viewer', {
+            type: 'equirectangular',
+            panorama: panoramaUrl,
+            autoLoad: true,
+            autoRotate: -2,
+            compass: true,
+            hotSpotDebug: false
+        });
+        
+        // Handle close button
+        modalContainer.querySelector('.close-btn').addEventListener('click', function() {
+            viewer.destroy();
+            document.body.removeChild(modalContainer);
+        });
+        
+        // Handle fullscreen button
+        modalContainer.querySelector('.fullscreen-btn').addEventListener('click', function() {
+            viewer.toggleFullscreen();
+        });
+        
+        // Handle click outside to close
+        modalContainer.addEventListener('click', function(e) {
+            if (e.target === modalContainer) {
+                viewer.destroy();
+                document.body.removeChild(modalContainer);
+            }
+        });
+        
+        // Add animation
+        setTimeout(() => {
+            modalContainer.classList.add('visible');
+        }, 10);
+    }
+});
