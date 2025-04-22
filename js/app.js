@@ -915,20 +915,35 @@ document.addEventListener('DOMContentLoaded', function() {
             panoramaContainer.innerHTML = `
                 <div class="panorama-error">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Panorama could not be loaded</h3>
-                    <p>The 360° image for ${destinationName} is currently unavailable.</p>
-                    <p>Please try again later or explore our gallery images instead.</p>
-                    <button class="btn btn-primary retry-panorama-btn">Try Again</button>
+                    <h3>Demo Mode</h3>
+                    <p>This is a demonstration of the 360° virtual tour feature for ${destinationName}.</p>
+                    <p>The interactive panorama allows visitors to explore destinations before traveling.</p>
+                    <p>In a production environment, this would use high-quality equirectangular panorama images.</p>
+                    <div class="demo-options mt-3">
+                        <button class="btn btn-primary retry-panorama-btn">Try Demo Again</button>
+                        <a href="https://www.google.com/search?q=${encodeURIComponent(destinationName)}+360+panorama" target="_blank" class="btn btn-outline-light ml-2">
+                            <i class="fas fa-external-link-alt mr-1"></i> See Real Examples
+                        </a>
+                    </div>
                 </div>
             `;
             
             panoramaContainer.querySelector('.retry-panorama-btn').addEventListener('click', function() {
-                // Retry loading the panorama
-                panoramaContainer.innerHTML = '<div class="panorama-loading"><i class="fas fa-spinner fa-spin"></i> Loading panorama...</div>';
+                panoramaContainer.innerHTML = '<div class="panorama-loading"><i class="fas fa-spinner fa-spin"></i> Loading demo panorama...</div>';
                 setTimeout(() => {
                     initializePanorama();
                 }, 500);
             });
+            
+            // Fix: Modify the close button handler to work with demo mode
+            const closeBtn = modalContainer.querySelector('.close-btn');
+            if (closeBtn) {
+                closeBtn.removeEventListener('click', closeButtonHandler);
+                closeBtn.addEventListener('click', function() {
+                    // Just remove the modal container without trying to destroy viewer
+                    document.body.removeChild(modalContainer);
+                });
+            }
         };
         
         // Function to initialize panorama
