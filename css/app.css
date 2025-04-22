@@ -34,7 +34,7 @@ body {
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
     animation: textGradient 5s linear infinite;
     letter-spacing: -0.5px;
@@ -47,13 +47,13 @@ body {
 }
 
 /* Hero Section - Updated with tricolor gradient */
-/* .hero-section {
+.hero-section {
     position: relative;
     height: 80vh;
     overflow: hidden;
 }
 
-/* .hero-overlay {
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -61,10 +61,10 @@ body {
     bottom: 0;
     background: linear-gradient(135deg, 
         rgba(255, 153, 51, 0.5) 0%, 
-        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.02) 50%, 
         rgba(19, 136, 8, 0.5) 100%);
     z-index: 1;
-} */
+}
 
 .hero-content {
     position: relative;
@@ -213,9 +213,6 @@ body {
     background-image: linear-gradient(white, white), linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
     background-origin: border-box;
     background-clip: padding-box, border-box;
-    flex: 1 1 calc(33.333% - 20px); /* Adjust card width */
-    margin: 10px;
-    height: 100%; /* Ensure cards have consistent height */
 }
 
 .card:hover {
@@ -313,6 +310,40 @@ body {
     box-shadow: none;
 }
 
+/* Tour package toggle button styling */
+.btn-group .btn-outline-primary {
+    color: #434A54;
+    border-color: #FF9933;
+}
+
+.btn-group .btn-outline-primary.active,
+.btn-group .btn-outline-primary:hover {
+    background: linear-gradient(135deg, #FF9933, #FF7E33);
+    border-color: #FF7E33;
+    color: #fff;
+}
+
+/* Price difference styling */
+.package-premium .alert-success {
+    background-color: rgba(255, 153, 51, 0.1);
+    border-color: #FF9933;
+}
+
+.package-standard .alert-success {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ccc;
+}
+
+.package-budget .alert-success {
+    background-color: rgba(19, 136, 8, 0.1);
+    border-color: #138808;
+}
+
+/* Animation for package switching */
+.tour-option {
+    transition: all 0.3s ease;
+}
+
 /* Popular Destinations */
 .img-fluid {
     border-radius: 8px;
@@ -349,8 +380,21 @@ body {
 .list-group-item {
     border-left: none;
     border-right: none;
-    padding: 15px;
-    background-color: transparent;
+    border-top: none;
+    padding: 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.list-group-item:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FF9933;
+}
+
+.list-group-item:nth-child(even):before {
+    color: #138808;
 }
 
 /* Headings */
@@ -371,52 +415,6 @@ h2:after {
     width: 80px;
     height: 3px;
     background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
-}
-
-/* Tricolor Section Headings with Orange and Green */
-.section-heading {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 40px 0 20px;
-    position: relative;
-    color: transparent;
-    background: linear-gradient(90deg, #FF9933, #138808);
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
-.section-heading:after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, #FF9933, #138808);
-    border-radius: 2px;
-}
-
-/* Keyframes for the tricolor transition */
-@keyframes tricolorTransition {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
-/* Gradient Effect for Page Header */
-h1.text-center {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: transparent;
-    background: linear-gradient(90deg, #FF9933, #138808);
-    -webkit-background-clip: text;
-    background-clip: text;
 }
 
 /* Responsive Design */
@@ -618,93 +616,54 @@ h1.text-center {
     }
 }
 
-/* Ensure cards align properly even with varying numbers */
-.row {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+/* Itinerary Details Styling */
+.itinerary-details {
+    margin-bottom: 30px;
 }
 
-.col-md-3 {
-    flex: 0 0 25%; /* Ensure each card takes up 25% of the row */
-    max-width: 25%;
-    margin-right: 15px; /* Add spacing between cards */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
 }
 
-/* Carousel Styling */
-.carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
     height: 100%;
+    width: 2px;
+    background: linear-gradient(180deg, #FF9933 0%, #138808 100%);
 }
 
-.carousel .card {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
+.timeline-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    padding: 10px;
+    background: #fff;
+    border: 3px solid #FF9933;
+    left: -30px;
+    top: 3px;
+    z-index: 2;
 }
 
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.timeline-item:nth-child(even) .timeline-marker {
+    border-color: #138808;
 }
 
-/* Card Container Animation */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    animation: fadeInCards 2s ease-in-out;
+.timeline-content {
+    padding-left: 10px;
 }
 
-.card-item {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: cardFadeIn 1s ease-in-out forwards;
-}
-
-.card-item:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.card-item:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.card-item:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.card-item:nth-child(4) {
-    animation-delay: 0.8s;
-}
-
-/* Keyframes for Card Fade-In Animation */
-@keyframes cardFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Keyframes for Container Fade-In Animation */
-@keyframes fadeInCards {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.timeline-title {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #434A54;
 }
