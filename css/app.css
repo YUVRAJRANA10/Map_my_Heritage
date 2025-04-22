@@ -544,6 +544,115 @@ body {
     box-shadow: 0 5px 10px rgba(255, 153, 51, 0.3);
 }
 
+/* Toast notification style */
+.destination-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 50px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1050;
+}
+
+.destination-toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.destination-toast i {
+    color: #4CAF50;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.toast-close-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* Gallery modal styles */
+.destination-gallery-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1060;
+    padding: 20px;
+}
+
+.gallery-modal-content {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.gallery-header h4 {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.gallery-body {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.gallery-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    color: #777;
+}
+
+.gallery-loading i {
+    font-size: 2rem;
+    color: #FF9933;
+    margin-bottom: 15px;
+}
+
+.added {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+}
+
 /* List Group */
 .list-group-item {
     border-left: none;
