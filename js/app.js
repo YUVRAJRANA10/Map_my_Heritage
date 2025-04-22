@@ -856,6 +856,59 @@ document.addEventListener('DOMContentLoaded', function() {
         panoramaContainer.id = 'panorama-viewer';
         panoramaContainer.className = 'panorama-container';
         
+        // Add a loading message
+        const loadingMessage = document.createElement('div');
+        loadingMessage.className = 'panorama-loading';
+        loadingMessage.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading panorama...';
+        panoramaContainer.appendChild(loadingMessage);
+        
+        // Add an error handler for panorama loading issues
+        const handlePanoramaError = () => {
+            panoramaContainer.innerHTML = `
+                <div class="panorama-error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Panorama could not be loaded</h3>
+                    <p>The 360° image for ${destinationName} is currently unavailable.</p>
+                    <p>Please try again later or explore our gallery images instead.</p>
+                    <button class="btn btn-primary retry-panorama-btn">Try Again</button>
+                </div>
+            `;
+            
+            panoramaContainer.querySelector('.retry-panorama-btn').addEventListener('click', function() {
+                // Retry loading the panorama
+                panoramaContainer.innerHTML = '<div class="panorama-loading"><i class="fas fa-spinner fa-spin"></i> Loading panorama...</div>';
+                setTimeout(() => {
+                    initializePanorama();
+                }, 500);
+            });
+        };
+        
+        // Function to initialize panorama
+        function initializePanorama() {
+            try {
+                const viewer = pannellum.viewer('panorama-viewer', {
+                    type: 'equirectangular',
+                    panorama: panoramaUrl,
+                    autoLoad: true,
+                    autoRotate: -2,
+                    compass: true,
+                    hotSpotDebug: false,
+                    sceneFadeDuration: 1000,
+                    preview: '../images/loading-panorama.jpg',
+                    error: handlePanoramaError
+                });
+                
+                return viewer;
+            } catch (error) {
+                console.error('Panorama initialization error:', error);
+                handlePanoramaError();
+                return null;
+            }
+        }
+        
+        // Initialize panorama
+        const viewer = initializePanorama();
+        
         // Create tour info panel
         const infoPanel = document.createElement('div');
         infoPanel.className = 'tour-info-panel';
@@ -879,16 +932,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add to body
         document.body.appendChild(modalContainer);
-        
-        // Initialize panorama viewer
-        const viewer = pannellum.viewer('panorama-viewer', {
-            type: 'equirectangular',
-            panorama: panoramaUrl,
-            autoLoad: true,
-            autoRotate: -2,
-            compass: true,
-            hotSpotDebug: false
-        });
         
         // Handle close button
         modalContainer.querySelector('.close-btn').addEventListener('click', function() {
