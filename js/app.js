@@ -597,3 +597,106 @@ function debugPackageDisplay() {
     
     console.log("Debug complete");
 }
+
+// Add this to your js/app.js file
+
+// Initialize destination cards
+document.addEventListener('DOMContentLoaded', function() {
+    // Make "Add to Itinerary" buttons interactive
+    const addButtons = document.querySelectorAll('.add-itinerary-btn');
+    
+    addButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the destination title
+            const card = this.closest('.destination-card');
+            const title = card.querySelector('.destination-title').textContent;
+            
+            // Show a toast notification
+            const toast = document.createElement('div');
+            toast.className = 'destination-toast animate__animated animate__fadeInUp';
+            toast.innerHTML = `
+                <div class="destination-toast-content">
+                    <i class="fas fa-check-circle"></i>
+                    <span>${title} added to your itinerary</span>
+                </div>
+                <button class="toast-close-btn">&times;</button>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Change button state
+            this.innerHTML = '<i class="fas fa-check"></i> Added';
+            this.disabled = true;
+            this.classList.add('added');
+            
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('animate__fadeOutDown');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 500);
+            }, 3000);
+            
+            // Allow adding again after 5 seconds
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-plus"></i> Add to Itinerary';
+                this.disabled = false;
+                this.classList.remove('added');
+            }, 5000);
+        });
+    });
+    
+    // Handle gallery buttons
+    const galleryButtons = document.querySelectorAll('.view-gallery-btn');
+    
+    galleryButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the destination title
+            const card = this.closest('.destination-card');
+            const title = card.querySelector('.destination-title').textContent;
+            
+            // Create a modal gallery (simplified version)
+            const modal = document.createElement('div');
+            modal.className = 'destination-gallery-modal';
+            modal.innerHTML = `
+                <div class="gallery-modal-content animate__animated animate__zoomIn">
+                    <div class="gallery-header">
+                        <h4>${title} Gallery</h4>
+                        <button class="modal-close-btn">&times;</button>
+                    </div>
+                    <div class="gallery-body">
+                        <div class="gallery-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading gallery images...</p>
+                            <small>This is a demo - in a real app, actual images would load</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal when clicking the close button
+            modal.querySelector('.modal-close-btn').addEventListener('click', function() {
+                modal.classList.add('closing');
+                modal.querySelector('.gallery-modal-content').classList.remove('animate__zoomIn');
+                modal.querySelector('.gallery-modal-content').classList.add('animate__zoomOut');
+                
+                setTimeout(() => {
+                    document.body.removeChild(modal);
+                }, 500);
+            });
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.querySelector('.modal-close-btn').click();
+                }
+            });
+        });
+    });
+});
