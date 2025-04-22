@@ -970,48 +970,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Initialize panorama
-        const viewer = initializePanorama();
+        let viewer = null;
+        try {
+            viewer = initializePanorama();
+        } catch (error) {
+            console.error('Failed to initialize panorama:', error);
+            handlePanoramaError();
+        }
         
-        // Create tour info panel
-        const infoPanel = document.createElement('div');
-        infoPanel.className = 'tour-info-panel';
-        infoPanel.innerHTML = `
-            <div class="tour-info-content">
-                <h4>About ${destinationName}</h4>
-                <p>Explore this magnificent site in 360° view. Use your mouse or touch to look around. Scroll to zoom in and out.</p>
-                <p class="tour-controls-guide">
-                    <i class="fas fa-mouse-pointer"></i> Click and drag to look around<br>
-                    <i class="fas fa-search-plus"></i> Scroll to zoom in/out<br>
-                    <i class="fas fa-expand"></i> Click for fullscreen
-                </p>
-            </div>
-        `;
+        // Define a reusable close button handler function
+        const closeButtonHandler = function() {
+            // Check if viewer exists before trying to destroy it
+            if (viewer && typeof viewer.destroy === 'function') {
+                try {
+                    viewer.destroy();
+                } catch (e) {
+                    console.error('Error destroying viewer:', e);
+                }
+            }
+            document.body.removeChild(modalContainer);
+        };
         
         // Assemble modal
         modalContent.appendChild(header);
         modalContent.appendChild(panoramaContainer);
-        modalContent.appendChild(infoPanel);
         modalContainer.appendChild(modalContent);
         
         // Add to body
         document.body.appendChild(modalContainer);
         
         // Handle close button
-        modalContainer.querySelector('.close-btn').addEventListener('click', function() {
-            viewer.destroy();
-            document.body.removeChild(modalContainer);
-        });
+        modalContainer.querySelector('.close-btn').addEventListener('click', closeButtonHandler);
         
         // Handle fullscreen button
         modalContainer.querySelector('.fullscreen-btn').addEventListener('click', function() {
-            viewer.toggleFullscreen();
+            if (viewer && typeof viewer.toggleFullscreen === 'function') {
+                viewer.toggleFullscreen();
+            }
         });
         
         // Handle click outside to close
         modalContainer.addEventListener('click', function(e) {
             if (e.target === modalContainer) {
-                viewer.destroy();
-                document.body.removeChild(modalContainer);
+                closeButtonHandler();
             }
         });
         
