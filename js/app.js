@@ -775,17 +775,53 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        let cssLoaded = false;
+        let jsLoaded = false;
+        let hasError = false;
+        
+        function checkAllLoaded() {
+            if ((cssLoaded && jsLoaded) || hasError) {
+                callback();
+            }
+        }
+        
         // Load CSS
         const pannellumCSS = document.createElement('link');
         pannellumCSS.rel = 'stylesheet';
         pannellumCSS.href = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css';
+        pannellumCSS.onload = function() {
+            cssLoaded = true;
+            checkAllLoaded();
+        };
+        pannellumCSS.onerror = function() {
+            hasError = true;
+            console.error('Failed to load Pannellum CSS');
+            checkAllLoaded();
+        };
         document.head.appendChild(pannellumCSS);
         
         // Load JS
         const pannellumJS = document.createElement('script');
         pannellumJS.src = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js';
-        pannellumJS.onload = callback;
+        pannellumJS.onload = function() {
+            jsLoaded = true;
+            checkAllLoaded();
+        };
+        pannellumJS.onerror = function() {
+            hasError = true;
+            console.error('Failed to load Pannellum JS');
+            checkAllLoaded();
+        };
         document.body.appendChild(pannellumJS);
+        
+        // Set a timeout in case loading takes too long
+        setTimeout(function() {
+            if (!cssLoaded || !jsLoaded) {
+                hasError = true;
+                console.error('Pannellum loading timed out');
+                checkAllLoaded();
+            }
+        }, 10000); // 10 second timeout
     }
 
     virtualTourBtns.forEach(btn => {
