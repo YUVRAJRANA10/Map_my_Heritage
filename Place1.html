@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Explorer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../place1css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+            <span class="brand-text">Map my Heritage</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-nav">
+                <a class="btn btn-primary" href="#" style="margin-right: 10px;">
+                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="mt-5 pt-5">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h1 class="text-center">Destinations</h1>
+                    <p class="text-center text-muted">Explore Your Heritage</p>
+                </div>
+            </div>
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <!-- <input type="text" class="form-control" placeholder="Search..." style="width: 300px;"> -->
+            <select class="form-control" style="width: 150px;">
+                <option value="unesco">UNESCO</option>
+                <option value="ancient">Ancient Sites</option>
+                <option value="museums">Museums</option>
+                <option value="monuments">Monuments</option>
+            </select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+                    <div class="places-grid">
+                        <!-- Repeat this card -->
+                        <h2 class="section-title">UNESCO Sites</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://breathedreamgo.com/wp-content/uploads/2010/03/India-for-Beginners-custom-tours-5.jpg" alt="Ellora Caves">
+                                    <h3>Ellora Caves</h3>
+                                    <p>Ellora Caves showcases ancient rock-cut architecture and artistry in Maharashtra, India.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=700&h=400&s=1"
+                                        alt="Amber Fort" />
+                                    <h3>Amber Fort</h3>
+                                    <p>Discover ancient Rajput glory and Mughal architecture.</p>
+                                </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="place-card">
+                                        <img src="https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_2021030525a9ca951b504165b5d8ce97bbbe1c8a.png"
+                                            alt="Great Living Chola Temples" />
+                                        <h3>Great Living Chola Temples</h3>
+                                        <p>The Great Living Chola Temples stand as timeless marvels of Dravidian architecture and spiritual grandeur.</p>
+                                    </div>
+                                    </div>
+                        </div>
+                        <!-- Ancient Sites Section -->
+                        <h2 class="section-title">Ancient Sites</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2022/03/khajuraho-slider-imggg-3.jpg?ssl=1" alt="Khajuraho Temples">
+                                    <h3>Khajuraho Temples</h3>
+                                    <p>Famous for their intricate sculptures, located in Madhya Pradesh.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/1200px-Konarka_Temple.jpg" alt="Sun Temple, Konark">
+                                    <h3>Sun Temple, Konark</h3>
+                                    <p>A 13th-century temple shaped like a chariot, known for its stunning architecture.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdki0wf7tYcd17KtarOPpE6T8UOLUsC3V-t9LxCys0_FxQqq4PiAo_IdlDRku8LPhAIIg&usqp=CAU" alt="Rani Ki Vav, Ahmedabad">
+                                    <h3>Rani ki Vav</h3>
+                                    <p>Rani ki Vav is an intricately carved stepwell, showcasing the grandeur of ancient Indian architecture and devotion beneath the earth.</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Museums Section -->
+                        <h2 class="section-title">Museums Sites</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://rajasthantourdriver.com/wp-content/uploads/2023/12/alberthall.jpg" alt="Albert Hall Museum, Jaipur">
+                                    <h3>Albert Hall Museum</h3>
+                                    <p>Albert Hall Museum is a stunning blend of Indo-Saracenic architecture and rich cultural heritage in the heart of Jaipur.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg55tM5OMfvaNXOJEG7VdoK-uKCMbFIP0Gq-oxiUvxNarqlCxrUlV4B8FUOAtW6pSYVqc&usqp=CAU" alt="Virasat-e-khalsa museum">
+                                    <h3>Virasat-e-khalsa Museum</h3>
+                                    <p>Virasat-e-Khalsa is a breathtaking tribute to Sikh history and heritage, blending modern design with spiritual legacy.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://www.gokitetours.com/wp-content/uploads/2024/11/Top-10-Things-to-Know-About-Victoria-Memorial-in-Kolkata.webp" alt="Victoria Memorial, Kolkata">
+                                    <h3>Victoria Memorial Museum</h3>
+                                    <p>Virasat-e-Khalsa is a breathtaking tribute to Sikh history and heritage, blending modern design with spiritual legacy.</p>
+                                </div>
+                            </div>               
+                        </div>
+                
+                        <!-- Monuments Section -->
+                        <h2 class="section-title">Monuments Sites</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6K5N36h2clz_dBugL37N3qut7H-5wYuU_kg&s" alt="Taj Mahal">
+                                    <h3>Taj Mahal</h3>
+                                    <p>A stunning white marble mausoleum symbolizing eternal love.</p>
+                                </div>
+                            </div>
+                        
+                
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://sacredsites.com/images/asia/india/golden_temple_1200.jpg" alt="Sri Harmandir Sahib">
+                                    <h3>Sri Harmandir Sahib</h3>
+                                    <p>A serene spiritual haven in Amritsar, the gleaming heart of Sikhism and a symbol of unity.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="place-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Agra_03-2016_10_Agra_Fort.jpg" alt="Agra Fort">
+                                    <h3>Agra Fort</h3>
+                                    <p>Agra Fort is a majestic symbol of Mughal power and elegance, echoing centuries of history within its red sandstone walls.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                
+                        <footer class="bg-dark text-white py-4 mt-5">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>Map My Heritage</h5>
+                                        <p>Discover India's rich cultural heritage and plan your next adventure.</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>Quick Links</h5>
+                                        <ul class="list-unstyled">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="destinations.html">Destinations</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>Connect With Us</h5>
+                                        <div class="social-icons">
+                                            <a href="#" class="mr-3"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#" class="mr-3"><i class="fab fa-twitter"></i></a>
+                                            <a href="#" class="mr-3"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-youtube"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <p class="mb-0">&copy; 2024 Map My Heritage. All rights reserved.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

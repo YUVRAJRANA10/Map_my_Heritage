@@ -68,6 +68,306 @@ function simulateSearch(button) {
     }, 1500);
 }
 
+// Toggle itinerary details visibility
+function toggleItinerary(itineraryId) {
+    const detailsElement = document.getElementById(`${itineraryId}-details`);
+    
+    // Hide all other itineraries first
+    document.querySelectorAll('.itinerary-details').forEach(el => {
+        if (el.id !== `${itineraryId}-details`) {
+        el.style.display = 'none';
+        }
+    });
+    
+    // Toggle the selected itinerary
+    if (detailsElement.style.display === 'none') {
+        detailsElement.style.display = 'block';
+        
+        // Scroll to the itinerary details with smooth animation
+        setTimeout(() => {
+            detailsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    } else {
+        detailsElement.style.display = 'none';
+    }
+}
+
+// Improved function to switch between tour package options
+function showTourOption(packageType, buttonElement) {
+    console.log(`showTourOption called with packageType: ${packageType}`);
+    
+    // Get the parent container ID - FIXED LOGIC HERE
+    let parentId;
+    if (packageType.startsWith('unesco')) {
+        parentId = 'unesco-wonders';
+    } else if (packageType.startsWith('south')) {
+        parentId = 'south-india';
+    } else {
+        parentId = 'north-india';
+    }
+    
+    console.log(`Determined parentId: ${parentId}`);
+    
+    const container = document.getElementById(`${parentId}-details`);
+    if (!container) {
+        console.error(`Container with ID ${parentId}-details not found!`);
+        return;
+    }
+    
+    // Log all tour-option elements in this container
+    const allPackages = container.querySelectorAll('.tour-option');
+    console.log(`Found ${allPackages.length} packages in container ${parentId}-details`);
+    allPackages.forEach(pkg => {
+        console.log(`Package ID: ${pkg.id}, display: ${pkg.style.display}`);
+    });
+    
+    // Hide all packages in this container
+    allPackages.forEach(pkg => {
+        pkg.style.display = 'none';
+        console.log(`Hidden package: ${pkg.id}`);
+    });
+    
+    // Show the selected package
+    const packageId = `${packageType}-package`;
+    console.log(`Looking for package with ID: ${packageId}`);
+    
+    const selectedPackage = document.getElementById(packageId);
+    if (selectedPackage) {
+        selectedPackage.style.display = 'block';
+        console.log(`Made package visible: ${packageId}`);
+        
+        // Store the currently active package ID on the container for PDF generation
+        container.dataset.activePackage = packageId;
+        console.log(`Set activePackage attribute on container to: ${packageId}`);
+    } else {
+        console.error(`Package with ID ${packageId} not found!`);
+    }
+    
+    // Update button active states
+    const buttons = buttonElement.parentElement.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+    buttonElement.classList.add('active');
+    console.log(`Updated active button state for: ${packageType}`);
+    
+    // Add animation to the newly displayed package
+    if (selectedPackage) {
+        selectedPackage.classList.add('animate__animated', 'animate__fadeIn');
+        setTimeout(() => {
+            selectedPackage.classList.remove('animate__animated', 'animate__fadeIn');
+        }, 1000);
+    }
+}
+
+// Modified function to save itinerary as PDF with proper content
+function saveItineraryPDF(itineraryId) {
+    // First, make sure the itinerary details are visible
+    const detailsElement = document.getElementById(`${itineraryId}-details`);
+    if (!detailsElement) {
+        console.error(`Details element with ID ${itineraryId}-details not found`);
+        return;
+    }
+    
+    const wasHidden = detailsElement.style.display === 'none';
+    
+    if (wasHidden) {
+        detailsElement.style.display = 'block';
+    }
+    
+    // Get the currently active package or default to the first one
+    let activePackageId = detailsElement.dataset.activePackage;
+    if (!activePackageId) {
+        // Try to find the visible package
+        const visiblePackage = detailsElement.querySelector('.tour-option[style*="display: block"]');
+        if (visiblePackage) {
+            activePackageId = visiblePackage.id;
+        } else {
+            // Default to first package if none are visible
+            activePackageId = `${itineraryId === 'north-india' ? 'premium' : itineraryId + '-premium'}-package`;
+        }
+    }
+    
+    const activePackage = document.getElementById(activePackageId);
+    if (!activePackage) {
+        console.error(`Active package with ID ${activePackageId} not found`);
+        return;
+    }
+    
+    // Show loading message
+    const loadingToast = document.createElement('div');
+    loadingToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-info', 'text-white', 'rounded');
+    loadingToast.style.zIndex = '5000';
+    loadingToast.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating your PDF...';
+    document.body.appendChild(loadingToast);
+    
+    // Load jsPDF library dynamically if not already loaded
+    function loadJsPDF() {
+        return new Promise((resolve) => {
+            if (window.jspdf) {
+                resolve(window.jspdf.jsPDF);
+                return;
+            }
+            
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+            script.onload = () => resolve(window.jspdf.jsPDF);
+            document.body.appendChild(script);
+        });
+    }
+    
+    // Generate PDF content
+    loadJsPDF().then((jsPDF) => {
+        // Create new PDF document
+        const doc = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
+        
+        // Get itinerary data
+        const itineraryNames = {
+            'north-india': 'North India Heritage Tour',
+            'south-india': 'South India Temples Tour',
+            'unesco-wonders': 'UNESCO Wonders of India Tour'
+        };
+        
+        // Determine package type from active package ID
+        let packageType = "Premium";
+        if (activePackageId.includes('standard')) {
+            packageType = "Standard";
+        } else if (activePackageId.includes('budget')) {
+            packageType = "Budget";
+        }
+        
+        const itineraryTitle = `${itineraryNames[itineraryId]} - ${packageType} Package`;
+        
+        // Add logo and header
+        doc.setFontSize(22);
+        doc.setTextColor(255, 153, 51); // Saffron color from Indian flag
+        doc.text('Map My Heritage', 105, 20, { align: 'center' });
+        
+        // Add title
+        doc.setFontSize(18);
+        doc.setTextColor(0, 0, 0);
+        doc.text(itineraryTitle, 105, 30, { align: 'center' });
+        
+        // Add horizontal line
+        doc.setDrawColor(19, 136, 8); // Green from Indian flag
+        doc.setLineWidth(0.5);
+        doc.line(20, 35, 190, 35);
+        
+        // Extract and add itinerary content
+        const packageTitle = activePackage.querySelector('h6.font-weight-bold').textContent;
+        doc.setFontSize(14);
+        doc.text(packageTitle, 20, 45);
+        
+        // Add package inclusions
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text('Package Inclusions:', 20, 55);
+        
+        const inclusionItems = Array.from(activePackage.querySelectorAll('.list-group-item')).slice(0, 5);
+        inclusionItems.forEach((item, index) => {
+            doc.text(`• ${item.textContent.trim()}`, 25, 65 + (index * 7));
+        });
+        
+        // Add itinerary days
+        doc.text('Itinerary Overview:', 20, 105);
+        
+        const timelineItems = Array.from(activePackage.querySelectorAll('.timeline-item')).slice(0, 5);
+        timelineItems.forEach((item, index) => {
+            const title = item.querySelector('.timeline-title').textContent;
+            const description = item.querySelector('.timeline-content p').textContent;
+            doc.text(`${title}`, 25, 115 + (index * 14));
+            doc.setFontSize(10);
+            doc.text(`${description}`, 25, 120 + (index * 14));
+            doc.setFontSize(12);
+        });
+        
+        // Add price information
+        const priceInfo = activePackage.querySelector('.alert-success h6').textContent;
+        doc.setFontSize(12);
+        doc.text('Price Information:', 20, 195);
+        doc.setFontSize(11);
+        doc.text(priceInfo, 25, 202);
+        
+        // Add footer with contact info
+        doc.setFontSize(10);
+        doc.setTextColor(100, 100, 100);
+        doc.text('Map My Heritage - Your gateway to India\'s cultural treasures', 105, 280, { align: 'center' });
+        doc.text('Contact: info@mapmyheritage.in | www.mapmyheritage.in | +91-123-456-7890', 105, 285, { align: 'center' });
+        
+        // Save the PDF
+        try {
+            doc.save(`${itineraryTitle}.pdf`);
+            
+            // Remove loading message
+            document.body.removeChild(loadingToast);
+            
+            // Show success message
+            const successToast = document.createElement('div');
+            successToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-success', 'text-white', 'rounded', 'animate__animated', 'animate__fadeIn');
+            successToast.style.zIndex = '5000';
+            successToast.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Your itinerary has been saved to your downloads folder!';
+            document.body.appendChild(successToast);
+            
+            // Remove success message after 3 seconds
+            setTimeout(() => {
+                successToast.classList.remove('animate__fadeIn');
+                successToast.classList.add('animate__fadeOut');
+                setTimeout(() => {
+                    document.body.removeChild(successToast);
+                }, 1000);
+            }, 3000);
+        } catch (e) {
+            console.error("PDF generation failed:", e);
+            
+            // Show error message
+            document.body.removeChild(loadingToast);
+            const errorToast = document.createElement('div');
+            errorToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-danger', 'text-white', 'rounded', 'animate__animated', 'animate__fadeIn');
+            errorToast.style.zIndex = '5000';
+            errorToast.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i> There was an error generating your PDF. Please try again.';
+            document.body.appendChild(errorToast);
+            
+            // Remove error message after 3 seconds
+            setTimeout(() => {
+                errorToast.classList.remove('animate__fadeIn');
+                errorToast.classList.add('animate__fadeOut');
+                setTimeout(() => {
+                    document.body.removeChild(errorToast);
+                }, 1000);
+            }, 3000);
+        }
+        
+        // If it was hidden before, hide it again
+        if (wasHidden) {
+            detailsElement.style.display = 'none';
+        }
+    }).catch(err => {
+        console.error("Failed to load jsPDF:", err);
+        document.body.removeChild(loadingToast);
+        
+        // Show error message
+        const errorToast = document.createElement('div');
+        errorToast.classList.add('position-fixed', 'bottom-0', 'end-0', 'p-3', 'm-3', 'bg-danger', 'text-white', 'rounded');
+        errorToast.style.zIndex = '5000';
+        errorToast.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i> Failed to load PDF generation library. Please check your internet connection.';
+        document.body.appendChild(errorToast);
+        
+        // Remove error message after 3 seconds
+        setTimeout(() => {
+            document.body.removeChild(errorToast);
+        }, 4000);
+        
+        // If it was hidden before, hide it again
+        if (wasHidden) {
+            detailsElement.style.display = 'none';
+        }
+    });
+}
+
 // Initialize animations on page load - Store variables in global scope to avoid recreation
 const animatedElements = [];
 let cachedScrollY = 0;
@@ -96,6 +396,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial check for animations
     checkAnimations();
+    
+    // Add this at the end of your existing DOMContentLoaded function
+    setTimeout(debugPackageDisplay, 2000); // Wait 2 seconds to make sure everything is loaded
 });
 
 // Separate scroll handler for better performance
@@ -254,4 +557,43 @@ if (!document.getElementById('scroll-optimize-styles')) {
         }
     `;
     document.head.appendChild(style);
+}
+
+// Add to window onload to ensure it works after the page is loaded
+window.addEventListener('load', function() {
+    // Add active class to view buttons when clicked
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    });
+});
+
+// Add this to your app.js file at the end
+function debugPackageDisplay() {
+    console.log("Debugging package display...");
+    
+    // Debug helper function
+    const checkPackage = (id) => {
+        const el = document.getElementById(id);
+        console.log(`${id}: ${el ? 'exists' : 'MISSING'}, display: ${el ? el.style.display : 'N/A'}`);
+        return el;
+    };
+    
+    // Check north india packages
+    checkPackage('premium-package');
+    checkPackage('standard-package');
+    checkPackage('budget-package');
+    
+    // Check south india packages
+    checkPackage('south-premium-package');
+    checkPackage('south-standard-package');
+    checkPackage('south-budget-package');
+    
+    // Check unesco packages
+    checkPackage('unesco-premium-package');
+    checkPackage('unesco-standard-package');
+    checkPackage('unesco-budget-package');
+    
+    console.log("Debug complete");
 }
