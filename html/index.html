@@ -338,12 +338,9 @@
                 </div>
             </div>
         </div>
-        <div class="text-center mt-4">
-            <button class="btn btn-outline-primary see-more-btn animate__animated animate__pulse animate__infinite animate__slow" onclick="toggleMoreReviews()">
-                <i class="fas fa-chevron-down"></i> See More Reviews
-            </button>
-        </div>
-        <div class="row" id="more-reviews" style="display: none;">
+
+        <!-- Hidden reviews section -->
+        <div class="row additional-reviews" id="more-reviews" style="display: none;">
             <div class="col-md-6">
                 <div class="review-card">
                     <div class="review-header">
@@ -366,6 +363,14 @@
                     </div>
                 </div>
             </div>
+            <!-- You can add more hidden reviews here -->
+        </div>
+
+        <!-- See More Reviews button that moves to bottom -->
+        <div class="text-center mt-4" id="reviews-button-container">
+            <button class="btn btn-outline-primary see-more-btn animate__animated animate__pulse animate__infinite animate__slow" onclick="toggleMoreReviews()">
+                <i class="fas fa-chevron-down"></i> See More Reviews
+            </button>
         </div>
 
         <h2 class="text-center mt-5 mb-4 animate__animated animate__fadeIn">Trending Itineraries</h2>
