@@ -739,56 +739,23 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add a nice click animation
             this.classList.add('animate__animated', 'animate__pulse');
             
-            // Find the itineraries section directly by heading text
+            // Scroll to the trending itineraries section with smooth animation
             setTimeout(() => {
-                const headings = document.querySelectorAll('h2');
-                let itinerariesSection = null;
-                
-                // Find the heading with "Trending Itineraries" text
-                for (let i = 0; i < headings.length; i++) {
-                    if (headings[i].textContent.includes('Trending Itineraries')) {
-                        itinerariesSection = headings[i];
-                        break;
-                    }
-                }
+                const itinerariesSection = document.getElementById('trending-itineraries');
                 
                 if (itinerariesSection) {
-                    // Scroll to the itineraries section
-                    itinerariesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Scroll to the itineraries section with smooth animation
+                    itinerariesSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
                 } else {
-                    // Fallback to a fixed scroll position if section not found
+                    console.error("Trending itineraries section not found");
+                    // Fallback to a fixed scroll position
                     window.scrollTo({
-                        top: window.innerHeight + 200, // Scroll past hero section
+                        top: window.innerHeight + 200,
                         behavior: 'smooth'
                     });
-                    
-                    // Show a tooltip informing the user what happened
-                    const tooltip = document.createElement('div');
-                    tooltip.className = 'plan-trip-tooltip animate__animated animate__fadeIn';
-                    tooltip.innerHTML = '<div>Explore our suggested itineraries below</div>';
-                    tooltip.style.cssText = `
-                        position: fixed;
-                        bottom: 20px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        background: #333;
-                        color: white;
-                        padding: 10px 15px;
-                        border-radius: 8px;
-                        z-index: 1000;
-                        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                    `;
-                    
-                    document.body.appendChild(tooltip);
-                    
-                    // Remove tooltip after 3 seconds
-                    setTimeout(() => {
-                        tooltip.classList.remove('animate__fadeIn');
-                        tooltip.classList.add('animate__fadeOut');
-                        setTimeout(() => {
-                            document.body.removeChild(tooltip);
-                        }, 1000);
-                    }, 3000);
                 }
             }, 300);
         });
