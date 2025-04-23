@@ -1342,3 +1342,44 @@ h2:after {
 .panorama-error .btn {
     margin-top: 1rem;
 }
+/* Interactive Heritage Map Styles */
+.heritage-map-container {
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.map-sidebar {
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    position: relative;
+}
+
+.map-filters .custom-control {
+    margin-bottom: 10px;
+}
+
+.map-filters .custom-control-label {
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+/* Categorized checkbox styles */
+#filter-unesco + label::before {
+    border-color: #FF9933;
+}
+
+#filter-unesco:checked + label::before {
+    background-color: #FF9933;
+    border-color: #FF9933;
+}
+
+#filter-ancient + label::before {
+    border-color: #138808;
+}
