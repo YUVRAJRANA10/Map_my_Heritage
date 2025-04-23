@@ -226,6 +226,38 @@
                   'animate__fadeInLeft',
                   'animate__fadeInRight'
               );
+              registerForm.classList.remove(
+                    'd-none', 
+                    'animate__fadeOutRight',
+                    'animate__fadeOutLeft', 
+                    'animate__fadeInLeft',
+                    'animate__fadeInRight'
+                );
+            }
+            
+            loginTab.addEventListener('click', function() {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+                
+                // Reset all animation classes first
+                resetFormClasses();
+                
+                // Show login form with animation
+                loginForm.classList.remove('d-none');
+                
+                // Force a browser reflow to ensure animations work properly
+                void loginForm.offsetWidth;
+                
+                // Apply new animation class
+                loginForm.classList.add('animate__fadeInLeft');
+                
+                // Hide register form
+                registerForm.classList.add('animate__fadeOutRight');
+                setTimeout(() => {
+                    registerForm.classList.add('d-none');
+                }, 500);
+            });
+
               
 
                 
