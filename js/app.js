@@ -1022,3 +1022,157 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 10);
     }
 });
+// Interactive Heritage Map of India using Leaflet.js (completely free)
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the map container exists on this page
+    const mapContainer = document.getElementById('heritage-map');
+    if (!mapContainer) return;
+    
+    // Add Leaflet CSS to head
+    const leafletCSS = document.createElement('link');
+    leafletCSS.rel = 'stylesheet';
+    leafletCSS.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    leafletCSS.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+    leafletCSS.crossOrigin = '';
+    document.head.appendChild(leafletCSS);
+    
+    // Load Leaflet JS
+    const loadLeaflet = () => {
+        return new Promise((resolve) => {
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+            script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+            script.crossOrigin = '';
+            script.onload = resolve;
+            document.body.appendChild(script);
+        });
+    };
+    
+    // Initialize map after Leaflet loads
+    loadLeaflet().then(() => {
+        initializeHeritageMap();
+    });
+    
+    function initializeHeritageMap() {
+        // Initialize the map centered on India
+        const map = L.map('heritage-map').setView([22.5937, 78.9629], 5);
+        
+        // Add OpenStreetMap tile layer (completely free)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 18
+        }).addTo(map);
+        
+        // Create custom marker icons for each category
+        function createCustomIcon(category) {
+            return L.divIcon({
+                className: `heritage-marker ${category}`,
+                iconSize: [12, 12],
+                iconAnchor: [6, 6],
+                popupAnchor: [0, -6]
+            });
+        }
+        
+        // Heritage sites data with categories
+        const heritageSites = [
+            {
+                name: "Taj Mahal",
+                location: [27.1751, 78.0421],
+                category: "unesco",
+                region: "north",
+                image: "../images/taj-mahal-card.jpg",
+                description: "An ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra.",
+                link: "../Unesco_Page.html"
+            },
+            {
+                name: "Hawa Mahal",
+                location: [26.9239, 75.8267],
+                category: "monument",
+                region: "north",
+                image: "../images/AdobeStock_505662817_Preview.jpeg",
+                description: "Known as the 'Palace of Winds', this stunning five-story palace features 953 small windows.",
+                link: "#"
+            },
+            {
+                name: "Ellora Caves",
+                location: [20.0267, 75.1772],
+                category: "unesco",
+                region: "west",
+                image: "../images/licensed-image.jpg",
+                description: "A UNESCO World Heritage site featuring 34 rock-cut Buddhist, Hindu and Jain cave temples.",
+                link: "#"
+            },
+            {
+                name: "Sun Temple Konark",
+                location: [19.8876, 86.0945],
+                category: "unesco",
+                region: "east",
+                image: "../images/sun_temple_konark.jpg",
+                description: "This 13th-century Sun Temple takes the form of a massive chariot with intricately carved wheels.",
+                link: "#"
+            },
+            {
+                name: "Qutub Minar",
+                location: [28.5244, 77.1855],
+                category: "unesco",
+                region: "north",
+                image: "../images/qutub-minar.jpg",
+                description: "The tallest brick minaret in the world, this UNESCO World Heritage site was built in 1220 AD.",
+                link: "#"
+            },
+            {
+                name: "Meenakshi Temple",
+                location: [9.9195, 78.1193],
+                category: "ancient",
+                region: "south",
+                image: "../images/meenakshi-temple.jpg",
+                description: "A historic Hindu temple located in the temple city of Madurai, dedicated to goddess Meenakshi.",
+                link: "#"
+            },
+            {
+                name: "National Museum, Delhi",
+                location: [28.6129, 77.2295],
+                category: "museum",
+                region: "north",
+                image: "../images/national-museum.jpg",
+                description: "One of the largest museums in India with a diverse collection of artifacts from prehistoric era to modern works of art.",
+                link: "#"
+            },
+            {
+                name: "Amber Fort",
+                location: [26.9855, 75.8513],
+                category: "monument",
+                region: "north",
+                image: "../images/amber-fort.jpg",
+                description: "A majestic fort located in Amer, Rajasthan, known for its artistic Hindu style elements.",
+                link: "#"
+            },
+            {
+                name: "Khajuraho Group of Monuments",
+                location: [24.8530, 79.9199],
+                category: "unesco",
+                region: "central",
+                image: "../images/khajuraho.jpg",
+                description: "Famous for their Nagara-style architectural symbolism and erotic sculptures.",
+                link: "#"
+            },
+            {
+                name: "Ajanta Caves",
+                location: [20.5519, 75.7030],
+                category: "unesco",
+                region: "west",
+                image: "../images/ajanta-caves.jpg",
+                description: "Buddhist rock-cut cave temples dating from the 2nd century BCE to about 480 CE.",
+                link: "#"
+            },
+            {
+                name: "Victoria Memorial",
+                location: [22.5448, 88.3426],
+                category: "museum",
+                region: "east",
+                image: "../images/victoria-memorial.jpg",
+                description: "A large marble building in Kolkata, which was built between 1906 and 1921 as a memorial to Queen Victoria.",
+                link: "#"
+            }
+        ];
+     
