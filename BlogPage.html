@@ -11,13 +11,132 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
     <style>
-         /* Global Styles */
+        /* Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
             color: #434A54;
             background-color: #F5F7FA;
         }
-        
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(90deg, rgba(255, 153, 51, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(19, 136, 8, 0.1) 100%);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #434A54;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 5s linear infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Section Headings */
+        .section-heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #434A54;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+            background-image: linear-gradient(white, white), linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .text-warning i {
+            margin-right: 2px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
+            border-color: #FF9933;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #FF7E33 0%, #FF6633 100%);
+            border-color: #FF7E33;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 153, 51, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 15px;
+            }
+
+            .section-heading {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
