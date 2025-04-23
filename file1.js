@@ -38,9 +38,11 @@ const unescoPlaces = [
         <p>Ellora Caves showcases ancient rock-cut architecture and artistry in Maharashtra, India.</p>
     </div>`,
     `<div class="col-md-5 place-card">
+        <a href="Amber_fort_page.html" target="_blank" style="text-decoration: none; color: inherit;">
         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=700&h=400&s=1" alt="Amber Fort">
         <h3>Amber Fort</h3>
         <p>Discover ancient Rajput glory and Mughal architecture.</p>
+        </a>
     </div>`,
     `<div class="col-md-5 place-card">
         <img src="https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_2021030525a9ca951b504165b5d8ce97bbbe1c8a.png" alt="Great Living Chola Temples">
