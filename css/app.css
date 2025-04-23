@@ -1383,3 +1383,38 @@ h2:after {
 #filter-ancient + label::before {
     border-color: #138808;
 }
+#filter-ancient:checked + label::before {
+    background-color: #138808;
+    border-color: #138808;
+}
+
+#filter-museum + label::before {
+    border-color: #f0c14b;
+}
+
+#filter-museum:checked + label::before {
+    background-color: #f0c14b;
+    border-color: #f0c14b;
+}
+
+#filter-monument + label::before {
+    border-color: #4a90e2;
+}
+
+#filter-monument:checked + label::before {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+}
+
+.region-btn {
+    margin-right: 5px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.region-btn.active {
+    background-color: #FF9933;
+    border-color: #FF9933;
+    color: white;
+}
