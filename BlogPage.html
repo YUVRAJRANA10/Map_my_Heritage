@@ -6,9 +6,136 @@
     <title>Heritage Explorer</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/app.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #434A54;
+            background-color: #F5F7FA;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(90deg, rgba(255, 153, 51, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(19, 136, 8, 0.1) 100%);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #434A54;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 5s linear infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Section Headings */
+        .section-heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #434A54;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+            background-image: linear-gradient(white, white), linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .text-warning i {
+            margin-right: 2px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
+            border-color: #FF9933;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #FF7E33 0%, #FF6633 100%);
+            border-color: #FF7E33;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 153, 51, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 15px;
+            }
+
+            .section-heading {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,13 +167,16 @@
             <!-- Page Header -->
             <div class="row mb-5">
                 <div class="col-12">
-                    <h1 class="text-center">Blog Page</h1>
+                    <h1 class="text-center">Reviews & Blogs</h1>
                     <p class="text-center text-muted">Explore reviews and blogs about heritage destinations.</p>
                 </div>
             </div>
 
             <!-- UNESCO Sites Section -->
-            <h1 class="section-heading">UNESCO Sites</h1>
+            <div class="section-heading-container">
+                <h1 class="section-heading">UNESCO Sites</h1>
+                <a href="#" class="btn-primary">Check Blogs</a>
+            </div>
             <div class="row">
                 <!-- Card 1 -->
                 <div class="col-md-3 mb-4">
@@ -61,10 +191,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-3 mb-4 card-item">
+                    <div class="card">
+                        <img src="./images/qutub-minar.jpg" class="card-img-top" alt="Qutub Minar">
+                        <div class="card-body">
+                            <h5 class="card-title">Michael Brown</h5>
+                            <p class="card-text">"Qutub Minar is a marvel of history and architecture. A must-visit for history enthusiasts."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Monuments Section -->
-            <h1 class="section-heading">Monuments</h1>
+            <div class="section-heading-container">
+                <h1 class="section-heading">Monuments</h1>
+                <a href="#" class="btn-primary">Check Blogs</a>
+            </div>
             <div class="row">
                 <!-- Card 1 -->
                 <div class="col-md-3 mb-4">
@@ -95,7 +240,10 @@
             </div>
 
             <!-- Museums Section -->
-            <h1 class="section-heading">Museums</h1>
+            <div class="section-heading-container">
+                <h1 class="section-heading">Museums</h1>
+                <a href="#" class="btn-primary">Check Blogs</a>
+            </div>
             <div class="row">
                 <!-- Card 1 -->
                 <div class="col-md-3 mb-4">
@@ -126,7 +274,10 @@
             </div>
 
             <!-- Ancient Ruins Section -->
-            <h1 class="section-heading">Ancient Ruins</h1>
+            <div class="section-heading-container">
+                <h1 class="section-heading">Ancient Ruins</h1>
+                <a href="#" class="btn-primary">Check Blogs</a>
+            </div>
             <div class="row card-container">
                 <!-- Card 1 -->
                 <div class="col-md-3 mb-4 card-item">
@@ -168,18 +319,7 @@
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="col-md-3 mb-4 card-item">
-                    <div class="card">
-                        <img src="./images/qutub-minar.jpg" class="card-img-top" alt="Qutub Minar">
-                        <div class="card-body">
-                            <h5 class="card-title">Michael Brown</h5>
-                            <p class="card-text">"Qutub Minar is a marvel of history and architecture. A must-visit for history enthusiasts."</p>
-                            <div class="text-warning">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </main>
