@@ -2,18 +2,16 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9fafb;
-    /* background: linear-gradient(180deg, #FF9933 0%, #FFFFFF 50%, #138808 100%); */
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
 }
 
-
-/* Navbar Styles - Updated with tricolor theme */
+/* Navbar Styles */
 .navbar {
     padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);
 }
 
@@ -25,12 +23,6 @@ body {
     align-items: center;
 }
 
-.navbar-brand:hover .brand-text {
-    animation: animate__rubberBand;
-    animation-duration: 1s;
-}
-
-/* Updated brand text to match tricolor theme */
 .brand-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -40,7 +32,6 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
     animation: textGradient 5s linear infinite;
     letter-spacing: -0.5px;
     margin-left: 5px;
@@ -49,6 +40,20 @@ body {
 @keyframes textGradient {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
+}
+
+/* Section Titles */
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #434A54;
+    background: linear-gradient(90deg, #FF9933, #a49b9b, #138808);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Place Cards */
@@ -61,10 +66,11 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    height: 350px; /* Set a fixed height for all cards */
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 15px; /* Adds space between cards */
 }
 
 .place-card img {
@@ -88,7 +94,7 @@ body {
     padding: 0 10px 10px;
     color: #555;
     font-size: 14px;
-    flex-grow: 1; /* Ensures the description takes up remaining space */
+    flex-grow: 1; /* Ensures the description takes up remaining space*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,6 +106,33 @@ body {
     box-shadow: 2px 2px 4px #FF9933, 4px 4px 6px #FFFFFF, 6px 6px 8px #138808;
 }
 
+/* Carousel Container */
+#carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adds space between cards */
+    overflow: visible;
+    margin-top: 20px;
+}
+
+/* Buttons for Navigation */
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 /* Search Bar */
 .search-bar {
     margin: 20px 0;
@@ -108,49 +141,35 @@ body {
     align-items: center;
 }
 
-.search-bar input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.search-bar select {
-    width: 150px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-left: 10px;
-}
-
-.search-bar button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    /* background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808); */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.search-bar button:hover {
-    background: linear-gradient(45deg, #138808, #8f8e8e, #FF9933);
-}
-
 .search-bar select, .search-bar button {
     margin-left: 10px;
 }
 
+.search-bar input, .search-bar select {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    
-    nav ul {
-        display: none;
+    #carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments{
+        flex-direction: column;
+        gap: 10px;
     }
+    .place-card {
+        height: auto; /* Allow cards to adjust height dynamically */
+        margin: 10px auto;
+        max-width: 100%;
+    }
+    button {
+        
+        margin:  10px auto;
 
-    .menu-toggle {
-        display: block;
-        cursor: pointer;
     }
 }
