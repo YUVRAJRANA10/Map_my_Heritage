@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNESCO Site - Taj Mahal</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+    /* Hero Section */
+    .hero-section {
+        position: relative;
+        background: url('./images/Taj\ Mahal\ Hero\ Image.png') no-repeat center center/cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .hero-content img {
+        max-width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        border: 3px solid white;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin-top: 40px;
+        }
+
+        .review-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .review-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+        }
+
+        .review-card p {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .global-rating {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .global-rating i {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+            <span class="brand-text">Map my Heritage</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-nav">
+                <a class="btn btn-primary" href="#" style="margin-right: 10px;">
+                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Taj Mahal</h1>
+        <p>A UNESCO World Heritage Site and a symbol of love.</p>
+    </div>
+</div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <h2>About Taj Mahal</h2>
+                <p>The Taj Mahal, located in Agra, India, is one of the most iconic monuments in the world. Built by Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal, it is a symbol of eternal love. The white marble mausoleum is a masterpiece of Mughal architecture and attracts millions of visitors every year.</p>
+                <img src="./images/Taj Mahal Hero Image.png" alt="Taj Mahal" class="img-fluid mt-3">
+            </div>
+            <div class="col-md-4">
+                <h2>Quick Facts</h2>
+                <ul>
+                    <li><strong>Location:</strong> Agra, India</li>
+                    <li><strong>Built:</strong> 1632–1653</li>
+                    <li><strong>Architectural Style:</strong> Mughal</li>
+                    <li><strong>UNESCO Status:</strong> World Heritage Site (1983)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2 class="text-center">Visitor Reviews</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="review-card">
+                        <h5>John Doe</h5>
+                        <p>"The Taj Mahal is breathtaking. A must-visit for everyone!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review-card">
+                        <h5>Jane Smith</h5>
+                        <p>"A symbol of love and beauty. The architecture is stunning."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review-card">
+                        <h5>Emily Johnson</h5>
+                        <p>"The serenity and beauty of the Taj Mahal are unmatched."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="global-rating">
+                <h3>Global Rating</h3>
+                <div>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleNav() {
+            const navbarCollapse = document.getElementById('navbarContent');
+            navbarCollapse.classList.toggle('active');
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
