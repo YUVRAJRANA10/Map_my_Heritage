@@ -1175,4 +1175,135 @@ document.addEventListener('DOMContentLoaded', function() {
                 link: "#"
             }
         ];
-     
+           
+        // Create markers on the map
+        const markers = [];
+        
+        // Add markers for each heritage site
+        heritageSites.forEach(site => {
+            // Create marker with custom icon based on category
+            const marker = L.marker(site.location, {
+                icon: createCustomIcon(site.category)
+            }).addTo(map);
+            
+            // Create popup content
+            const popupContent = `
+                <h6>${site.name}</h6>
+                <p>${site.category.charAt(0).toUpperCase() + site.category.slice(1)} Site</p>
+            `;
+            
+            // Bind popup to marker
+            marker.bindPopup(popupContent);
+            
+            // Store category and region for filtering
+            marker.properties = {
+                category: site.category,
+                region: site.region,
+                siteData: site
+            };
+            
+            // Add click event to update sidebar info
+            marker.on('click', function() {
+                updateSiteInfo(site);
+            });
+            
+            markers.push(marker);
+        });
+        
+        // Function to update site info in sidebar
+        function updateSiteInfo(site) {
+            // Show site info div, hide placeholder
+            document.getElementById('site-info-placeholder').style.display = 'none';
+            document.getElementById('site-info').style.display = 'block';
+            
+            // Update site info
+            document.getElementById('site-image').src = site.image;
+            document.getElementById('site-image').alt = site.name;
+            document.getElementById('site-name').textContent = site.name;
+            document.getElementById('site-description').textContent = site.description;
+            document.getElementById('site-category').textContent = site.category.toUpperCase();
+            document.getElementById('site-more-link').href = site.link;
+            
+            // Set category badge color
+            const categoryBadge = document.getElementById('site-category');
+            categoryBadge.className = 'badge badge-' + site.category;
+        }
+        
+        // Set up filter change event listeners
+        const categoryFilters = document.querySelectorAll('.map-filters .custom-control-input');
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('change', updateMapFilters);
+        });
+        
+        // Set up region button click events
+        const regionButtons = document.querySelectorAll('.region-btn');
+        regionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Toggle active class
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    // Reset to full India view
+                    map.setView([22.5937, 78.9629], 5);
+                } else {
+                    // Remove active class from all buttons
+                    regionButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Fly to region
+                    const region = this.dataset.region;
+                    flyToRegion(region);
+                }
+                
+                // Apply filters
+                updateMapFilters();
+            });
+        });
+        
+        // Function to filter markers based on category and region selections
+        function updateMapFilters() {
+            // Get checked categories
+            const checkedCategories = Array.from(document.querySelectorAll('.map-filters .custom-control-input:checked'))
+                .map(input => input.dataset.category);
+            
+            // Get selected region (if any)
+            const activeRegionBtn = document.querySelector('.region-btn.active');
+            const selectedRegion = activeRegionBtn ? activeRegionBtn.dataset.region : null;
+            
+            // Update markers visibility
+            markers.forEach(marker => {
+                const { category, region } = marker.properties;
+                
+                // Check if marker should be visible based on category and region
+                const isCategoryVisible = checkedCategories.includes(category);
+                const isRegionMatch = !selectedRegion || region === selectedRegion;
+                
+                // Update marker visibility
+                if (isCategoryVisible && isRegionMatch) {
+                    // If it was removed, add back to map
+                    if (!map.hasLayer(marker)) {
+                        marker.addTo(map);
+                    }
+                } else {
+                    // Remove from map
+                    map.removeLayer(marker);
+                }
+            });
+        }
+        
+        // Function to fly to specific regions
+        function flyToRegion(region) {
+            const regionCoordinates = {
+                north: { center: [28.7041, 77.1025], zoom: 6 },  // Delhi centered
+                south: { center: [11.1271, 78.6569], zoom: 6 },  // Tamil Nadu centered
+                east: { center: [22.9868, 87.8550], zoom: 6 },   // West Bengal centered
+                west: { center: [19.7515, 75.7139], zoom: 6 },   // Maharashtra centered
+                central: { center: [22.9734, 78.6569], zoom: 6 } // Madhya Pradesh centered
+            };
+            
+            const coords = regionCoordinates[region] || { center: [22.5937, 78.9629], zoom: 5 };
+            map.setView(coords.center, coords.zoom);
+        }
+    }
+});
