@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heritage Explorer</title>
+    <title>UNESCO Site - Taj Mahal</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/app.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
             color: white;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -28,23 +29,28 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
         }
+
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
         }
+
         .hero-content h1 {
             font-size: 3rem;
             font-weight: 700;
         }
+
         .hero-content p {
             font-size: 1.2rem;
         }
+
         /* Reviews Section */
         .reviews-section {
             margin-top: 40px;
         }
-         .review-card {
+
+        .review-card {
             border: none;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -52,58 +58,52 @@
             padding: 20px;
             background-color: #ffffff;
         }
+
         .review-card h5 {
             font-size: 1.2rem;
             font-weight: 600;
             color: #434A54;
         }
+
         .review-card p {
             color: #6c757d;
             margin-bottom: 10px;
         }
+
         .global-rating {
             text-align: center;
             margin-top: 20px;
         }
+
         .global-rating i {
             color: #FFD700;
         }
-
     </style>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
-                <span class="brand-text">Map my Heritage</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-                </ul>
-                <div class="navbar-nav">
-                    <a class="btn btn-primary" href="#" style="margin-right: 10px;">
-                        <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
-                    </a>
-                </div>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+            <span class="brand-text">Map my Heritage</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-nav">
+                <a class="btn btn-primary" href="#" style="margin-right: 10px;">
+                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
+                </a>
             </div>
-        </nav>
-
-        <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="hero-overlay">
-        <div class="hero-content">
-            <img src="./images/Taj Mahal Hero Image.png" alt="">
-            <h1>Taj Mahal</h1>
-            <p>A UNESCO World Heritage Site and a symbol of love.</p>
         </div>
-    </div>
-        <!-- Main Content -->
+    </nav>
+
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-overlay"></div>
@@ -173,10 +173,6 @@
             </div>
         </div>
     </div>
-        
-    
-                    
-
     <script>
         function toggleNav() {
             const navbarCollapse = document.getElementById('navbarContent');
