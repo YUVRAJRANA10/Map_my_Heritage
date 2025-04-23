@@ -44,8 +44,8 @@
         </div>
     </nav>
 
-     <!-- Login Container -->
-     <div class="login-container">
+    <!-- Login Container -->
+    <div class="login-container">
         <div class="row no-gutters w-100 h-100">
             <!-- Left side - Heritage image -->
             <div class="col-md-6 d-none d-md-block">
@@ -60,173 +60,184 @@
                     </div>
                 </div>
             </div>
-<!-- Right side - Login form -->
-<div class="col-md-6">
-    <div class="login-form-container">
-        <div class="login-tabs animate_animated animate_fadeIn">
-            <button class="tab-button active" id="login-tab">Login</button>
-            <button class="tab-button" id="register-tab">Register</button>
-        </div>
-        <!-- Login Form -->
-        <div id="login-form" class="animate_animated animate_fadeIn">
-            <h2>Welcome Back</h2>
-            <p class="text-muted mb-4">Sign in to continue your heritage journey</p>
             
-            <form action="index.html" method="GET">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        </div>
-                        <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+            <!-- Right side - Login form -->
+            <div class="col-md-6">
+                <div class="login-form-container">
+                    <div class="login-tabs animate_animated animate_fadeIn">
+                        <button class="tab-button active" id="login-tab">Login</button>
+                        <button class="tab-button" id="register-tab">Register</button>
+                    </div>
+                    
+                     <!-- Login Form -->
+                    <div id="login-form" class="animate_animated animate_fadeIn">
+                        <h2>Welcome Back</h2>
+                        <p class="text-muted mb-4">Sign in to continue your heritage journey</p>
+                        
+                        <form action="index.html" method="GET">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="password" placeholder="Your password" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text toggle-password">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember-me">
+                                    <label class="form-check-label" for="remember-me">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-link">Forgot Password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block login-btn">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Login
+                            </button>
+                            
+                            <div class="social-login">
+                                <p class="text-center mt-4 mb-3">Or sign in with</p>
+                                <div class="social-buttons">
+                                    <button type="button" class="btn google-btn">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+                                    <button type="button" class="btn facebook-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+                                    <button type="button" class="btn twitter-btn">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Register Form (initially hidden) -->
+                    <div id="register-form" class="d-none animate__animated">
+                        <h2>Create Account</h2>
+                        <p class="text-muted mb-4">Join us to explore India's rich heritage</p>
+                        
+                        <form action="index.html" method="GET">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="full-name" placeholder="Your full name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="register-email" placeholder="Your email address" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="register-password" placeholder="Create a password" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text toggle-password">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small class="form-text text-muted">Password must be at least 8 characters long</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="terms" required>
+                                    <label class="form-check-label" for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block register-btn">
+                                <i class="fas fa-user-plus mr-2"></i> Register
+                            </button>
+                            
+                            <div class="social-login">
+                                <p class="text-center mt-4 mb-3">Or register with</p>
+                                <div class="social-buttons">
+                                    <button type="button" class="btn google-btn">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+                                    <button type="button" class="btn facebook-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+                                    <button type="button" class="btn twitter-btn">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="password" placeholder="Your password" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text toggle-password">
-                                <i class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="remember-me">
-                        <label class="form-check-label" for="remember-me">Remember me</label>
-                    </div>
-                    <a href="#" class="forgot-link">Forgot Password?</a>
-                </div>
-                
-                <button type="submit" class="btn btn-primary btn-block login-btn">
-                    <i class="fas fa-sign-in-alt mr-2"></i> Login
-                </button>
-                <div class="social-login">
-                    <p class="text-center mt-4 mb-3">Or sign in with</p>
-                    <div class="social-buttons">
-                        <button type="button" class="btn google-btn">
-                            <i class="fab fa-google"></i>
-                        </button>
-                        <button type="button" class="btn facebook-btn">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
-                        <button type="button" class="btn twitter-btn">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <!-- Register Form (initially hidden) -->
-        <div id="register-form" class="d-none animate__animated">
-            <h2>Create Account</h2>
-            <p class="text-muted mb-4">Join us to explore India's rich heritage</p>
-            
-            <form action="index.html" method="GET">
-                <div class="form-group">
-                    <label for="full-name">Full Name</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" id="full-name" placeholder="Your full name" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="register-email">Email</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                        </div>
-                        <input type="email" class="form-control" id="register-email" placeholder="Your email address" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="register-password">Password</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="register-password" placeholder="Create a password" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text toggle-password">
-                                <i class="fas fa-eye"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <small class="form-text text-muted">Password must be at least 8 characters long</small>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="terms" required>
-                        <label class="form-check-label" for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary btn-block register-btn">
-                    <i class="fas fa-user-plus mr-2"></i> Register
-                </button>
-                <div class="social-login">
-                    <p class="text-center mt-4 mb-3">Or register with</p>
-                    <div class="social-buttons">
-                        <button type="button" class="btn google-btn">
-                            <i class="fab fa-google"></i>
-                        </button>
-                        <button type="button" class="btn facebook-btn">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
-                        <button type="button" class="btn twitter-btn">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
-  
-  <script>
-      // Tab switching functionality
-      document.addEventListener('DOMContentLoaded', function() {
-          const loginTab = document.getElementById('login-tab');
-          const registerTab = document.getElementById('register-tab');
-          const loginForm = document.getElementById('login-form');
-          const registerForm = document.getElementById('register-form');
-          
-          // Completely reset form classes before applying new ones
-          function resetFormClasses() {
-              // Reset all animation classes that might cause conflicts
-              loginForm.classList.remove(
-                  'd-none', 
-                  'animate__fadeOutRight',
-                  'animate__fadeOutLeft', 
-                  'animate__fadeInLeft',
-                  'animate__fadeInRight'
-              );
-              registerForm.classList.remove(
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            // Completely reset form classes before applying new ones
+            function resetFormClasses() {
+                // Reset all animation classes that might cause conflicts
+                loginForm.classList.remove(
+                    'd-none', 
+                    'animate__fadeOutRight',
+                    'animate__fadeOutLeft', 
+                    'animate__fadeInLeft',
+                    'animate__fadeInRight'
+                );
+                
+                registerForm.classList.remove(
                     'd-none', 
                     'animate__fadeOutRight',
                     'animate__fadeOutLeft', 
@@ -257,13 +268,26 @@
                     registerForm.classList.add('d-none');
                 }, 500);
             });
-            The "Register" tab becomes active, and the "Login" tab becomes inactive visually.
-
-              
-
+            
+            registerTab.addEventListener('click', function() {
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
                 
-
-
-
-
-
+                // Reset all animation classes first
+                resetFormClasses();
+                
+                // Show register form
+                registerForm.classList.remove('d-none');
+                
+                // Force a browser reflow to ensure animations work properly
+                void registerForm.offsetWidth;
+                
+                // Apply new animation class
+                registerForm.classList.add('animate__fadeInRight');
+                
+                // Hide login form
+                loginForm.classList.add('animate__fadeOutLeft');
+                setTimeout(() => {
+                    loginForm.classList.add('d-none');
+                }, 500);
+            });
