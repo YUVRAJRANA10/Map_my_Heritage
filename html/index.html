@@ -256,6 +256,63 @@
             </div>
         </div>
 
+        <h2 class="text-center mt-5 mb-4 animate__animated animate__fadeIn">Explore Heritage Sites Map</h2>
+        <div class="row">
+            <div class="col-md-9">
+                <div id="heritage-map" class="heritage-map-container shadow animate__animated animate__fadeIn"></div>
+            </div>
+            <div class="col-md-3">
+                <div class="map-sidebar animate__animated animate__fadeInRight">
+                    <div class="map-filters">
+                        <h5 class="mb-3">Filter Sites</h5>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="filter-unesco" checked data-category="unesco">
+                            <label class="custom-control-label" for="filter-unesco">UNESCO Sites</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="filter-ancient" checked data-category="ancient">
+                            <label class="custom-control-label" for="filter-ancient">Ancient Ruins</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="filter-museum" checked data-category="museum">
+                            <label class="custom-control-label" for="filter-museum">Museums</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="filter-monument" checked data-category="monument">
+                            <label class="custom-control-label" for="filter-monument">Monuments</label>
+                        </div>
+                    </div>
+                    <div class="popular-regions mt-4">
+                        <h5 class="mb-3">Regions</h5>
+                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="north">North India</button>
+                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="south">South India</button>
+                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="east">East India</button>
+                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="west">West India</button>
+                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="central">Central India</button>
+                    </div>
+                    <div class="map-info mt-4">
+                        <div class="selected-site-info">
+                            <h5>Site Information</h5>
+                            <div id="site-info-placeholder">
+                                <p class="text-muted">Click on a marker to see details</p>
+                            </div>
+                            <div id="site-info" style="display: none;">
+                                <div class="site-info-image mb-2">
+                                    <img src="" alt="Heritage Site" class="img-fluid rounded" id="site-image">
+                                </div>
+                                <h6 id="site-name" class="font-weight-bold"></h6>
+                                <p id="site-description" class="small"></p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="badge badge-info" id="site-category"></span>
+                                    <a href="#" class="small" id="site-more-link">View Details →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h2 class="text-center mb-4 animate__animated animate__fadeIn">Recent Reviews</h2>
         <div class="row" id="reviews-container">
             <div class="col-md-6">
