@@ -44,3 +44,38 @@ body {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
 }
+.container {
+    margin-top: 30px;
+}
+.text-justify {
+    text-align: justify;
+}
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #434A54;
+}
+
+.carousel-inner img {
+    border-radius: 8px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.map iframe {
+    border-radius: 8px;
+}
+
+.view-360 iframe {
+    border-radius: 8px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
