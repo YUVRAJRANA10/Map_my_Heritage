@@ -203,6 +203,30 @@
 </div>
 </div>
 </div>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+  
+  <script>
+      // Tab switching functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          const loginTab = document.getElementById('login-tab');
+          const registerTab = document.getElementById('register-tab');
+          const loginForm = document.getElementById('login-form');
+          const registerForm = document.getElementById('register-form');
+          
+          // Completely reset form classes before applying new ones
+          function resetFormClasses() {
+              // Reset all animation classes that might cause conflicts
+              loginForm.classList.remove(
+                  'd-none', 
+                  'animate__fadeOutRight',
+                  'animate__fadeOutLeft', 
+                  'animate__fadeInLeft',
+                  'animate__fadeInRight'
+              );
+              
 
                 
 
