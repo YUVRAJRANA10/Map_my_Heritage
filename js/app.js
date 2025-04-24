@@ -1239,6 +1239,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const regionButtons = document.querySelectorAll('.region-btn');
         regionButtons.forEach(button => {
             button.addEventListener('click', function() {
+                // Add a nice visual transition when clicking
+                this.classList.add('animate__animated', 'animate__pulse');
+                setTimeout(() => {
+                    this.classList.remove('animate__animated', 'animate__pulse');
+                }, 700);
+                
                 // Toggle active class
                 if (this.classList.contains('active')) {
                     this.classList.remove('active');
