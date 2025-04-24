@@ -328,5 +328,38 @@
                     author: "Hu Shih"
                 }
             ];
+            let currentQuote = 0;
+            const quoteText = document.querySelector('.quote-text');
+            const quoteAuthor = document.querySelector('.quote-author');
+            
+            function changeQuote() {
+                const quoteBox = document.querySelector('.quote-box');
+                quoteBox.classList.add('animate__fadeOut');
+                
+                setTimeout(() => {
+                    currentQuote = (currentQuote + 1) % quotes.length;
+                    quoteText.textContent = "${quotes[currentQuote].text}";
+                    quoteAuthor.textContent = - ${quotes[currentQuote].author};
+                    
+                    quoteBox.classList.remove('animate__fadeOut');
+                    quoteBox.classList.add('animate__fadeIn');
+                    
+                    setTimeout(() => {
+                        quoteBox.classList.remove('animate__fadeIn');
+                    }, 1000);
+                }, 500);
+            }
+                   // Change quote every 10 seconds
+                   setInterval(changeQuote, 10000);
+            
+            // Fix any height issues on load
+            window.addEventListener('load', function() {
+                document.querySelector('.login-container').style.minHeight = 'calc(100vh - 76px)';
+            });
+        });
+    </script>
+</body>
+</html>     
+
 
             
