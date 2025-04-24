@@ -291,3 +291,22 @@
                     loginForm.classList.add('d-none');
                 }, 500);
             });
+             // Toggle password visibility
+             const togglePassword = document.querySelectorAll('.toggle-password');
+            togglePassword.forEach(function(toggle) {
+                toggle.addEventListener('click', function() {
+                    const passwordInput = this.parentElement.previousElementSibling;
+                    const passwordIcon = this.querySelector('i');
+                    
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        passwordIcon.classList.remove('fa-eye');
+                        passwordIcon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        passwordIcon.classList.remove('fa-eye-slash');
+                        passwordIcon.classList.add('fa-eye');
+                    }
+                });
+            });
+            
