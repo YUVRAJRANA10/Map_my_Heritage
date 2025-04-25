@@ -337,6 +337,13 @@ html {
     scrollbar-width: thin;
 }
 
+/* Make sure backgrounds extend fully */
+.login-image,
+.login-form-container {
+    background-position: center;
+    background-size: cover;
+    min-height: calc(100vh - 76px);
+}
 
 
 
