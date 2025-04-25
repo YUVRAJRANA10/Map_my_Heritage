@@ -132,6 +132,29 @@
     margin-bottom: 10px;
     font-weight: 700;
 }
+.login-form-container h2:after {
+    display: none; /* Remove the underline from h2 that's in app.css */
+}
+
+.login-form-container label {
+    font-weight: 600;
+    color: #434A54;
+    margin-bottom: 8px;
+}
+
+.login-form-container .form-control {
+    height: 50px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.login-form-container .input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+    color: #6c757d;
+}
+
+
 
 
 
