@@ -178,6 +178,17 @@
     align-items: center;
     justify-content: center;
 }
+/* Social Login */
+.social-login {
+    margin-top: 30px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
 
 
 
