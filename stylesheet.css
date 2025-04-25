@@ -332,6 +332,11 @@ body {
     height: 76px;
     flex-shrink: 0;
 }
+/* Fix scrollbar appearance issues */
+html {
+    scrollbar-width: thin;
+}
+
 
 
 
