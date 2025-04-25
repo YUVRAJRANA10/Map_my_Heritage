@@ -257,6 +257,12 @@
         font-size: 1.8rem;
     }
 }
+/* Add Indian tricolor accent to checkboxes */
+.form-check-input:checked {
+    background-color: #FF9933;
+    border-color: #FF9933;
+}
+
 
 
 
