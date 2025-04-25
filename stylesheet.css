@@ -82,6 +82,25 @@
     background-position: center;
     background-size: cover;
 }
+/* Tab styling */
+.login-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6c757d;
+    position: relative;
+    transition: all 0.3s ease;
+    outline: none;
+    cursor: pointer;
+}
 
 
 
