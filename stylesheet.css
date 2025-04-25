@@ -262,6 +262,13 @@
     background-color: #FF9933;
     border-color: #FF9933;
 }
+/* Form validation styling */
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus {
+    border-color: #138808;
+    box-shadow: 0 0 0 0.2rem rgba(19, 136, 8, 0.25);
+}
+
 
 
 
