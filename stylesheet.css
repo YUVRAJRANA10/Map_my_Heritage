@@ -273,6 +273,18 @@
     border-color: #FF9933;
     box-shadow: 0 0 0 0.2rem rgba(255, 153, 51, 0.25);
 }
+/* Terms links styling */
+.form-check-label a {
+    color: #FF9933;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.form-check-label a:hover {
+    color: #FF7E33;
+    text-decoration: none;
+}
+
 
 
 
