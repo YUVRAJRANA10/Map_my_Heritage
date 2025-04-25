@@ -1342,3 +1342,203 @@ h2:after {
 .panorama-error .btn {
     margin-top: 1rem;
 }
+
+/* Interactive Heritage Map Styles */
+.heritage-map-container {
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.map-sidebar {
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Filter icons in map sidebar */
+.filter-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.custom-control-label {
+    flex-grow: 1;
+    padding-left: 5px;
+}
+
+.custom-control {
+    padding-left: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Region buttons with images */
+.region-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 6px 8px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.region-img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.region-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+.region-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.region-btn.active {
+    color: white;
+    border-color: transparent;
+}
+
+.region-btn.active::before {
+    opacity: 0.85;
+}
+
+.region-btn.active .region-img {
+    transform: scale(1.2);
+    border-color: white;
+}
+
+.region-btn.active[data-region="north"]::before {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/Taj Mahal Hero Image.png');
+}
+
+.region-btn.active[data-region="south"]::before {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/meenakshi-temple.jpg');
+}
+
+.region-btn.active[data-region="east"]::before {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/sun_temple_konark.jpg');
+}
+
+.region-btn.active[data-region="west"]::before {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/AdobeStock_505662817_Preview.jpeg');
+}
+
+.region-btn.active[data-region="central"]::before {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../images/khajuraho.jpg');
+}
+
+.site-info-image {
+    height: 120px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.site-info-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.site-info-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Custom marker styles */
+.heritage-marker {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.heritage-marker.unesco {
+    background-color: #FF9933;
+}
+
+.heritage-marker.ancient {
+    background-color: #138808;
+}
+
+.heritage-marker.museum {
+    background-color: #f0c14b;
+}
+
+.heritage-marker.monument {
+    background-color: #4a90e2;
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.leaflet-popup-content {
+    margin: 10px 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.leaflet-popup-content h6 {
+    margin: 0 0 5px;
+    font-weight: 600;
+}
+
+.leaflet-popup-content p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Category badges for the site info panel */
+#site-category.badge-unesco {
+    background-color: #FF9933;
+}
+
+#site-category.badge-ancient {
+    background-color: #138808;
+}
+
+#site-category.badge-museum {
+    background-color: #f0c14b;
+}
+
+#site-category.badge-monument {
+    background-color: #4a90e2;
+}
