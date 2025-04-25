@@ -221,6 +221,24 @@
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+/* Toggle Password */
+.toggle-password {
+    cursor: pointer;
+    border-left: none;
+    background-color: #f8f9fa;
+}
+
+/* Animation specific adjustments */
+.animate__fadeInLeft,
+.animate__fadeInRight {
+    --animate-duration: 0.5s;
+}
+
+.animate__fadeOutLeft,
+.animate__fadeOutRight {
+    --animate-duration: 0.5s;
+}
+
 
 
 
