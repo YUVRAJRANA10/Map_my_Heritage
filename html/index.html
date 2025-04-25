@@ -262,33 +262,65 @@
                 <div id="heritage-map" class="heritage-map-container shadow animate__animated animate__fadeIn"></div>
             </div>
             <div class="col-md-3">
+                <!-- Update the map sidebar with images for each category -->
                 <div class="map-sidebar animate__animated animate__fadeInRight">
                     <div class="map-filters">
                         <h5 class="mb-3">Filter Sites</h5>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox d-flex align-items-center">
                             <input type="checkbox" class="custom-control-input" id="filter-unesco" checked data-category="unesco">
                             <label class="custom-control-label" for="filter-unesco">UNESCO Sites</label>
+                            <img src="../images/taj-mahal-card.jpg" alt="UNESCO Icon" class="filter-icon ml-auto">
                         </div>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox d-flex align-items-center">
                             <input type="checkbox" class="custom-control-input" id="filter-ancient" checked data-category="ancient">
                             <label class="custom-control-label" for="filter-ancient">Ancient Ruins</label>
+                            <img src="../images/khajuraho.jpg" alt="Ancient Ruins Icon" class="filter-icon ml-auto">
                         </div>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox d-flex align-items-center">
                             <input type="checkbox" class="custom-control-input" id="filter-museum" checked data-category="museum">
                             <label class="custom-control-label" for="filter-museum">Museums</label>
+                            <img src="../images/victoria-memorial.jpg" alt="Museums Icon" class="filter-icon ml-auto">
                         </div>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox d-flex align-items-center">
                             <input type="checkbox" class="custom-control-input" id="filter-monument" checked data-category="monument">
                             <label class="custom-control-label" for="filter-monument">Monuments</label>
+                            <img src="../images/qutub-minar.jpg" alt="Monuments Icon" class="filter-icon ml-auto">
                         </div>
                     </div>
                     <div class="popular-regions mt-4">
                         <h5 class="mb-3">Regions</h5>
-                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="north">North India</button>
-                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="south">South India</button>
-                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="east">East India</button>
-                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="west">West India</button>
-                        <button class="btn btn-sm btn-outline-primary mb-2 region-btn" data-region="central">Central India</button>
+                        <div class="row">
+                            <div class="col-6 mb-2">
+                                <button class="btn btn-sm btn-outline-primary region-btn" data-region="north">
+                                    <img src="../images/Taj Mahal Hero Image.png" alt="North India" class="region-img">
+                                    <span>North India</span>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-2">
+                                <button class="btn btn-sm btn-outline-primary region-btn" data-region="south">
+                                    <img src="../images/meenakshi-temple.jpg" alt="South India" class="region-img">
+                                    <span>South India</span>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-2">
+                                <button class="btn btn-sm btn-outline-primary region-btn" data-region="east">
+                                    <img src="../images/sun_temple_konark.jpg" alt="East India" class="region-img">
+                                    <span>East India</span>
+                                </button>
+                            </div>
+                            <div class="col-6 mb-2">
+                                <button class="btn btn-sm btn-outline-primary region-btn" data-region="west">
+                                    <img src="../images/AdobeStock_505662817_Preview.jpeg" alt="West India" class="region-img">
+                                    <span>West India</span>
+                                </button>
+                            </div>
+                            <div class="col-12 mb-2">
+                                <button class="btn btn-sm btn-outline-primary region-btn" data-region="central">
+                                    <img src="../images/khajuraho.jpg" alt="Central India" class="region-img">
+                                    <span>Central India</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div class="map-info mt-4">
                         <div class="selected-site-info">
@@ -1379,7 +1411,7 @@
                 </div>
             </div>
 
-            <!-- Bottom Footer -->
+            <!-- Bottom Footer```html
             <div class="footer-bottom py-3">
                 <div class="row">
                     <div class="col-md-6">
@@ -1425,3 +1457,4 @@
     <script src="../js/app.js"></script>
 </body>
 </html>
+```
