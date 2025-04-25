@@ -238,6 +238,25 @@
 .animate__fadeOutRight {
     --animate-duration: 0.5s;
 }
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .login-form-container {
+        padding: 30px 20px;
+    }
+
+    .login-container {
+        min-height: calc(100vh - 76px);
+    }
+
+    .tab-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .login-form-container h2 {
+        font-size: 1.8rem;
+    }
+}
 
 
 
