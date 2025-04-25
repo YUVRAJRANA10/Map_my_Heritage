@@ -297,6 +297,24 @@ rder-radius: 2px;
     background-color: #dc3545;
     width: 30%;
 }
+.strength-medium {
+    background-color: #ffc107;
+    width: 60%;
+}
+
+.strength-strong {
+    background-color: #138808;
+    width: 100%;
+}
+
+/* Fix for bootstrap row and container issues */
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 
 
 
