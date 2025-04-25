@@ -1,0 +1,175 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9fafb;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #434A54;
+    display: flex;
+    align-items: center;
+}
+
+.brand-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGradient 5s linear infinite;
+    letter-spacing: -0.5px;
+    margin-left: 5px;
+}
+
+@keyframes textGradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Section Titles */
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #434A54;
+    background: linear-gradient(90deg, #FF9933, #a49b9b, #138808);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Place Cards */
+.place-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 15px; /* Adds space between cards */
+}
+
+.place-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Place Card Titles (Site Names) */
+.place-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FF9933, #a4a2a2, #138808);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.place-card p {
+    padding: 0 10px 10px;
+    color: #555;
+    font-size: 14px;
+    flex-grow: 1; /* Ensures the description takes up remaining space*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.place-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 2px 2px 4px #FF9933, 4px 4px 6px #FFFFFF, 6px 6px 8px #138808;
+}
+
+/* Carousel Container */
+#carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adds space between cards */
+    overflow: visible;
+    margin-top: 20px;
+}
+
+/* Buttons for Navigation */
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Search Bar */
+.search-bar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar select, .search-bar button {
+    margin-left: 10px;
+}
+
+.search-bar input, .search-bar select {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .place-card {
+        height: auto; /* Allow cards to adjust height dynamically */
+        margin: 10px auto;
+        max-width: 100%;
+    }
+    button {
+        
+        margin:  10px auto;
+
+    }
+}

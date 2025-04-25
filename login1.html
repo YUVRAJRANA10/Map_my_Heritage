@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../images/logo2-removebg-preview.png" as="image" fetchpriority="high">
+    <link rel="preload" href="../images/Taj Mahal Hero Image.png" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <title>Login | Map My Heritage</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center animate_animated animate_fadeIn" href="index.html">
+            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+            <span class="brand-text">Map my Heritage</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-nav">
+                <!-- Changed button to show active state since we're on the login page -->
+                <a class="btn btn-secondary" href="#" style="margin-right: 10px; background-color: #138808; color: #fff;">
+                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up <span class="badge badge-light ml-1">Active</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="row no-gutters w-100 h-100">
+            <!-- Left side - Heritage image -->
+            <div class="col-md-6 d-none d-md-block">
+                <div class="login-image">
+                    <!-- Photo overlay with tricolor gradient -->
+                    <div class="login-overlay"></div>
+                    <div class="login-quotes">
+                        <div class="quote-box animate_animated animate_fadeIn">
+                            <p class="quote-text">"India is the cradle of the human race, the birthplace of human speech, the mother of history, the grandmother of legend, and the great-grandmother of tradition."</p>
+                            <p class="quote-author">- Mark Twain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side - Login form -->
+            <div class="col-md-6">
+                <div class="login-form-container">
+                    <div class="login-tabs animate_animated animate_fadeIn">
+                        <button class="tab-button active" id="login-tab">Login</button>
+                        <button class="tab-button" id="register-tab">Register</button>
+                    </div>
+                    
+                     <!-- Login Form -->
+                    <div id="login-form" class="animate_animated animate_fadeIn">
+                        <h2>Welcome Back</h2>
+                        <p class="text-muted mb-4">Sign in to continue your heritage journey</p>
+                        
+                        <form action="index.html" method="GET">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="email" placeholder="Your email address" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="password" placeholder="Your password" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text toggle-password">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember-me">
+                                    <label class="form-check-label" for="remember-me">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-link">Forgot Password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block login-btn">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Login
+                            </button>
+                            
+                            <div class="social-login">
+                                <p class="text-center mt-4 mb-3">Or sign in with</p>
+                                <div class="social-buttons">
+                                    <button type="button" class="btn google-btn">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+                                    <button type="button" class="btn facebook-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+                                    <button type="button" class="btn twitter-btn">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Register Form (initially hidden) -->
+                    <div id="register-form" class="d-none animate__animated">
+                        <h2>Create Account</h2>
+                        <p class="text-muted mb-4">Join us to explore India's rich heritage</p>
+                        
+                        <form action="index.html" method="GET">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="full-name" placeholder="Your full name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="register-email" placeholder="Your email address" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="register-password" placeholder="Create a password" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text toggle-password">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <small class="form-text text-muted">Password must be at least 8 characters long</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="terms" required>
+                                    <label class="form-check-label" for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block register-btn">
+                                <i class="fas fa-user-plus mr-2"></i> Register
+                            </button>
+                            
+                            <div class="social-login">
+                                <p class="text-center mt-4 mb-3">Or register with</p>
+                                <div class="social-buttons">
+                                    <button type="button" class="btn google-btn">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+                                    <button type="button" class="btn facebook-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+                                    <button type="button" class="btn twitter-btn">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            // Completely reset form classes before applying new ones
+            function resetFormClasses() {
+                // Reset all animation classes that might cause conflicts
+                loginForm.classList.remove(
+                    'd-none', 
+                    'animate__fadeOutRight',
+                    'animate__fadeOutLeft', 
+                    'animate__fadeInLeft',
+                    'animate__fadeInRight'
+                );
+                
+                registerForm.classList.remove(
+                    'd-none', 
+                    'animate__fadeOutRight',
+                    'animate__fadeOutLeft', 
+                    'animate__fadeInLeft',
+                    'animate__fadeInRight'
+                );
+            }
+            
+            loginTab.addEventListener('click', function() {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+                
+                // Reset all animation classes first
+                resetFormClasses();
+                
+                // Show login form with animation
+                loginForm.classList.remove('d-none');
+                
+                // Force a browser reflow to ensure animations work properly
+                void loginForm.offsetWidth;
+                
+                // Apply new animation class
+                loginForm.classList.add('animate__fadeInLeft');
+                
+                // Hide register form
+                registerForm.classList.add('animate__fadeOutRight');
+                setTimeout(() => {
+                    registerForm.classList.add('d-none');
+                }, 500);
+            });
+            
+            registerTab.addEventListener('click', function() {
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
+                
+                // Reset all animation classes first
+                resetFormClasses();
+                
+                // Show register form
+                registerForm.classList.remove('d-none');
+                
+                // Force a browser reflow to ensure animations work properly
+                void registerForm.offsetWidth;
+                
+                // Apply new animation class
+                registerForm.classList.add('animate__fadeInRight');
+                
+                // Hide login form
+                loginForm.classList.add('animate__fadeOutLeft');
+                setTimeout(() => {
+                    loginForm.classList.add('d-none');
+                }, 500);
+            });
+             // Toggle password visibility
+             const togglePassword = document.querySelectorAll('.toggle-password');
+            togglePassword.forEach(function(toggle) {
+                toggle.addEventListener('click', function() {
+                    const passwordInput = this.parentElement.previousElementSibling;
+                    const passwordIcon = this.querySelector('i');
+                    
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        passwordIcon.classList.remove('fa-eye');
+                        passwordIcon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        passwordIcon.classList.remove('fa-eye-slash');
+                        passwordIcon.classList.add('fa-eye');
+                    }
+                });
+            });
+             // Dynamic quote cycling
+             const quotes = [
+                {
+                    text: "India is the cradle of the human race, the birthplace of human speech, the mother of history, the grandmother of legend, and the great-grandmother of tradition.",
+                    author: "Mark Twain"
+                },
+                {
+                    text: "We owe a lot to the Indians, who taught us how to count, without which no worthwhile scientific discovery could have been made.",
+                    author: "Albert Einstein"
+                },
+                {
+                    text: "India has two million gods and worships them all. In religion all other countries are paupers; India is the only millionaire.",
+                    author: "Mark Twain"
+                },
+                {
+                    text: "India conquered and dominated China culturally for 20 centuries without ever having to send a single soldier across her border.",
+                    author: "Hu Shih"
+                }
+            ];
+            let currentQuote = 0;
+            const quoteText = document.querySelector('.quote-text');
+            const quoteAuthor = document.querySelector('.quote-author');
+            
+            function changeQuote() {
+                const quoteBox = document.querySelector('.quote-box');
+                quoteBox.classList.add('animate__fadeOut');
+                
+                setTimeout(() => {
+                    currentQuote = (currentQuote + 1) % quotes.length;
+                    quoteText.textContent = "${quotes[currentQuote].text}";
+                    quoteAuthor.textContent = - ${quotes[currentQuote].author};
+                    
+                    quoteBox.classList.remove('animate__fadeOut');
+                    quoteBox.classList.add('animate__fadeIn');
+                    
+                    setTimeout(() => {
+                        quoteBox.classList.remove('animate__fadeIn');
+                    }, 1000);
+                }, 500);
+            }
+                   // Change quote every 10 seconds
+                   setInterval(changeQuote, 10000);
+            
+            // Fix any height issues on load
+            window.addEventListener('load', function() {
+                document.querySelector('.login-container').style.minHeight = 'calc(100vh - 76px)';
+            });
+        });
+    </script>
+</body>
+</html>     
+
+
+            

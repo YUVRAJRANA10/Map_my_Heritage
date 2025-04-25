@@ -348,9 +348,28 @@ function animateSunRays(time) {
     }
 }
 
-// Animation loop
+// Check if element is in viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Animation loop with performance optimization
 function animate() {
     requestAnimationFrame(animate);
+    
+    const container = document.getElementById('canvas-container');
+    if (!container) return;
+    
+    // Only render when container is visible in viewport
+    if (!isElementInViewport(container) || document.hidden) {
+        return; // Skip rendering when not visible
+    }
     
     const time = Date.now();
     
@@ -359,12 +378,11 @@ function animate() {
     
     controls.update();
     
-    if (document.getElementById('canvas-container')) {
-        if (bloomComposer) {
-            bloomComposer.render();
-        } else {
-            renderer.render(scene, camera);
-        }
+    // Render with appropriate composer
+    if (bloomComposer) {
+        bloomComposer.render();
+    } else {
+        renderer.render(scene, camera);
     }
 }
 
