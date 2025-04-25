@@ -120,5 +120,19 @@
     animation: tabGradient 3s linear infinite;
     background-size: 200% auto;
 }
+@keyframes tabGradient {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+/* Form Styling */
+.login-form-container h2 {
+    color: #434A54;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+
 
 
