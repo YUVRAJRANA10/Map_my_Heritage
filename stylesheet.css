@@ -153,6 +153,23 @@
     border-right: none;
     color: #6c757d;
 }
+.login-form-container .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 153, 51, 0.25);
+    border-color: #FF9933;
+}
+
+.forgot-link {
+    color: #FF9933;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.forgot-link:hover {
+    color: #FF7E33;
+    text-decoration: none;
+}
+
 
 
 
