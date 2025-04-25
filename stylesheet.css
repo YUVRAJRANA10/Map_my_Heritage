@@ -204,6 +204,23 @@
     color: white;
 }
 
+.facebook-btn {
+    background-color: #3b5998;
+    color: white;
+}
+
+.twitter-btn {
+    background-color: #55acee;
+    color: white;
+}
+
+.google-btn:hover,
+.facebook-btn:hover,
+.twitter-btn:hover {
+    transform: translateY(-3px);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 
 
