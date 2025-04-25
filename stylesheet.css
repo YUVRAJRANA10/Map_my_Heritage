@@ -327,6 +327,12 @@ body {
     display: flex;
     flex-direction: column;
 }
+/* Fix navbar height calculations */
+.navbar {
+    height: 76px;
+    flex-shrink: 0;
+}
+
 
 
 
