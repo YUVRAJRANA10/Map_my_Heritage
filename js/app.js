@@ -1081,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [27.1751, 78.0421],
                 category: "unesco",
                 region: "north",
-                image: "../images/taj-mahal-card.jpg",
+                image: "../images/Taj Mahal Hero Image.png",
                 description: "An ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra.",
                 link: "../Unesco_Page.html"
             },
@@ -1117,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [28.5244, 77.1855],
                 category: "unesco",
                 region: "north",
-                image: "../images/qutub-minar.jpg",
+                image: "../images/qutub1_042717100950.jpg",
                 description: "The tallest brick minaret in the world, this UNESCO World Heritage site was built in 1220 AD.",
                 link: "#"
             },
@@ -1126,7 +1126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [9.9195, 78.1193],
                 category: "ancient",
                 region: "south",
-                image: "../images/meenakshi-temple.jpg",
+                image: "../images/download.jpg",
                 description: "A historic Hindu temple located in the temple city of Madurai, dedicated to goddess Meenakshi.",
                 link: "#"
             },
@@ -1135,7 +1135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [28.6129, 77.2295],
                 category: "museum",
                 region: "north",
-                image: "../images/national-museum.jpg",
+                image: "../images/NAtional-museum.jpg",
                 description: "One of the largest museums in India with a diverse collection of artifacts from prehistoric era to modern works of art.",
                 link: "#"
             },
@@ -1144,7 +1144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [26.9855, 75.8513],
                 category: "monument",
                 region: "north",
-                image: "../images/amber-fort.jpg",
+                image: "../images/Amber_fort.jpg",
                 description: "A majestic fort located in Amer, Rajasthan, known for its artistic Hindu style elements.",
                 link: "#"
             },
@@ -1153,7 +1153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [24.8530, 79.9199],
                 category: "unesco",
                 region: "central",
-                image: "../images/khajuraho.jpg",
+                image: "../images/khajurao.jpg",
                 description: "Famous for their Nagara-style architectural symbolism and erotic sculptures.",
                 link: "#"
             },
