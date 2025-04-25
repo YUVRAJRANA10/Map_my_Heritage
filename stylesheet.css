@@ -285,6 +285,18 @@
     text-decoration: none;
 }
 
+.password-strength {
+    height: 5px;
+    margin-top: 10px;
+    bo/* Password strength indicator */
+rder-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.strength-weak {
+    background-color: #dc3545;
+    width: 30%;
+}
 
 
 
