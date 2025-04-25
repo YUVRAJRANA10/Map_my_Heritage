@@ -169,6 +169,16 @@
     color: #FF7E33;
     text-decoration: none;
 }
+/* Login Button */
+.login-btn, .register-btn {
+    height: 50px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 
