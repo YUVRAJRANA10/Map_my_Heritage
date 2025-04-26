@@ -4,6 +4,173 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ancient Ruins</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+        /* Section Headings */
+        .section-heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #434A54;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .text-warning i {
+            margin-right: 2px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin-top: 40px;
+        }
+
+        .review-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .review-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+        }
+
+        .review-card p {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .global-rating {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .global-rating i {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background: url('./images/Ancient_ruins.webp') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            animation: slideInFromTop 1.5s ease-in-out;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            animation: slideInFromBottom 1.5s ease-in-out;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
