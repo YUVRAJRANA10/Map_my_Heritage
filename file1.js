@@ -99,7 +99,7 @@ const ancientPlaces = [
                      </a>
                 </div>`,
                 `<div class="col-md-5 place-card">
-                     <a href="NU.html" target="_blank" style="text-decoration: none; color: inherit;">
+                     <a href="NU1.html" target="_blank" style="text-decoration: none; color: inherit;">
                     <img src="https://trekkerpedia.com/wp-content/uploads/Library-and-stupas-of-Nalanda-university.jpg" alt="Nalanda University">
                     <h3>Nalanda University</h3>
                     <p>Nalanda University is an ancient center of learning and a UNESCO site, known for its historic Buddhist monastic and educational complex.</p>
@@ -113,7 +113,7 @@ const ancientPlaces = [
                      </a>
                 </div>`,
                 `<div class="col-md-5 place-card">
-                     <a href="Jb.html" target="_blank" style="text-decoration: none; color: inherit;">
+                     <a href="Jb1.html" target="_blank" style="text-decoration: none; color: inherit;">
                     <img src="https://m.economictimes.com/thumb/msid-99456355,width-1600,height-900,resizemode-4,imgsize-343356/jallianwala-bagh-massacres-104th-anniversary-what-happened-why-should-we-always-remember-this-day.jpg" alt="Jallianwala Bagh">
                     <h3>Jallianwala Bagh</h3>
                     <p>Jallianwala Bagh is a historic memorial site in Amritsar, marking the tragic 1919 massacre of unarmed civilians by British troops.</p>
