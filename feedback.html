@@ -307,7 +307,20 @@
                     </button>
                 </div>
             </form>
-   
+            <div class="form-footer">
+                <p>Your feedback helps us preserve and enhance the beauty of heritage sites.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedback-form');
+            const formContainer = document.getElementById('feedbackForm');
+
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
 
 
 
