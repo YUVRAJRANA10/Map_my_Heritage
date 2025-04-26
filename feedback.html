@@ -169,6 +169,26 @@
             border: 2px solid transparent;
         }
 
+        .rating-option:hover .rating-circle {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 153, 51, 0.2);
+        }
+
+        .rating-option input:checked + .rating-circle {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--secondary-color);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+        }
+
+        .rating-label {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            text-align: center;
+            font-weight: 500;
+        }
+
 
 
 
