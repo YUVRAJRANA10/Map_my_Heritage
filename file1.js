@@ -32,71 +32,93 @@ function setupCarousel(carouselId, prevBtnId, nextBtnId, places) {
 
 // Data for each section
 const unescoPlaces = [
-    `<div class="col-md-5 place-card">
-        <img src="https://breathedreamgo.com/wp-content/uploads/2010/03/India-for-Beginners-custom-tours-5.jpg" alt="Ellora Caves">
-        <h3>Ellora Caves</h3>
-        <p>Ellora Caves showcases ancient rock-cut architecture and artistry in Maharashtra, India.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <a href="Amber_fort_page.html" target="_blank" style="text-decoration: none; color: inherit;">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=700&h=400&s=1" alt="Amber Fort">
-        <h3>Amber Fort</h3>
-        <p>Discover ancient Rajput glory and Mughal architecture.</p>
-        </a>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_2021030525a9ca951b504165b5d8ce97bbbe1c8a.png" alt="Great Living Chola Temples">
-        <h3>Great Living Chola Temples</h3>
-        <p>The Great Living Chola Temples stand as timeless marvels of Dravidian architecture and spiritual grandeur.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROxz07bCla7z0IXcB9w63FoTp-sDXNtX36LISIdJlpqk9vBQYsb87beaYs9hjFSjB-3M4&usqp=CAU" alt="Elephanta Caves">
-        <h3>Elephanta Caves</h3>
-        <p>The Elephanta Caves are a UNESCO World Heritage site featuring ancient rock-cut temples dedicated primarily to Lord Shiva.</p>
-        </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://www.gujarattourism.com/content/dam/gujrattourism/images/july/Champaner-&-Pavagadh-banner.jpg" alt="Champaner Pavagadh Archaeological Park">
-        <h3>Champaner Pavagadh Archaeological Park</h3>
-        <p>Champaner-Pavagadh is a UNESCO site with ancient forts, temples, and mosques set on a historic hill.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Palace_of_Assembly_Chandigarh_2006.jpg" alt="Chandigarh Capitol Complex">
-        <h3>Chandigarh Capitol Complex</h3>
-        <p>The Chandigarh Capitol Complex is a UNESCO World Heritage site featuring modernist government buildings designed by architect Le Corbusier.</p>
-    </div>`,
+  `<div class="col-md-5 place-card">
+                     <a href="Elloracaves_page.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://breathedreamgo.com/wp-content/uploads/2010/03/India-for-Beginners-custom-tours-5.jpg" alt="Ellora Caves">
+                    <h3>Ellora Caves</h3>
+                    <p>Ellora Caves showcases ancient rock-cut architecture and artistry in Maharashtra, India.</p>
+                     </a>
+                </div>`,
+              `<div class="col-md-5 place-card">
+                    <a href="Amber_fort_page.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/d3/a8/57/images-30-largejpg.jpg?w=700&h=400&s=1" alt="Amber Fort">
+                    <h3>Amber Fort</h3>
+                    <p>Discover ancient Rajput glory and Mughal architecture.</p>
+                    </a>    
+                </div>`,
+              `<div class="col-md-5 place-card">
+                     <a href="GLCT.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://dwq3yv87q1b43.cloudfront.net/public/blogs/fit-in/1200x675/Blog_2021030525a9ca951b504165b5d8ce97bbbe1c8a.png" alt="Great Living Chola Temples">
+                    <h3>Great Living Chola Temples</h3>
+                    <p>The Great Living Chola Temples stand as timeless marvels of Dravidian architecture and spiritual grandeur.</p>
+                     </a>     
+                </div>`,
+               `<div class="col-md-5 place-card">
+                     <a href="EC.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROxz07bCla7z0IXcB9w63FoTp-sDXNtX36LISIdJlpqk9vBQYsb87beaYs9hjFSjB-3M4&usqp=CAU" alt="Elephanta Caves">
+                    <h3>Elephanta Caves</h3>
+                    <p>The Elephanta Caves are a UNESCO World Heritage site featuring ancient rock-cut temples dedicated primarily to Lord Shiva.</p>
+                     </a>  
+                </div>`,
+              `<div class="col-md-5 place-card">
+                     <a href="CPAP.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://www.gujarattourism.com/content/dam/gujrattourism/images/july/Champaner-&-Pavagadh-banner.jpg" alt="Champaner Pavagadh Archaeological Park">
+                    <h3>Champaner Pavagadh Archaeological Park</h3>
+                    <p>Champaner-Pavagadh is a UNESCO site with ancient forts, temples, and mosques set on a historic hill.</p>
+                     </a> 
+                </div>`,
+                `<div class="col-md-5 place-card">
+                     <a href="CCC.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Palace_of_Assembly_Chandigarh_2006.jpg" alt="Chandigarh Capitol Complex">
+                    <h3>Chandigarh Capitol Complex</h3>
+                    <p>The Chandigarh Capitol Complex is a UNESCO World Heritage site featuring modernist government buildings designed by architect Le Corbusier.</p>
+                     </a>     
+                </div>`,
 ];
 
 const ancientPlaces = [
-    `<div class="col-md-5 place-card">
-        <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2022/03/khajuraho-slider-imggg-3.jpg?ssl=1" alt="Khajuraho Temples">
-        <h3>Khajuraho Temples</h3>
-        <p>Famous for their intricate sculptures, located in Madhya Pradesh.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/1200px-Konarka_Temple.jpg" alt="Sun Temple, Konark">
-        <h3>Sun Temple, Konark</h3>
-        <p>A 13th-century temple shaped like a chariot, known for its stunning architecture.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdki0wf7tYcd17KtarOPpE6T8UOLUsC3V-t9LxCys0_FxQqq4PiAo_IdlDRku8LPhAIIg&usqp=CAU" alt="Rani Ki Vav">
-        <h3>Rani ki Vav</h3>
-        <p>Rani ki Vav is an intricately carved stepwell, showcasing the grandeur of ancient Indian architecture and devotion beneath the earth.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://trekkerpedia.com/wp-content/uploads/Library-and-stupas-of-Nalanda-university.jpg" alt="Nalanda University">
-        <h3>Nalanda University</h3>
-        <p>Nalanda University is an ancient center of learning and a UNESCO site, known for its historic Buddhist monastic and educational complex.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://www.penn.museum/sites/expedition/files/2022/06/kal17.jpg" alt="Kalibangan">
-        <h3>Kalibangan</h3>
-        <p>Kalibangan is an important Indus Valley Civilization site known for its ancient pre-Harappan and Harappan settlements and unique fire altars.</p>
-    </div>`,
-    `<div class="col-md-5 place-card">
-        <img src="https://m.economictimes.com/thumb/msid-99456355,width-1600,height-900,resizemode-4,imgsize-343356/jallianwala-bagh-massacres-104th-anniversary-what-happened-why-should-we-always-remember-this-day.jpg" alt="Jallianwala Bagh">
-        <h3>Jallianwala Bagh</h3>
-        <p>Jallianwala Bagh is a historic memorial site in Amritsar, marking the tragic 1919 massacre of unarmed civilians by British troops.</p>
-    </div>`,
+  `<div class="col-md-5 place-card">
+                     <a href="KT.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://i0.wp.com/indiatravel.com/wp-content/uploads/2022/03/khajuraho-slider-imggg-3.jpg?ssl=1" alt="Khajuraho Temples">
+                    <h3>Khajuraho Temples</h3>
+                    <p>Famous for their intricate sculptures, located in Madhya Pradesh.</p>
+                     </a>
+                </div>`,
+                `<div class="col-md-5 place-card">
+                     <a href="ST.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Konarka_Temple.jpg/1200px-Konarka_Temple.jpg" alt="Sun Temple, Konark">
+                    <h3>Sun Temple, Konark</h3>
+                    <p>A 13th-century temple shaped like a chariot, known for its stunning architecture.</p>
+                     </a>
+                </div>`,
+                `<div class="col-md-5 place-card">
+                     <a href="RV.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdki0wf7tYcd17KtarOPpE6T8UOLUsC3V-t9LxCys0_FxQqq4PiAo_IdlDRku8LPhAIIg&usqp=CAU" alt="Rani Ki Vav">
+                    <h3>Rani ki Vav</h3>
+                    <p>Rani ki Vav is an intricately carved stepwell, showcasing the grandeur of ancient Indian architecture and devotion beneath the earth.</p>
+                     </a>
+                </div>`,
+                `<div class="col-md-5 place-card">
+                     <a href="NU1.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://trekkerpedia.com/wp-content/uploads/Library-and-stupas-of-Nalanda-university.jpg" alt="Nalanda University">
+                    <h3>Nalanda University</h3>
+                    <p>Nalanda University is an ancient center of learning and a UNESCO site, known for its historic Buddhist monastic and educational complex.</p>
+                     </a>
+                </div>`,
+                `<div class="col-md-5 place-card">
+                     <a href="Kb.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://www.penn.museum/sites/expedition/files/2022/06/kal17.jpg" alt="Kalibangan">
+                    <h3>Kalibangan</h3>
+                    <p>Kalibangan is an important Indus Valley Civilization site known for its ancient pre-Harappan and Harappan settlements and unique fire altars.</p>
+                     </a>
+                </div>`,
+                `<div class="col-md-5 place-card">
+                     <a href="Jb1.html" target="_blank" style="text-decoration: none; color: inherit;">
+                    <img src="https://m.economictimes.com/thumb/msid-99456355,width-1600,height-900,resizemode-4,imgsize-343356/jallianwala-bagh-massacres-104th-anniversary-what-happened-why-should-we-always-remember-this-day.jpg" alt="Jallianwala Bagh">
+                    <h3>Jallianwala Bagh</h3>
+                    <p>Jallianwala Bagh is a historic memorial site in Amritsar, marking the tragic 1919 massacre of unarmed civilians by British troops.</p>
+                     </a>
+                </div>`,
 ];
 
 const museumPlaces = [
@@ -106,9 +128,11 @@ const museumPlaces = [
         <p>Albert Hall Museum is a stunning blend of Indo-Saracenic architecture and rich cultural heritage in the heart of Jaipur.</p>
     </div>`,
     `<div class="col-md-5 place-card">
+     <a href="VKM_page.html" target="_blank" style="text-decoration: none; color: inherit;">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg55tM5OMfvaNXOJEG7VdoK-uKCMbFIP0Gq-oxiUvxNarqlCxrUlV4B8FUOAtW6pSYVqc&usqp=CAU" alt="Virasat-e-khalsa Museum">
         <h3>Virasat-e-khalsa Museum</h3>
         <p>Virasat-e-Khalsa is a breathtaking tribute to Sikh history and heritage, blending modern design with spiritual legacy.</p>
+        </a>
     </div>`,
     `<div class="col-md-5 place-card">
         <img src="https://www.gokitetours.com/wp-content/uploads/2024/11/Top-10-Things-to-Know-About-Victoria-Memorial-in-Kolkata.webp" alt="Victoria Memorial Museum">
