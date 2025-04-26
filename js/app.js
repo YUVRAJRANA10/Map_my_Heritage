@@ -679,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="gallery-body">
                         <div class="gallery-loading">
-                            <i class="fas fa-spinner fa-spin"></i>
+                            <i class="fas fa-spinnerfa-spin"></i>
                             <p>Loading gallery images...</p>
                             <small>This is a demo - in a real app, actual images would load</small>
                         </div>
@@ -1313,4 +1313,193 @@ document.addEventListener('DOMContentLoaded', function() {
             map.setView(coords.center, coords.zoom);
         }
     }
+});
+// Destination Gallery Implementation - Add this to the end of your existing app.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Keep existing gallery buttons functionality
+    const origGalleryButtons = document.querySelectorAll('.view-gallery-btn');
+    
+    // Replace the click event on gallery buttons with the new implementation
+    origGalleryButtons.forEach(button => {
+        // Remove any existing event listeners
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        // Add new event listener with gallery functionality
+        newButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the destination title
+            const card = this.closest('.destination-card');
+            const title = card.querySelector('.destination-title').textContent;
+            
+            // Get destination-specific images based on title
+            let galleryImages = [];
+            
+            // Set gallery images based on destination
+            switch(title) {
+                case 'Hawa Mahal':
+                    galleryImages = [
+                        { src: '../images/AdobeStock_505662817_Preview.jpeg', caption: 'The stunning facade of Hawa Mahal' },
+                        { src: '../images/hawa-mahal-2.jpg', caption: 'Intricate lattice windows of the palace' },
+                        { src: '../images/hawa-mahal-3.jpg', caption: 'View of Hawa Mahal from the street' },
+                        { src: '../images/hawa-mahal-4.jpg', caption: 'Interior corridors of the Palace of Winds' },
+                        { src: '../images/hawa-mahal-5.jpg', caption: 'The iconic pink sandstone architecture' }
+                    ];
+                    break;
+                case 'Ellora Caves':
+                    galleryImages = [
+                        { src: '../images/licensed-image.jpg', caption: 'The magnificent rock-cut temples of Ellora' },
+                        { src: '../images/ellora-caves-2.jpg', caption: 'Intricate carvings inside the Buddhist caves' },
+                        { src: '../images/ellora-caves-3.jpg', caption: 'The impressive Kailasha Temple carved from a single rock' },
+                        { src: '../images/ellora-caves-4.jpg', caption: 'Detailed sculptures depicting mythological scenes' },
+                        { src: '../images/ellora-caves-5.jpg', caption: 'Panoramic view of the cave complex' }
+                    ];
+                    break;
+                case 'Sun Temple Konark':
+                    galleryImages = [
+                        { src: '../images/sun_temple_konark.jpg', caption: 'The majestic Sun Temple at Konark' },
+                        { src: '../images/konark-2.jpg', caption: 'The iconic chariot wheels of the temple' },
+                        { src: '../images/konark-3.jpg', caption: 'Intricate stone carvings on the temple walls' },
+                        { src: '../images/konark-4.jpg', caption: 'The temple during sunrise - a tribute to the Sun God' },
+                        { src: '../images/konark-5.jpg', caption: 'Detailed sculptures depicting daily life and mythology' }
+                    ];
+                    break;
+                default:
+                    // Default gallery with placeholder images
+                    galleryImages = [
+                        { src: '../images/placeholder-1.jpg', caption: 'View of the heritage site' },
+                        { src: '../images/placeholder-2.jpg', caption: 'Architectural details' },
+                        { src: '../images/placeholder-3.jpg', caption: 'Historical context' }
+                    ];
+            }
+            
+            // Create a modal gallery
+            const modal = document.createElement('div');
+            modal.className = 'destination-gallery-modal';
+            modal.innerHTML = `
+                <div class="gallery-modal-content animate__animated animate__zoomIn">
+                    <div class="gallery-header">
+                        <h4>${title} Gallery</h4>
+                        <button class="modal-close-btn">&times;</button>
+                    </div>
+                    <div class="gallery-main">
+                        <div class="gallery-image-container">
+                            <img src="${galleryImages[0].src}" alt="${title}" class="gallery-main-image">
+                            <div class="gallery-caption">${galleryImages[0].caption}</div>
+                            <button class="gallery-nav gallery-prev" style="visibility: hidden;">&#10094;</button>
+                            <button class="gallery-nav gallery-next">&#10095;</button>
+                        </div>
+                    </div>
+                    <div class="gallery-thumbnails">
+                        ${galleryImages.map((img, index) => 
+                            `<div class="gallery-thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+                                <img src="${img.src}" alt="Thumbnail ${index + 1}">
+                            </div>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Show modal with animation
+            setTimeout(() => {
+                modal.classList.add('visible');
+            }, 10);
+            
+            // Current image index
+            let currentIndex = 0;
+            
+            // Close button
+            const closeButton = modal.querySelector('.modal-close-btn');
+            closeButton.addEventListener('click', () => {
+                modal.classList.remove('visible');
+                setTimeout(() => {
+                    document.body.removeChild(modal);
+                }, 300);
+            });
+            
+            // Click outside to close
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeButton.click();
+                }
+            });
+            
+            // Navigation
+            const prevButton = modal.querySelector('.gallery-prev');
+            const nextButton = modal.querySelector('.gallery-next');
+            const mainImage = modal.querySelector('.gallery-main-image');
+            const caption = modal.querySelector('.gallery-caption');
+            const thumbnails = modal.querySelectorAll('.gallery-thumbnail');
+            
+            // Update image function
+            function updateImage(index) {
+                currentIndex = index;
+                
+                // Update main image and caption
+                mainImage.src = galleryImages[index].src;
+                caption.textContent = galleryImages[index].caption;
+                
+                // Update thumbnails
+                thumbnails.forEach((thumb, i) => {
+                    if (i === index) {
+                        thumb.classList.add('active');
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+                
+                // Update navigation buttons
+                prevButton.style.visibility = index > 0 ? 'visible' : 'hidden';
+                nextButton.style.visibility = index < galleryImages.length - 1 ? 'visible' : 'hidden';
+            }
+            
+            // Navigation event handlers
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    updateImage(currentIndex - 1);
+                }
+            });
+            
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < galleryImages.length - 1) {
+                    updateImage(currentIndex + 1);
+                }
+            });
+            
+            // Thumbnail clicks
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => {
+                    const index = parseInt(thumbnail.getAttribute('data-index'));
+                    updateImage(index);
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function galleryKeyHandler(e) {
+                if (!modal.classList.contains('visible')) {
+                    document.removeEventListener('keydown', galleryKeyHandler);
+                    return;
+                }
+                
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        if (currentIndex > 0) {
+                            updateImage(currentIndex - 1);
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (currentIndex < galleryImages.length - 1) {
+                            updateImage(currentIndex + 1);
+                        }
+                        break;
+                    case 'Escape':
+                        closeButton.click();
+                        break;
+                }
+            });
+        });
+    });
 });
