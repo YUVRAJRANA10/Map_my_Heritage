@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapMyHeritage - Visitor Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF9933;
+            --secondary-color: #138808;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --light-gray: #e9ecef;
+            --medium-gray: #adb5bd;
+            --dark-gray: #212529;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 153, 51, 0.05) 0%, rgba(255, 153, 51, 0.05) 90%),
+                radial-gradient(circle at 90% 80%, rgba(19, 136, 8, 0.05) 0%, rgba(19, 136, 8, 0.05) 90%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .logo {
+            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        h1 {
+            color: var(--dark-gray);
+            font-size: 2.2rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            color: var(--medium-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(233, 236, 239, 0.5);
+        }
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--off-white);
+            color: var(--dark-gray);
+        }
+
+        textarea {
+            min-height: 150px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.15);
+            background-color: var(--white);
+        }
+
+        .rating-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            flex: 1;
+            max-width: 60px;
+        }
+
+        .rating-option input {
+            display: none;
+        }
+        .rating-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+            font-weight: 700;
+            color: var(--medium-gray);
+            border: 2px solid transparent;
+        }
+
+        .rating-option:hover .rating-circle {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 153, 51, 0.2);
+        }
+
+        .rating-option input:checked + .rating-circle {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--secondary-color);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+        }
+
+        .rating-label {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 153, 51, 0.4);
+        }
+
+        .btn i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover i {
+            transform: translateX(3px);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            border-top: 1px solid var(--light-gray);
+            padding-top: 1.5rem;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: var(--primary-color);
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Map My Heritage</div>
+            <h1>Visitor Feedback</h1>
+            <p class="subtitle">Your feedback helps us preserve and enhance the beauty of heritage sites.</p>
+        </header>
+        <div class="form-container" id="feedbackForm">
+            <form id="feedback-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="place">Place Visited</label>
+                    <input type="text" id="place" name="place" required placeholder="Enter the name of the place you visited">
+                </div>
+
+                <div class="form-group">
+                    <label>How would you rate your visit to the heritage site?</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Your Feedback</label>
+                    <textarea id="feedback" name="feedback" required placeholder="Please share your thoughts about your visit..."></textarea>
+                </div>
+
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <button type="submit" class="btn">
+                        Submit Feedback <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="form-footer">
+                <p>Your feedback helps us preserve and enhance the beauty of heritage sites.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedback-form');
+            const formContainer = document.getElementById('feedbackForm');
+
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Display a thank-you message
+                alert('Thank you for submitting your review!');
+
+                // Redirect to the home page after 2 seconds
+                setTimeout(function() {
+                    window.location.href = 'index.html'; // Replace 'index.html' with the actual home page URL
+                }, 2000);
+
+                feedbackForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
