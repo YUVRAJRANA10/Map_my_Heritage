@@ -246,6 +246,16 @@
             color: #ddd;
             cursor: pointer;
             transition: color 0.3s ease;
+        }
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: var(--primary-color);
+}
+</style>
+</head>
+<body>
 
 
 
