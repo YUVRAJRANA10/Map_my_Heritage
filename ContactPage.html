@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Your Company</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <style>
+        /* Global Styles */
+        body {
             font-family: 'Roboto', sans-serif;
             color: #434A54;
             background-color: #F5F7FA;
@@ -16,7 +24,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             background: linear-gradient(90deg, rgba(255, 153, 51, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(19, 136, 8, 0.1) 100%);
         }
-   .navbar-brand {
+
+        .navbar-brand {
             font-weight: bold;
             font-size: 1.8rem;
             color: #434A54;
@@ -28,7 +37,8 @@
             animation: animate__rubberBand;
             animation-duration: 1s;
         }
-   .brand-text {
+
+        .brand-text {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             font-size: 1.6rem;
@@ -42,7 +52,8 @@
             letter-spacing: -0.5px;
             margin-left: 5px;
         }
-  @keyframes textGradient {
+
+        @keyframes textGradient {
             0% { background-position: 0% center; }
             100% { background-position: 200% center; }
         }
@@ -51,14 +62,21 @@
             color: #434A54;
             font-weight: bold;
         }
-  .navbar-nav .nav-link:hover {
+
+        .navbar-nav .nav-link:hover {
             color: #FF9933;
         }
 
         .navbar-nav .active {
             color: #FF9933;
         }
-  .contact-container {
+
+        
+
+        
+
+        /* Main Content */
+        .contact-container {
             padding: 20px;
         }
 
@@ -66,7 +84,8 @@
             text-align: center;
             color: #434A54;
         }
-  .contact-grid {
+
+        .contact-grid {
             display: flex;
             justify-content: space-between;
             gap: 20px;
@@ -81,7 +100,8 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-  .contact-info h2, .contact-form h2 {
+
+        .contact-info h2, .contact-form h2 {
             color: #434A54;
         }
 
@@ -95,7 +115,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-  
+
         .submit-btn, .feedback-btn {
             background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
             color: white;
@@ -105,7 +125,8 @@
             cursor: pointer;
             font-weight: bold;
         }
-   .feedback-btn {
+
+        .feedback-btn {
             margin-top: 10px;
             background: linear-gradient(135deg, #138808 0%, #19A808 100%);
         }
@@ -116,7 +137,8 @@
     </style>
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand d-flex align-items-center animate__animated animate__fadeIn" href="index.html">
             <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
             <span class="brand-text">Map my Heritage</span>
@@ -138,15 +160,18 @@
             </div>
         </div>
     </nav>
-  <!-- Main Content -->
+
+
+
+    <!-- Main Content -->
     <main class="contact-container">
         <h1 class="page-title">Contact Us</h1>
         
         <div class="contact-grid">
-          <!-- Contact Info Section -->
+            <!-- Contact Info Section -->
             <section class="contact-info">
                 <h2>Our Information</h2>
-              <div class="info-item">
+                <div class="info-item">
                     <h3>Address</h3>
                     <p>123 Business Street<br>Your City, ST 10001</p>
                 </div>
@@ -154,48 +179,52 @@
                     <h3>Phone</h3>
                     <p>(+91) 456-7890</p>
                 </div>
-              <div class="info-item">
+                <div class="info-item">
                     <h3>Email</h3>
                     <p>contact@yourcompany.com</p>
                 </div>
             </section>
-          <section class="contact-form">
+
+            <!-- Contact Form -->
+            <section class="contact-form">
                 <h2>Send a Message</h2>
                 <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                  <div class="form-group">
+                    <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
-                  <div class="form-group">
+                    <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email Address" required>
                     </div>
-                  <div class="form-group">
+                    <div class="form-group">
                         <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                     </div>
-                   </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
                 <button class="feedback-btn" onclick="redirectToFeedback()">Give Feedback</button>
             </section>
         </div>
     </main>
-  script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
-      function handleFormSubmit(event) {
+        // Handle form submission
+        function handleFormSubmit(event) {
             event.preventDefault();
-        alert('Thank you for contacting us! We will get back to you shortly.');
+            alert('Thank you for contacting us! We will get back to you shortly.');
             document.getElementById('contactForm').reset();
         }
-      function redirectToFeedback() {
+
+        // Redirect to feedback form
+        function redirectToFeedback() {
             window.location.href = 'form.html';
         }
     </script>
-
-  
 </body>
 </html>
