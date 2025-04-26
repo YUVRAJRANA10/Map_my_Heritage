@@ -321,7 +321,20 @@
             feedbackForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
+                // Display a thank-you message
+                alert('Thank you for submitting your review!');
 
+                // Redirect to the home page after 2 seconds
+                setTimeout(function() {
+                    window.location.href = 'index.html'; // Replace 'index.html' with the actual home page URL
+                }, 2000);
+
+                feedbackForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
 
 
 
