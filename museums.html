@@ -1,1 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museums</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #434A54;
+            background-color: #F5F7FA;
+            overflow-x: hidden;
+        }
 
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(90deg, rgba(255, 153, 51, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(19, 136, 8, 0.1) 100%);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #434A54;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 5s linear infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Section Headings */
+        .section-heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #434A54;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .text-warning i {
+            margin-right: 2px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background: url('./images/museum.png') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            margin-top: 40px;
+        }
+
+        .review-card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .review-card h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #434A54;
+        }
+
+        .review-card p {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .global-rating {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .global-rating i {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+            <span class="brand-text">Map my Heritage</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reviews & Blogs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+            </ul>
+            <div class="navbar-nav">
+                <a class="btn btn-primary" href="#" style="margin-right: 10px;">
+                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Explore Museums</h1>
+            <p>Discover the world's most iconic museums and their treasures.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="mt-5 pt-5">
+        <div class="container">
+            <!-- Museums Section -->
+            <div class="section-heading-container">
+                <h1 class="section-heading">Famous Museums</h1>
+            </div>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Q5LoSVi7ReQDHVPiPCcoWMIOiznIIYzGZQ&s" class="card-img-top" alt="Louvre Museum">
+                        <div class="card-body">
+                            <h5 class="card-title">Louvre Museum</h5>
+                            <p class="card-text">"Home to the Mona Lisa, the Louvre is a treasure trove of art and history."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNxTDb_JICS6SLwxWgpbo4CUeQ_uQnkKI7FA&s" class="card-img-top" alt="British Museum">
+                        <div class="card-body">
+                            <h5 class="card-title">British Museum</h5>
+                            <p class="card-text">"A world-renowned museum showcasing human history and culture."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTCxKuPOpNQsMg7OTgzQynIZ_3mpomomaPSQ&s" class="card-img-top" alt="Metropolitan Museum of Art">
+                        <div class="card-body">
+                            <h5 class="card-title">Metropolitan Museum of Art</h5>
+                            <p class="card-text">"An iconic museum in New York City, showcasing art from around the world."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFtdORIV9eTbVIIja51mJQBSGpFxRdZgsP4g&s" class="card-img-top" alt="Vatican Museums">
+                        <div class="card-body">
+                            <h5 class="card-title">Vatican Museums</h5>
+                            <p class="card-text">"A collection of stunning art and historical artifacts in Vatican City."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="reviews-section">
+                <h2 class="text-center">Visitor Reviews</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="review-card">
+                            <h5>John Doe</h5>
+                            <p>"The Louvre Museum is a must-visit for art lovers. Absolutely stunning!"</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="review-card">
+                            <h5>Jane Smith</h5>
+                            <p>"The British Museum offers an incredible journey through human history."</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="review-card">
+                            <h5>Emily Johnson</h5>
+                            <p>"The Vatican Museums are breathtaking. The Sistine Chapel is unforgettable!"</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="global-rating">
+                    <h3>Global Rating</h3>
+                    <div>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
