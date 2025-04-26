@@ -127,6 +127,21 @@
             min-height: 150px;
         }
 
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.15);
+            background-color: var(--white);
+        }
+
+        .rating-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
 
 
 
