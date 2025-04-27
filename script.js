@@ -79,8 +79,8 @@ spotLight.target = targetObject;
 // Add sun lens flare effect
 function addSunLensFlare() {
     const textureLoader = new THREE.TextureLoader();
-    const textureFlare0 = textureLoader.load('../images/lensflare0.png');
-    const textureFlare3 = textureLoader.load('../images/lensflare3.png');
+    const textureFlare0 = textureLoader.load('images/lensflare0.png');
+    const textureFlare3 = textureLoader.load('images/lensflare3.png');
     
     const lensflare = new THREE.Lensflare();
     lensflare.addElement(new THREE.LensflareElement(textureFlare0, 700, 0, sunLight.color));
@@ -106,7 +106,7 @@ function createMarbleGround() {
     const textureLoader = new THREE.TextureLoader();
     
     // Load marble textures
-    const marbleBaseTexture = textureLoader.load('../images/marble_ground.jpg');
+    const marbleBaseTexture = textureLoader.load('images/marble_ground.jpg');
     marbleBaseTexture.wrapS = marbleBaseTexture.wrapT = THREE.RepeatWrapping;
     marbleBaseTexture.repeat.set(4, 4);
     marbleBaseTexture.anisotropy = 16;
@@ -273,7 +273,7 @@ const sunRays = createSunRays();
 
 // Load the Taj Mahal GLB model
 const loader = new THREE.GLTFLoader();
-loader.load('../taj_mahal_3d_model.glb', (gltf) => {
+loader.load('taj_mahal_3d_model.glb', (gltf) => {
     const model = gltf.scene;
     
     // Scale for hero section viewing
