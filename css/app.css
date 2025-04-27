@@ -1501,6 +1501,20 @@ h2:after {
     background-color: rgba(0,0,0,0.03);
 }
 
+.custom-control:hover .filter-icon {
+    transform: scale(1.1);
+}
+
+.custom-control-input:checked ~ .filter-icon {
+    border-color: #FF9933;
+}
+
+/* Custom checkbox styles */
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #FF9933;
+    border-color: #FF9933;
+}
+
 .custom-control-label {
     flex-grow: 1;
     padding-left: 5px;
@@ -1508,33 +1522,61 @@ h2:after {
     cursor: pointer;
 }
 
-/* Region buttons with images */
+/* Region buttons with improved image effects */
+.popular-regions h5 {
+    position: relative;
+    padding-bottom: 8px;
+    color: #434A54;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.popular-regions h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+}
+
 .region-btn {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    padding: 6px 8px;
+    padding: 8px 10px;
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease;
     text-align: left;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .region-img {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 8px;
-    border: 1px solid rgba(0,0,0,0.1);
+    margin-right: 10px;
+    border: 2px solid transparent;
     transition: all 0.3s ease;
 }
 
-.region-btn span {
-    position: relative;
-    z-index: 2;
+.region-btn:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
 }
+.region-btn:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+
 
 .region-btn::before {
     content: '';
@@ -1606,6 +1648,7 @@ h2:after {
     transform: scale(1.05);
 }
 
+
 /* Custom marker styles */
 .heritage-marker {
     border-radius: 50%;
@@ -1614,7 +1657,28 @@ h2:after {
     border: 2px solid white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
+/* Site information section */
+.map-info {
+    padding-top: 15px;
+}
 
+.map-info h5 {
+    position: relative;
+    padding-bottom: 8px;
+    color: #434A54;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.map-info h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+}
 .heritage-marker.unesco {
     background-color: #FF9933;
 }
