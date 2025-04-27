@@ -421,5 +421,37 @@
             </div>
         </div>
     </main>
+<script>
+    // Set active nav item based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentPage || 
+                (currentPage === '' && linkHref === 'index.html') ||
+                (linkHref === 'Place1.html' && currentPage.includes('_page')) ||
+                (linkHref === 'BlogPage.html' && (currentPage === 'Unesco_Page.html' || currentPage === 'Monuments.html' || currentPage === 'museums.html' || currentPage === 'Ancient_ruins_page.html'))) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Handle navbar toggle for mobile
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.collapse.navbar-collapse');
+        
+        if (navbarToggler) {
+            navbarToggler.addEventListener('click', function() {
+                navbarCollapse.classList.toggle('show');
+            });
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="file1.js"></script>
 </body>
 </html>
