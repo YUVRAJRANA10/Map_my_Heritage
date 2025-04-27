@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Preload critical assets -->
-    <link rel="preload" href="../images/logo2-removebg-preview.png" as="image" fetchpriority="high">
-    <link rel="preload" href="../images/Taj Mahal Hero Image.png" as="image">
+    <link rel="preload" href="images/logo2-removebg-preview.png" as="image" fetchpriority="high">
+    <link rel="preload" href="images/Taj Mahal Hero Image.png" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Login | Map My Heritage</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/app.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/login1.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -20,8 +20,8 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand d-flex align-items-center animate_animated animate_fadeIn" href="index.html">
-            <img src="../images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
+        <a class="navbar-brand d-flex align-items-center animate__animated animate__fadeIn" href="index.html">
+            <img src="images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="40" class="mr-0">
             <span class="brand-text">Map my Heritage</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,8 +36,8 @@
             </ul>
             <div class="navbar-nav">
                 <!-- Changed button to show active state since we're on the login page -->
-                <a class="btn btn-secondary" href="login1.html" style="margin-right: 10px; background-color: #138808; color: #fff;">
-                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up <span class="badge badge-light ml-1">Active</span>
+                <a class="btn btn-primary active" href="login1.html" style="margin-right: 10px;">
+                    <i class="fas fa-user-circle mr-1"></i> Login / Sign Up
                 </a>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <!-- Photo overlay with tricolor gradient -->
                     <div class="login-overlay"></div>
                     <div class="login-quotes">
-                        <div class="quote-box animate_animated animate_fadeIn">
+                        <div class="quote-box animate__animated animate__fadeIn">
                             <p class="quote-text">"India is the cradle of the human race, the birthplace of human speech, the mother of history, the grandmother of legend, and the great-grandmother of tradition."</p>
                             <p class="quote-author">- Mark Twain</p>
                         </div>
@@ -63,17 +63,17 @@
             <!-- Right side - Login form -->
             <div class="col-md-6">
                 <div class="login-form-container">
-                    <div class="login-tabs animate_animated animate_fadeIn">
+                    <div class="login-tabs animate__animated animate__fadeIn">
                         <button class="tab-button active" id="login-tab">Login</button>
                         <button class="tab-button" id="register-tab">Register</button>
                     </div>
                     
-                     <!-- Login Form -->
-                    <div id="login-form" class="animate_animated animate_fadeIn">
+                    <!-- Login Form -->
+                    <div id="login-form" class="animate__animated animate__fadeIn">
                         <h2>Welcome Back</h2>
                         <p class="text-muted mb-4">Sign in to continue your heritage journey</p>
                         
-                        <form action="index.html" method="GET">
+                        <form id="login-form-content">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <div class="input-group">
@@ -82,6 +82,7 @@
                                     </div>
                                     <input type="email" class="form-control" id="email" placeholder="Your email address" required>
                                 </div>
+                                <div class="invalid-feedback" id="login-email-error"></div>
                             </div>
                             
                             <div class="form-group">
@@ -97,6 +98,7 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="invalid-feedback" id="login-password-error"></div>
                             </div>
                             
                             <div class="form-group d-flex justify-content-between align-items-center">
@@ -104,17 +106,17 @@
                                     <input type="checkbox" class="form-check-input" id="remember-me">
                                     <label class="form-check-label" for="remember-me">Remember me</label>
                                 </div>
-                                <a href="#" class="forgot-link">Forgot Password?</a>
+                                <a href="#" id="forgot-password-link" class="forgot-link">Forgot Password?</a>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary btn-block login-btn">
+                            <button type="submit" class="btn btn-primary btn-block login-btn" id="login-button">
                                 <i class="fas fa-sign-in-alt mr-2"></i> Login
                             </button>
                             
                             <div class="social-login">
                                 <p class="text-center mt-4 mb-3">Or sign in with</p>
                                 <div class="social-buttons">
-                                    <button type="button" class="btn google-btn">
+                                    <button type="button" class="btn google-btn" id="google-login-btn">
                                         <i class="fab fa-google"></i>
                                     </button>
                                     <button type="button" class="btn facebook-btn">
@@ -133,7 +135,7 @@
                         <h2>Create Account</h2>
                         <p class="text-muted mb-4">Join us to explore India's rich heritage</p>
                         
-                        <form action="index.html" method="GET">
+                        <form id="register-form-content">
                             <div class="form-group">
                                 <label for="full-name">Full Name</label>
                                 <div class="input-group">
@@ -142,6 +144,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="full-name" placeholder="Your full name" required>
                                 </div>
+                                <div class="invalid-feedback" id="register-name-error"></div>
                             </div>
                             
                             <div class="form-group">
@@ -152,6 +155,7 @@
                                     </div>
                                     <input type="email" class="form-control" id="register-email" placeholder="Your email address" required>
                                 </div>
+                                <div class="invalid-feedback" id="register-email-error"></div>
                             </div>
                             
                             <div class="form-group">
@@ -167,7 +171,11 @@
                                         </span>
                                     </div>
                                 </div>
-                                <small class="form-text text-muted">Password must be at least 8 characters long</small>
+                                <div class="password-strength-meter mt-2">
+                                    <div class="password-strength-bar"></div>
+                                </div>
+                                <small class="form-text text-muted password-hint">Password must be at least 8 characters long</small>
+                                <div class="invalid-feedback" id="register-password-error"></div>
                             </div>
                             
                             <div class="form-group">
@@ -178,6 +186,7 @@
                                     </div>
                                     <input type="password" class="form-control" id="confirm-password" placeholder="Confirm your password" required>
                                 </div>
+                                <div class="invalid-feedback" id="register-confirm-error"></div>
                             </div>
                             
                             <div class="form-group">
@@ -185,16 +194,17 @@
                                     <input type="checkbox" class="form-check-input" id="terms" required>
                                     <label class="form-check-label" for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                                 </div>
+                                <div class="invalid-feedback" id="register-terms-error">You must agree to the terms and conditions</div>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary btn-block register-btn">
+                            <button type="submit" class="btn btn-primary btn-block register-btn" id="register-button">
                                 <i class="fas fa-user-plus mr-2"></i> Register
                             </button>
                             
                             <div class="social-login">
                                 <p class="text-center mt-4 mb-3">Or register with</p>
                                 <div class="social-buttons">
-                                    <button type="button" class="btn google-btn">
+                                    <button type="button" class="btn google-btn" id="google-register-btn">
                                         <i class="fab fa-google"></i>
                                     </button>
                                     <button type="button" class="btn facebook-btn">
@@ -207,109 +217,566 @@
                             </div>
                         </form>
                     </div>
+                    
+                    <!-- Password Reset Form (hidden by default) -->
+                    <div id="reset-form" class="d-none animate__animated">
+                        <h2>Reset Password</h2>
+                        <p class="text-muted mb-4">Enter your email to receive a password reset link</p>
+                        
+                        <form id="reset-form-content">
+                            <div class="form-group">
+                                <label for="reset-email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="reset-email" placeholder="Your email address" required>
+                                </div>
+                                <div class="invalid-feedback" id="reset-email-error"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block reset-btn" id="reset-button">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Reset Link
+                            </button>
+                            
+                            <div class="text-center mt-4">
+                                <a href="#" id="back-to-login" class="back-link">
+                                    <i class="fas fa-arrow-left mr-1"></i> Back to Login
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Alert for messages -->
+                    <div class="alert mt-3 d-none" id="auth-alert" role="alert"></div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Loading Overlay -->
+    <div class="loading-overlay d-none" id="loading-overlay">
+        <div class="spinner-container">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p class="mt-2 loading-text">Processing...</p>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" defer></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+        import { 
+            getAuth, 
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            signInWithPopup,
+            GoogleAuthProvider,
+            sendPasswordResetEmail,
+            updateProfile
+        } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCiE3iXq9PJA43sh8b9NLodfCknkwGLU6s",
+            authDomain: "make-my-heritage.firebaseapp.com",
+            projectId: "make-my-heritage",
+            storageBucket: "make-my-heritage.firebasestorage.app",
+            messagingSenderId: "574642527756",
+            appId: "1:574642527756:web:df198c08d87a64cb5f5829",
+            measurementId: "G-3LLQ4D5WE7"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        const googleProvider = new GoogleAuthProvider();
+        
+        // DOM elements
+        const loginForm = document.getElementById('login-form-content');
+        const registerForm = document.getElementById('register-form-content');
+        const resetForm = document.getElementById('reset-form-content');
+        const googleLoginBtn = document.getElementById('google-login-btn');
+        const googleRegisterBtn = document.getElementById('google-register-btn');
+        const forgotPasswordLink = document.getElementById('forgot-password-link');
+        const backToLoginLink = document.getElementById('back-to-login');
+        const authAlert = document.getElementById('auth-alert');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        
+        // Password strength elements
+        const registerPassword = document.getElementById('register-password');
+        const passwordStrengthBar = document.querySelector('.password-strength-bar');
+        const passwordHint = document.querySelector('.password-hint');
+        
+        // Show loading overlay
+        function showLoading(message = 'Processing...') {
+            document.querySelector('.loading-text').textContent = message;
+            loadingOverlay.classList.remove('d-none');
+        }
+        
+        // Hide loading overlay
+        function hideLoading() {
+            loadingOverlay.classList.add('d-none');
+        }
+        
+        // Display alert message
+        function showAlert(message, type) {
+            authAlert.textContent = message;
+            authAlert.className = `alert mt-3 alert-${type} animate__animated animate__fadeIn`;
+            authAlert.classList.remove('d-none');
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                authAlert.classList.add('animate__fadeOut');
+                setTimeout(() => {
+                    authAlert.classList.add('d-none');
+                }, 500);
+            }, 5000);
+        }
+        
+        // Clear all form fields and error messages
+        function clearFormFields(form) {
+            form.reset();
+            form.querySelectorAll('.invalid-feedback').forEach(el => {
+                el.textContent = '';
+            });
+            form.querySelectorAll('.is-invalid').forEach(el => {
+                el.classList.remove('is-invalid');
+            });
+        }
+        
+        // Register with email/password
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('full-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const termsChecked = document.getElementById('terms').checked;
+            
+            // Clear previous error messages
+            document.getElementById('register-name-error').textContent = '';
+            document.getElementById('register-email-error').textContent = '';
+            document.getElementById('register-password-error').textContent = '';
+            document.getElementById('register-confirm-error').textContent = '';
+            document.getElementById('register-terms-error').textContent = '';
+            
+            // Form validation
+            let isValid = true;
+            
+            if (!name) {
+                document.getElementById('register-name-error').textContent = 'Name is required';
+                document.getElementById('full-name').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!email) {
+                document.getElementById('register-email-error').textContent = 'Email is required';
+                document.getElementById('register-email').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!password) {
+                document.getElementById('register-password-error').textContent = 'Password is required';
+                document.getElementById('register-password').classList.add('is-invalid');
+                isValid = false;
+            } else if (password.length < 8) {
+                document.getElementById('register-password-error').textContent = 'Password must be at least 8 characters';
+                document.getElementById('register-password').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (password !== confirmPassword) {
+                document.getElementById('register-confirm-error').textContent = 'Passwords do not match';
+                document.getElementById('confirm-password').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!termsChecked) {
+                document.getElementById('register-terms-error').textContent = 'You must agree to the terms';
+                document.getElementById('terms').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Show loading
+            showLoading('Creating your account...');
+            
+            try {
+                // Create user with email and password
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                
+                // Update user profile
+                await updateProfile(user, {
+                    displayName: name
+                });
+                
+                // Show success message
+                hideLoading();
+                showAlert('Registration successful! Redirecting to home page...', 'success');
+                
+                // Redirect to home page after short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                
+            } catch (error) {
+                hideLoading();
+                let errorMessage = 'Registration failed. Please try again.';
+                
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        errorMessage = 'This email is already registered';
+                        document.getElementById('register-email-error').textContent = errorMessage;
+                        document.getElementById('register-email').classList.add('is-invalid');
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'Invalid email format';
+                        document.getElementById('register-email-error').textContent = errorMessage;
+                        document.getElementById('register-email').classList.add('is-invalid');
+                        break;
+                    case 'auth/weak-password':
+                        errorMessage = 'Password is too weak';
+                        document.getElementById('register-password-error').textContent = errorMessage;
+                        document.getElementById('register-password').classList.add('is-invalid');
+                        break;
+                    default:
+                        showAlert(errorMessage, 'danger');
+                }
+            }
+        });
+        
+        // Login with email/password
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Clear previous error messages
+            document.getElementById('login-email-error').textContent = '';
+            document.getElementById('login-password-error').textContent = '';
+            
+            // Form validation
+            let isValid = true;
+            
+            if (!email) {
+                document.getElementById('login-email-error').textContent = 'Email is required';
+                document.getElementById('email').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!password) {
+                document.getElementById('login-password-error').textContent = 'Password is required';
+                document.getElementById('password').classList.add('is-invalid');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Show loading
+            showLoading('Signing in...');
+            
+            try {
+                // Sign in with email and password
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                
+                // Show success message
+                hideLoading();
+                showAlert('Login successful! Redirecting to home page...', 'success');
+                
+                // Store remember me preference
+                if (document.getElementById('remember-me').checked) {
+                    localStorage.setItem('rememberUser', 'true');
+                } else {
+                    localStorage.removeItem('rememberUser');
+                }
+                
+                // Redirect to home page after short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                
+            } catch (error) {
+                hideLoading();
+                let errorMessage = 'Login failed. Please check your credentials.';
+                
+                switch (error.code) {
+                    case 'auth/invalid-email':
+                        errorMessage = 'Invalid email format';
+                        document.getElementById('login-email-error').textContent = errorMessage;
+                        document.getElementById('email').classList.add('is-invalid');
+                        break;
+                    case 'auth/user-not-found':
+                        errorMessage = 'No account found with this email';
+                        document.getElementById('login-email-error').textContent = errorMessage;
+                        document.getElementById('email').classList.add('is-invalid');
+                        break;
+                    case 'auth/wrong-password':
+                        errorMessage = 'Incorrect password';
+                        document.getElementById('login-password-error').textContent = errorMessage;
+                        document.getElementById('password').classList.add('is-invalid');
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage = 'Too many failed login attempts. Please try again later or reset your password';
+                        showAlert(errorMessage, 'warning');
+                        break;
+                    default:
+                        showAlert(errorMessage, 'danger');
+                }
+            }
+        });
+        
+        // Google sign-in
+        googleLoginBtn.addEventListener('click', () => signInWithGoogle('login'));
+        googleRegisterBtn.addEventListener('click', () => signInWithGoogle('register'));
+        
+        async function signInWithGoogle(mode) {
+            showLoading('Connecting to Google...');
+            
+            try {
+                // Sign in with Google popup
+                const result = await signInWithPopup(auth, googleProvider);
+                
+                // Hide loading
+                hideLoading();
+                
+                // Display appropriate message based on whether it's a new user or not
+                if (result._tokenResponse?.isNewUser && mode === 'register') {
+                    showAlert('Account created successfully! Redirecting to home page...', 'success');
+                } else {
+                    showAlert('Login successful! Redirecting to home page...', 'success');
+                }
+                
+                // Redirect to home page after short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+                
+            } catch (error) {
+                hideLoading();
+                let errorMessage = 'Google sign-in failed. Please try again.';
+                
+                if (error.code === 'auth/popup-closed-by-user') {
+                    errorMessage = 'Sign-in cancelled. Please try again.';
+                }
+                
+                showAlert(errorMessage, 'danger');
+            }
+        }
+        
+        // Password reset
+        resetForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get email value
+            const email = document.getElementById('reset-email').value.trim();
+            
+            // Clear previous error message
+            document.getElementById('reset-email-error').textContent = '';
+            
+            // Form validation
+            if (!email) {
+                document.getElementById('reset-email-error').textContent = 'Email is required';
+                document.getElementById('reset-email').classList.add('is-invalid');
+                return;
+            }
+            
+            // Show loading
+            showLoading('Sending reset link...');
+            
+            try {
+                // Send password reset email
+                await sendPasswordResetEmail(auth, email);
+                
+                // Show success message
+                hideLoading();
+                showAlert('Password reset link sent! Please check your email.', 'success');
+                
+                // Clear form and return to login
+                clearFormFields(resetForm);
+                showLoginForm();
+                
+            } catch (error) {
+                hideLoading();
+                let errorMessage = 'Failed to send reset link. Please try again.';
+                
+                if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Invalid email format';
+                    document.getElementById('reset-email-error').textContent = errorMessage;
+                    document.getElementById('reset-email').classList.add('is-invalid');
+                } else if (error.code === 'auth/user-not-found') {
+                    errorMessage = 'No account found with this email';
+                    document.getElementById('reset-email-error').textContent = errorMessage;
+                    document.getElementById('reset-email').classList.add('is-invalid');
+                } else {
+                    showAlert(errorMessage, 'danger');
+                }
+            }
+        });
+        
+        // Password strength checker
+        registerPassword.addEventListener('input', () => {
+            const password = registerPassword.value;
+            let strength = 0;
+            let feedback = 'Password must be at least 8 characters long';
+            
+            if (password.length >= 8) {
+                strength += 1;
+            }
+            
+            if (password.match(/[A-Z]/)) {
+                strength += 1;
+            }
+            
+            if (password.match(/[0-9]/)) {
+                strength += 1;
+            }
+            
+            if (password.match(/[^A-Za-z0-9]/)) {
+                strength += 1;
+            }
+            
+            // Update password strength bar
+            passwordStrengthBar.style.width = `${(strength * 25)}%`;
+            
+            // Update color based on strength
+            if (strength === 0) {
+                passwordStrengthBar.style.backgroundColor = '#dc3545';
+                feedback = 'Password must be at least 8 characters long';
+            } else if (strength === 1) {
+                passwordStrengthBar.style.backgroundColor = '#dc3545';
+                feedback = 'Weak password';
+            } else if (strength === 2) {
+                passwordStrengthBar.style.backgroundColor = '#ffc107';
+                feedback = 'Medium strength password';
+            } else if (strength === 3) {
+                passwordStrengthBar.style.backgroundColor = '#28a745';
+                feedback = 'Strong password';
+            } else {
+                passwordStrengthBar.style.backgroundColor = '#20c997';
+                feedback = 'Very strong password';
+            }
+            
+            // Update hint text
+            passwordHint.textContent = feedback;
+        });
+        
+        // Toggle password visibility
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const passwordInput = this.parentElement.previousElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+        
+        // Forgot password link
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showResetForm();
+        });
+        
+        // Back to login link
+        backToLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showLoginForm();
+        });
+    </script>
     
     <script>
-        // Tab switching functionality
+        // Tab switching functionality (fixed version)
         document.addEventListener('DOMContentLoaded', function() {
             const loginTab = document.getElementById('login-tab');
             const registerTab = document.getElementById('register-tab');
             const loginForm = document.getElementById('login-form');
             const registerForm = document.getElementById('register-form');
+            const resetForm = document.getElementById('reset-form');
             
-            // Completely reset form classes before applying new ones
-            function resetFormClasses() {
-                // Reset all animation classes that might cause conflicts
-                loginForm.classList.remove(
-                    'd-none', 
-                    'animate__fadeOutRight',
-                    'animate__fadeOutLeft', 
-                    'animate__fadeInLeft',
-                    'animate__fadeInRight'
-                );
-                
-                registerForm.classList.remove(
-                    'd-none', 
-                    'animate__fadeOutRight',
-                    'animate__fadeOutLeft', 
-                    'animate__fadeInLeft',
-                    'animate__fadeInRight'
-                );
-            }
-            
-            loginTab.addEventListener('click', function() {
+            // Show login form function
+            window.showLoginForm = function() {
+                // Update tabs
                 loginTab.classList.add('active');
                 registerTab.classList.remove('active');
                 
-                // Reset all animation classes first
-                resetFormClasses();
+                // Handle form display with proper animations
+                resetForm.classList.add('d-none');
+                registerForm.classList.add('d-none');
                 
-                // Show login form with animation
                 loginForm.classList.remove('d-none');
-                
-                // Force a browser reflow to ensure animations work properly
-                void loginForm.offsetWidth;
-                
-                // Apply new animation class
-                loginForm.classList.add('animate__fadeInLeft');
-                
-                // Hide register form
-                registerForm.classList.add('animate__fadeOutRight');
-                setTimeout(() => {
-                    registerForm.classList.add('d-none');
-                }, 500);
-            });
+                void loginForm.offsetWidth; // Force reflow
+                loginForm.classList.remove('animate__fadeOutLeft', 'animate__fadeOutRight');
+                loginForm.classList.add('animate__fadeIn');
+            };
             
-            registerTab.addEventListener('click', function() {
+            // Show register form function
+            window.showRegisterForm = function() {
+                // Update tabs
                 registerTab.classList.add('active');
                 loginTab.classList.remove('active');
                 
-                // Reset all animation classes first
-                resetFormClasses();
+                // Handle form display with proper animations
+                resetForm.classList.add('d-none');
+                loginForm.classList.add('d-none');
                 
-                // Show register form
                 registerForm.classList.remove('d-none');
+                void registerForm.offsetWidth; // Force reflow
+                registerForm.classList.remove('animate__fadeOutLeft', 'animate__fadeOutRight');
+                registerForm.classList.add('animate__fadeIn');
+            };
+            
+            // Show password reset form function
+            window.showResetForm = function() {
+                // Update tabs (none active)
+                loginTab.classList.remove('active');
+                registerTab.classList.remove('active');
                 
-                // Force a browser reflow to ensure animations work properly
-                void registerForm.offsetWidth;
+                // Handle form display with proper animations
+                loginForm.classList.add('d-none');
+                registerForm.classList.add('d-none');
                 
-                // Apply new animation class
-                registerForm.classList.add('animate__fadeInRight');
-                
-                // Hide login form
-                loginForm.classList.add('animate__fadeOutLeft');
-                setTimeout(() => {
-                    loginForm.classList.add('d-none');
-                }, 500);
+                resetForm.classList.remove('d-none');
+                void resetForm.offsetWidth; // Force reflow
+                resetForm.classList.add('animate__fadeIn');
+            };
+            
+            // Login tab click handler
+            loginTab.addEventListener('click', function(e) {
+                e.preventDefault();
+                showLoginForm();
             });
-             // Toggle password visibility
-             const togglePassword = document.querySelectorAll('.toggle-password');
-            togglePassword.forEach(function(toggle) {
-                toggle.addEventListener('click', function() {
-                    const passwordInput = this.parentElement.previousElementSibling;
-                    const passwordIcon = this.querySelector('i');
-                    
-                    if (passwordInput.type === 'password') {
-                        passwordInput.type = 'text';
-                        passwordIcon.classList.remove('fa-eye');
-                        passwordIcon.classList.add('fa-eye-slash');
-                    } else {
-                        passwordInput.type = 'password';
-                        passwordIcon.classList.remove('fa-eye-slash');
-                        passwordIcon.classList.add('fa-eye');
-                    }
-                });
+            
+            // Register tab click handler
+            registerTab.addEventListener('click', function(e) {
+                e.preventDefault();
+                showRegisterForm();
             });
-             // Dynamic quote cycling
-             const quotes = [
+            
+            // Dynamic quote cycling
+            const quotes = [
                 {
                     text: "India is the cradle of the human race, the birthplace of human speech, the mother of history, the grandmother of legend, and the great-grandmother of tradition.",
                     author: "Mark Twain"
@@ -327,18 +794,20 @@
                     author: "Hu Shih"
                 }
             ];
+            
             let currentQuote = 0;
             const quoteText = document.querySelector('.quote-text');
             const quoteAuthor = document.querySelector('.quote-author');
             
+            // Fix quote cycling
             function changeQuote() {
                 const quoteBox = document.querySelector('.quote-box');
                 quoteBox.classList.add('animate__fadeOut');
                 
                 setTimeout(() => {
                     currentQuote = (currentQuote + 1) % quotes.length;
-                    quoteText.textContent = "${quotes[currentQuote].text}";
-                    quoteAuthor.textContent = - ${quotes[currentQuote].author};
+                    quoteText.textContent = quotes[currentQuote].text;
+                    quoteAuthor.textContent = `- ${quotes[currentQuote].author}`;
                     
                     quoteBox.classList.remove('animate__fadeOut');
                     quoteBox.classList.add('animate__fadeIn');
@@ -348,12 +817,21 @@
                     }, 1000);
                 }, 500);
             }
-                   // Change quote every 10 seconds
-                   setInterval(changeQuote, 10000);
             
-            // Fix any height issues on load
-            window.addEventListener('load', function() {
-                document.querySelector('.login-container').style.minHeight = 'calc(100vh - 76px)';
+            // Change quote every 10 seconds
+            setInterval(changeQuote, 10000);
+            
+            // Set active nav item based on current page
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const currentPage = 'login1.html';
+            
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
             });
         });
     </script>
