@@ -6,6 +6,7 @@
     <title>Monuments</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="common _navfot.css">
     <style>
         /* Global Styles */
         body {
@@ -14,41 +15,6 @@
             background-color: #F5F7FA;
             overflow-x: hidden;
         }
-
-        /* Navbar Styles */
-        .navbar {
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(90deg, rgba(255, 153, 51, 0.1) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(19, 136, 8, 0.1) 100%);
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.8rem;
-            color: #434A54;
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.6rem;
-            background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
-            background-size: 200% auto;
-            background-clip: text;
-            -webkit-background-clip: text;
-            text-fill-color: transparent;
-            -webkit-text-fill-color: transparent;
-            animation: textGradient 5s linear infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes textGradient {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
         /* Section Headings */
         .section-heading-container {
             display: flex;
@@ -174,68 +140,6 @@
         .global-rating i {
             color: #FFD700;
         }
-                /* Footer Styles */
-        .heritage-footer {
-            background-color: #212529;
-            color: #f8f9fa;
-            position: relative;
-        }
-        
-        .footer-heading {
-            position: relative;
-            padding-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(90deg, #FF9933, #138808);
-        }
-        
-        .footer-links {
-            padding: 0;
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .footer-links a::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #FF9933;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: #fff;
-            padding-left: 20px;
-        }
-        
-        .footer-links a:hover::before {
-            background-color: #138808;
-        }
         
         .social-icons {
             display: flex;
@@ -275,60 +179,7 @@
             color: rgba(255, 255, 255, 0.5);
         }
         
-        .footer-bottom-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: flex-end;
-        }
         
-        .footer-bottom-links li {
-            margin-left: 20px;
-        }
-        
-        .footer-bottom-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-bottom-links a:hover {
-            color: #fff;
-        }
-        
-        /* Tricolor border at the bottom of the footer */
-        .tricolor-border {
-            display: flex;
-            height: 5px;
-            width: 100%;
-        }
-        
-        .orange-section {
-            flex: 1;
-            background-color: #FF9933;
-        }
-        
-        .white-section {
-            flex: 1;
-            background-color: #FFFFFF;
-        }
-        
-        .green-section {
-            flex: 1;
-            background-color: #138808;
-        }
-        
-        @media (max-width: 768px) {
-            .footer-bottom-links {
-                justify-content: flex-start;
-                margin-top: 10px;
-            }
-            
-            .footer-bottom-links li {
-                margin-left: 0;
-                margin-right: 20px;
-            }
         }
     </style>
 </head>
@@ -577,53 +428,48 @@
     </footer>
 
     <script>
-        function toggleNav() {
-            const navbarCollapse = document.getElementById('navbarContent');
-            navbarCollapse.classList.toggle('active');
+          // Set active nav item based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    // First, determine which link should be active
+    let activeLink = null;
+    
+    if (currentPage === 'index.html' || currentPage === '') {
+        activeLink = 'index.html';
+    } else if (currentPage === 'Place1.html' || currentPage.includes('_page') && !currentPage.includes('Ancient_ruins_page')) {
+        activeLink = 'Place1.html';
+    } else if (currentPage === 'BlogPage.html' || 
+              currentPage === 'Unesco_Page.html' || 
+              currentPage === 'Monuments.html' || 
+              currentPage === 'museums.html' || 
+              currentPage === 'Ancient_ruins_page.html') {
+        activeLink = 'BlogPage.html';
+    } else if (currentPage === 'ContactPage.html') {
+        activeLink = 'ContactPage.html';
+    }
+    
+    // Now set only the determined active link
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === activeLink) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
-
-                // Set active nav item based on current page
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
-            // First, determine which link should be active
-            let activeLink = null;
-            
-            if (currentPage === 'index.html' || currentPage === '') {
-                activeLink = 'index.html';
-            } else if (currentPage === 'Place1.html' || currentPage.includes('_page') && !currentPage.includes('Ancient_ruins_page')) {
-                activeLink = 'Place1.html';
-            } else if (currentPage === 'BlogPage.html' || 
-                      currentPage === 'Unesco_Page.html' || 
-                      currentPage === 'Monuments.html' || 
-                      currentPage === 'museums.html' || 
-                      currentPage === 'Ancient_ruins_page.html') {
-                activeLink = 'BlogPage.html';
-            } else if (currentPage === 'ContactPage.html') {
-                activeLink = 'ContactPage.html';
-            }
-            
-            // Now set only the determined active link
-            navLinks.forEach(link => {
-                const linkHref = link.getAttribute('href');
-                if (linkHref === activeLink) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-            
-            // Handle navbar toggle for mobile
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.collapse.navbar-collapse');
-            
-            if (navbarToggler) {
-                navbarToggler.addEventListener('click', function() {
-                    navbarCollapse.classList.toggle('show');
-                });
-            }
+    });
+    
+    // Handle navbar toggle for mobile
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.collapse.navbar-collapse');
+    
+    if (navbarToggler) {
+        navbarToggler.addEventListener('click', function() {
+            navbarCollapse.classList.toggle('show');
         });
+    }
+});
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
