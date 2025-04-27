@@ -363,4 +363,111 @@ html {
     background-size: cover;
     min-height: calc(100vh - 76px);
 }
+/* Add to your login1.css file */
 
+/* Password strength meter */
+.password-strength-meter {
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+.password-strength-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    width: 0;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.loading-text {
+    color: #434A54;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Fix animations */
+#login-form, #register-form, #reset-form {
+    animation-duration: 0.5s;
+}
+
+/* Back to login link */
+.back-link {
+    color: #FF9933;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: #FF7E33;
+    text-decoration: none;
+}
+
+/* Fix Google login button */
+.google-btn {
+    transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(221, 75, 57, 0.4);
+}
+
+/* Fixed login button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
+    border-color: #FF9933;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
+/* Fix for animation classes */
+.animate__animated {
+    animation-fill-mode: both;
+}
+
+/* Ensure alerts look good */
+.alert {
+    border-radius: 8px;
+    animation-duration: 0.5s;
+}
+
+/* Ensure full height form container */
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fix navbar brand animation class */
+.navbar-brand.animate__animated {
+    animation-duration: 1s;
+}
