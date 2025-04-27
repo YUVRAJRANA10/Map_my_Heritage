@@ -1,98 +1,200 @@
-/* Global Styles */
+/* Add this to your places1.css file to enhance the page styling */
+/* Enhanced Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9fafb;
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 153, 51, 0.03) 0%, rgba(255, 255, 255, 0.03) 90%), 
+                      radial-gradient(circle at 90% 80%, rgba(19, 136, 8, 0.03) 0%, rgba(19, 136, 8, 0.03) 90%);
     background-attachment: fixed;
     background-size: cover;
-}
-
-/* Navbar Styles */
-/* .navbar {
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);
-}
-
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.8rem;
     color: #434A54;
-    display: flex;
-    align-items: center;
 }
 
-.brand-text { */
-    /* font-family: 'Montserrat', sans-serif;
+/* Enhanced Page Header */
+.container h1 {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: 1.6rem;
-    background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textGradient 5s linear infinite;
-    letter-spacing: -0.5px;
-    margin-left: 5px;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-@keyframes textGradient {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-} */
+.container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+    border-radius: 3px;
+}
 
-/* Section Titles */
+.container p.text-muted {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Enhanced Search Bar */
+.search-bar {
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.search-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9933, transparent, #138808);
+}
+
+.search-bar select {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.95rem;
+    padding: 12px 15px;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    width: 200px;
+    margin-right: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23434A54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.search-bar select:focus {
+    border-color: #FF9933;
+    box-shadow: 0 0 0 2px rgba(255, 153, 51, 0.2);
+    outline: none;
+}
+
+.search-bar .btn-primary {
+    background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
+    border: none;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(255, 153, 51, 0.3);
+    transition: all 0.3s ease;
+}
+
+.search-bar .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.4);
+}
+
+/* Enhanced Section Titles */
 .section-title {
-    margin-top: 40px;
-    margin-bottom: 20px;
+    position: relative;
+    margin: 60px 0 30px;
     text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    color: #434A54;
-    background: linear-gradient(90deg, #FF9933, #a49b9b, #138808);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    padding-bottom: 15px;
+    animation: fadeIn 1s ease;
 }
 
-/* Place Cards */
+.section-title::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 4px;
+    background: #FF9933;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+    border-radius: 3px;
+}
+
+/* Enhanced Place Cards */
 .place-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: none;
+    border-radius: 12px;
     overflow: hidden;
     text-align: center;
     background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    height: 350px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 15px; /* Adds space between cards */
+    justify-content: flex-start;
+    margin: 15px;
+    position: relative;
+    animation: fadeInUp 0.8s ease;
 }
 
 .place-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
+    transition: all 0.5s ease;
 }
 
-/* Place Card Titles (Site Names) */
+.place-card:hover img {
+    transform: scale(1.08);
+}
+
 .place-card h3 {
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #FF9933, #a4a2a2, #138808);
+    margin: 18px 0 12px;
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #FF9933, #434A54, #138808);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding: 0 15px;
+    position: relative;
+}
+
+.place-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9933, #138808);
 }
 
 .place-card p {
-    padding: 0 10px 10px;
-    color: #555;
-    font-size: 14px;
-    flex-grow: 1; /* Ensures the description takes up remaining space*/
+    padding: 0 20px 15px;
+    color: #6c757d;
+    font-size: 15px;
+    line-height: 1.6;
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,74 +202,186 @@ body {
 }
 
 .place-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 2px 2px 4px #FF9933, 4px 4px 6px #FFFFFF, 6px 6px 8px #138808;
+    transform: translateY(-12px);
+    box-shadow: 
+        0 2px 4px rgba(255, 153, 51, 0.2), 
+        0 4px 8px rgba(255, 255, 255, 0.2), 
+        0 8px 16px rgba(19, 136, 8, 0.2),
+        0 16px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Carousel Container */
+/* Add a subtle border to place cards */
+.place-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9933, transparent, #138808);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.place-card:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced Carousel Container */
 #carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 20px; /* Adds space between cards */
+    align-items: stretch;
+    gap: 25px;
     overflow: visible;
     margin-top: 20px;
+    padding: 10px 0 30px;
 }
 
-/* Buttons for Navigation */
-button {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 10px;
+/* Improved Navigation Buttons */
+.row.align-items-center {
+    position: relative;
+    padding: 0 15px;
+}
+
+.row.align-items-center .btn-primary {
+    background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    transition: background-color 0.2s ease-in-out;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Search Bar */
-.search-bar {
-    margin: 20px 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 153, 51, 0.3);
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
 }
 
-.search-bar select, .search-bar button {
-    margin-left: 10px;
+.row.align-items-center .btn-primary:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 15px rgba(255, 153, 51, 0.4);
 }
 
-.search-bar input, .search-bar select {
-    width: 150px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+#prev-btn-unesco, #prev-btn-ancient, #prev-btn-museums, #prev-btn-monu {
+    left: 5px;
 }
 
-.search-bar button {
-    padding: 10px 20px;
+#next-btn-unesco, #next-btn-ancient, #next-btn-museums, #next-btn-monu {
+    right: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments{
-        flex-direction: column;
-        gap: 10px;
+/* Add button content */
+#prev-btn-unesco::before, #prev-btn-ancient::before, #prev-btn-museums::before, #prev-btn-monu::before {
+    content: '←';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#next-btn-unesco::before, #next-btn-ancient::before, #next-btn-museums::before, #next-btn-monu::before {
+    content: '→';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Category sections */
+#unesco, #ancient, #museums, #monuments {
+    padding: 20px 0;
+    position: relative;
+}
+
+/* Better animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
     }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced responsiveness */
+@media (max-width: 992px) {
     .place-card {
-        height: auto; /* Allow cards to adjust height dynamically */
-        margin: 10px auto;
-        max-width: 100%;
+        height: 360px;
     }
-    button {
-        
-        margin:  10px auto;
+}
 
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    #carousel-unesco, #carousel-ancient, #carousel-museums, #carousel-moneuments {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .place-card {
+        height: auto;
+        min-height: 320px;
+        margin: 15px 10px;
+    }
+    
+    .row.align-items-center .btn-primary {
+        position: static;
+        transform: none;
+        width: auto;
+        height: auto;
+        padding: 8px 15px;
+        border-radius: 6px;
+        margin: 15px auto;
+        display: block;
+    }
+    
+    #prev-btn-unesco::before, #prev-btn-ancient::before, #prev-btn-museums::before, #prev-btn-monu::before,
+    #next-btn-unesco::before, #next-btn-ancient::before, #next-btn-museums::before, #next-btn-monu::before {
+        content: '';
+    }
+    
+    #prev-btn-unesco::after, #prev-btn-ancient::after, #prev-btn-museums::after, #prev-btn-monu::after {
+        content: 'Previous';
+    }
+    
+    #next-btn-unesco::after, #next-btn-ancient::after, #next-btn-museums::after, #next-btn-monu::after {
+        content: 'Next';
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .search-bar select {
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
+    
+    .search-bar .btn-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container h1 {
+        font-size: 24px;
+    }
+    
+    .container p.text-muted {
+        font-size: 1rem;
     }
 }
