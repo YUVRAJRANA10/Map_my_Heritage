@@ -5,7 +5,7 @@ body {
 }
 
 /* Navbar Styles - Updated with tricolor theme */
-.navbar {
+/* .navbar {
     padding: 15px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);
@@ -43,7 +43,7 @@ body {
 @keyframes textGradient {
     0% { background-position: 0% center; }
     100% { background-position: 200% center; }
-}
+} */
 
 .container {
     margin-top: 30px;

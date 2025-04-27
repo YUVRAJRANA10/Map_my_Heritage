@@ -3,47 +3,6 @@ body {
     color: #434A54;
     background-color: #F5F7FA;
 }
-
-/* Navbar Styles - Updated with tricolor theme */
-.navbar {
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background: linear-gradient(90deg, rgba(255,153,51,0.1) 0%, rgba(255,255,255,0.1) 50%, rgba(19,136,8,0.1) 100%);
-}
-
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.8rem;
-    color: #434A54;
-    display: flex;
-    align-items: center;
-}
-
-.navbar-brand:hover .brand-text {
-    animation: animate__rubberBand;
-    animation-duration: 1s;
-}
-
-/* Updated brand text to match tricolor theme */
-.brand-text {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 1.6rem;
-    background: linear-gradient(90deg, #FF9933, #FFFFFF, #138808);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: textGradient 5s linear infinite;
-    letter-spacing: -0.5px;
-    margin-left: 5px;
-}
-
-@keyframes textGradient {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-}
 .container {
     margin-top: 30px;
 }
