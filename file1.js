@@ -205,3 +205,57 @@ searchButton.addEventListener('click', () => {
         section.scrollIntoView({ behavior: 'smooth' });
     }
 });
+// Add this to file1.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle select box text visibility
+    const searchSelect = document.querySelector('.search-bar select');
+    
+    if (searchSelect) {
+        // Adjust select box when option changes
+        searchSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            
+            // Set a minimum width based on text length
+            const textLength = selectedOption.textContent.length;
+            const minWidth = Math.max(280, textLength * 10); // 10px per character as estimate
+            
+            // Apply minimum width but don't exceed container
+            const containerWidth = this.parentElement.offsetWidth - 30; // 30px for padding
+            this.style.width = Math.min(minWidth, containerWidth) + 'px';
+        });
+        
+        // Initialize width for any preselected option
+        if (searchSelect.selectedIndex > 0) {
+            const event = new Event('change');
+            searchSelect.dispatchEvent(event);
+        }
+    }
+});
+// Add this to the end of file1.js to make the search functionality work properly
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix the search bar select element
+    const searchSelect = document.querySelector('.search-bar select');
+    const searchButton = document.querySelector('.search-bar button');
+    
+    // Make the select dropdown more visible with better styling
+    searchSelect.style.minWidth = '280px';
+    searchSelect.style.padding = '12px 15px';
+    searchSelect.style.fontSize = '1rem';
+    
+    // Make the search button work
+    searchButton.addEventListener('click', function() {
+        const selectedSection = searchSelect.value;
+        if (selectedSection) {
+            const section = document.getElementById(selectedSection);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                
+                // Highlight the section briefly
+                section.classList.add('section-highlight');
+                setTimeout(() => {
+                    section.classList.remove('section-highlight');
+                }, 1500);
+            }
+        }
+    });
+});

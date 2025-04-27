@@ -350,13 +350,17 @@
         <!-- Search Bar -->
         <div class="search-bar">
             <!-- <input type="text" class="form-control" placeholder="Search..." style="width: 300px;"> -->
-            <select class="form-control" style="width: 150px;">
-                <option value="unesco">UNESCO</option>
-                <option value="ancient">Ancient Sites</option>
-                <option value="museums">Museums</option>
-                <option value="monuments">Monuments</option>
+            <select class="form-control">
+                <option value="" selected disabled>Select a Heritage Category</option>
+                <option value="unesco">UNESCO World Heritage Sites</option>
+                <option value="ancient">Ancient Archaeological Sites</option>
+                <option value="museums">Museums & Cultural Centers</option>
+                <option value="monuments">Historical Monuments</option>
+                <option value="temples">Religious Sites & Temples</option>
             </select>
-            <button class="btn btn-primary">Search</button>
+            <button class="btn btn-primary">
+                <i class="fas fa-search mr-2"></i>Explore Heritage
+            </button>
         </div>
                     <div class="places-grid">
                         <!-- Repeat this card -->

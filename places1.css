@@ -37,68 +37,130 @@ body {
     margin: 0 auto 40px;
 }
 
-/* Enhanced Search Bar */
+/* Enhanced Search Bar - Fix visibility issues */
 .search-bar {
     margin: 30px 0;
-    padding: 20px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.6);
+    gap: 15px; /* Add gap between select and button */
 }
 
-.search-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #FF9933, transparent, #138808);
-}
-
+/* Improved select styling */
 .search-bar select {
-    background: white;
-    border: 1px solid rgba(0,0,0,0.1);
-    font-size: 0.95rem;
-    padding: 12px 15px;
-    border-radius: 6px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.15);
+    font-size: 1rem;
+    padding: 14px 18px;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.03);
     transition: all 0.3s ease;
-    width: 200px;
-    margin-right: 15px;
+    min-width: 280px;
+    flex-grow: 1;
+    max-width: 500px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='%23434A54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
+    background-position: right 15px center;
+    color: #434A54;
+}
+
+/* Fix for truncated select option text */
+.search-bar select {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 30px; /* Increase right padding to prevent text overlap with dropdown arrow */
+}
+
+/* Ensure selected option text is fully visible */
+.search-bar select option {
+    white-space: normal; /* Allow wrapping in dropdown */
+    padding: 10px;
+}
+
+/* Fix for select box on different screen sizes */
+@media (min-width: 768px) {
+    .search-bar select {
+        min-width: 320px; /* Increase width on larger screens */
+    }
+}
+
+@media (min-width: 992px) {
+    .search-bar select {
+        min-width: 400px; /* Further increase width on even larger screens */
+    }
+}
+
+/* Make dropdown arrow smaller and positioned better */
+.search-bar select {
     background-position: right 10px center;
+    background-size: 20px;
 }
 
 .search-bar select:focus {
     border-color: #FF9933;
-    box-shadow: 0 0 0 2px rgba(255, 153, 51, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.2);
     outline: none;
 }
 
+/* Enhance select options */
+.search-bar select option {
+    font-size: 1rem;
+    padding: 10px;
+}
+
+/* Enhanced button styling */
 .search-bar .btn-primary {
     background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
     border: none;
-    padding: 12px 25px;
+    padding: 14px 28px;
     font-weight: 600;
-    font-size: 0.95rem;
-    border-radius: 6px;
-    box-shadow: 0 3px 8px rgba(255, 153, 51, 0.3);
+    font-size: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(255, 153, 51, 0.3);
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.search-bar .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.4);
+/* Add highlight effect when scrolling to a section */
+.section-highlight {
+    animation: pulse-highlight 1.5s ease;
+}
+
+@keyframes pulse-highlight {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.02); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.01); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive adjustments for search bar */
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        padding: 20px;
+        margin: 25px 0;
+    }
+    
+    .search-bar select {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .search-bar .btn-primary {
+        width: 100%;
+    }
 }
 
 /* Enhanced Section Titles */
@@ -359,29 +421,5 @@ body {
     
     #next-btn-unesco::after, #next-btn-ancient::after, #next-btn-museums::after, #next-btn-monu::after {
         content: 'Next';
-    }
-    
-    .search-bar {
-        flex-direction: column;
-        padding: 15px;
-    }
-    
-    .search-bar select {
-        width: 100%;
-        margin: 0 0 15px 0;
-    }
-    
-    .search-bar .btn-primary {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .container h1 {
-        font-size: 24px;
-    }
-    
-    .container p.text-muted {
-        font-size: 1rem;
     }
 }
