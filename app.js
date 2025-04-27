@@ -1081,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [27.1751, 78.0421],
                 category: "unesco",
                 region: "north",
-                image: "../images/Taj Mahal Hero Image.png",
+                image: "images/Taj Mahal Hero Image.png",
                 description: "An ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra.",
                 link: "../Unesco_Page.html"
             },
@@ -1090,7 +1090,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [26.9239, 75.8267],
                 category: "monument",
                 region: "north",
-                image: "../images/AdobeStock_505662817_Preview.jpeg",
+                image: "images/AdobeStock_505662817_Preview.jpeg",
                 description: "Known as the 'Palace of Winds', this stunning five-story palace features 953 small windows.",
                 link: "#"
             },
@@ -1099,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [20.0267, 75.1772],
                 category: "unesco",
                 region: "west",
-                image: "../images/licensed-image.jpg",
+                image: "images/licensed-image.jpg",
                 description: "A UNESCO World Heritage site featuring 34 rock-cut Buddhist, Hindu and Jain cave temples.",
                 link: "#"
             },
@@ -1108,7 +1108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [19.8876, 86.0945],
                 category: "unesco",
                 region: "east",
-                image: "../images/sun_temple_konark.jpg",
+                image: "images/sun_temple_konark.jpg",
                 description: "This 13th-century Sun Temple takes the form of a massive chariot with intricately carved wheels.",
                 link: "#"
             },
@@ -1117,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [28.5244, 77.1855],
                 category: "unesco",
                 region: "north",
-                image: "../images/qutub1_042717100950.jpg",
+                image: "images/qutub1_042717100950.jpg",
                 description: "The tallest brick minaret in the world, this UNESCO World Heritage site was built in 1220 AD.",
                 link: "#"
             },
@@ -1126,7 +1126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [9.9195, 78.1193],
                 category: "ancient",
                 region: "south",
-                image: "../images/download.jpg",
+                image: "images/download.jpg",
                 description: "A historic Hindu temple located in the temple city of Madurai, dedicated to goddess Meenakshi.",
                 link: "#"
             },
@@ -1135,7 +1135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [28.6129, 77.2295],
                 category: "museum",
                 region: "north",
-                image: "../images/NAtional-museum.jpg",
+                image: "images/NAtional-museum.jpg",
                 description: "One of the largest museums in India with a diverse collection of artifacts from prehistoric era to modern works of art.",
                 link: "#"
             },
@@ -1144,7 +1144,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [26.9855, 75.8513],
                 category: "monument",
                 region: "north",
-                image: "../images/Amber_fort.jpg",
+                image: "images/Amber_fort.jpg",
                 description: "A majestic fort located in Amer, Rajasthan, known for its artistic Hindu style elements.",
                 link: "#"
             },
@@ -1153,7 +1153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [24.8530, 79.9199],
                 category: "unesco",
                 region: "central",
-                image: "../images/khajurao.jpg",
+                image: "images/khajurao.jpg",
                 description: "Famous for their Nagara-style architectural symbolism and erotic sculptures.",
                 link: "#"
             },
@@ -1162,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [20.5519, 75.7030],
                 category: "unesco",
                 region: "west",
-                image: "../images/ajanta-caves.jpg",
+                image: "images/ajanta-caves.jpg",
                 description: "Buddhist rock-cut cave temples dating from the 2nd century BCE to about 480 CE.",
                 link: "#"
             },
@@ -1171,7 +1171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: [22.5448, 88.3426],
                 category: "museum",
                 region: "east",
-                image: "../images/victoria-memorial.jpg",
+                image: "images/victoria-memorial.jpg",
                 description: "A large marble building in Kolkata, which was built between 1906 and 1921 as a memorial to Queen Victoria.",
                 link: "#"
             }
@@ -1340,37 +1340,37 @@ document.addEventListener('DOMContentLoaded', function() {
             switch(title) {
                 case 'Hawa Mahal':
                     galleryImages = [
-                        { src: '../images/AdobeStock_505662817_Preview.jpeg', caption: 'The stunning facade of Hawa Mahal' },
-                        { src: '../images/hawa-mahal-2.jpg', caption: 'Intricate lattice windows of the palace' },
-                        { src: '../images/hawa-mahal-3.jpg', caption: 'View of Hawa Mahal from the street' },
-                        { src: '../images/hawa-mahal-4.jpg', caption: 'Interior corridors of the Palace of Winds' },
-                        { src: '../images/hawa-mahal-5.jpg', caption: 'The iconic pink sandstone architecture' }
+                        { src: 'images/AdobeStock_505662817_Preview.jpeg', caption: 'The stunning facade of Hawa Mahal' },
+                        { src: 'images/hawa-mahal-2.jpg', caption: 'Intricate lattice windows of the palace' },
+                        { src: 'images/hawa-mahal-3.jpg', caption: 'View of Hawa Mahal from the street' },
+                        { src: 'images/hawa-mahal-4.jpg', caption: 'Interior corridors of the Palace of Winds' },
+                        { src: 'images/hawa-mahal-5.jpg', caption: 'The iconic pink sandstone architecture' }
                     ];
                     break;
                 case 'Ellora Caves':
                     galleryImages = [
-                        { src: '../images/licensed-image.jpg', caption: 'The magnificent rock-cut temples of Ellora' },
-                        { src: '../images/ellora-caves-2.jpg', caption: 'Intricate carvings inside the Buddhist caves' },
-                        { src: '../images/ellora-caves-3.jpg', caption: 'The impressive Kailasha Temple carved from a single rock' },
-                        { src: '../images/ellora-caves-4.jpg', caption: 'Detailed sculptures depicting mythological scenes' },
-                        { src: '../images/ellora-caves-5.jpg', caption: 'Panoramic view of the cave complex' }
+                        { src: 'images/licensed-image.jpg', caption: 'The magnificent rock-cut temples of Ellora' },
+                        { src: 'images/ellora-caves-2.jpg', caption: 'Intricate carvings inside the Buddhist caves' },
+                        { src: 'images/ellora-caves-3.jpg', caption: 'The impressive Kailasha Temple carved from a single rock' },
+                        { src: 'images/ellora-caves-4.jpg', caption: 'Detailed sculptures depicting mythological scenes' },
+                        { src: 'images/ellora-caves-5.jpg', caption: 'Panoramic view of the cave complex' }
                     ];
                     break;
                 case 'Sun Temple Konark':
                     galleryImages = [
-                        { src: '../images/sun_temple_konark.jpg', caption: 'The majestic Sun Temple at Konark' },
-                        { src: '../images/konark-2.jpg', caption: 'The iconic chariot wheels of the temple' },
-                        { src: '../images/konark-3.jpg', caption: 'Intricate stone carvings on the temple walls' },
-                        { src: '../images/konark-4.jpg', caption: 'The temple during sunrise - a tribute to the Sun God' },
-                        { src: '../images/konark-5.jpg', caption: 'Detailed sculptures depicting daily life and mythology' }
+                        { src: 'images/sun_temple_konark.jpg', caption: 'The majestic Sun Temple at Konark' },
+                        { src: 'images/konark-2.jpg', caption: 'The iconic chariot wheels of the temple' },
+                        { src: 'images/konark-3.jpg', caption: 'Intricate stone carvings on the temple walls' },
+                        { src: 'images/konark-4.jpg', caption: 'The temple during sunrise - a tribute to the Sun God' },
+                        { src: 'images/konark-5.jpg', caption: 'Detailed sculptures depicting daily life and mythology' }
                     ];
                     break;
                 default:
                     // Default gallery with placeholder images
                     galleryImages = [
-                        { src: '../images/placeholder-1.jpg', caption: 'View of the heritage site' },
-                        { src: '../images/placeholder-2.jpg', caption: 'Architectural details' },
-                        { src: '../images/placeholder-3.jpg', caption: 'Historical context' }
+                        { src: 'images/placeholder-1.jpg', caption: 'View of the heritage site' },
+                        { src: 'images/placeholder-2.jpg', caption: 'Architectural details' },
+                        { src: 'images/placeholder-3.jpg', caption: 'Historical context' }
                     ];
             }
             
