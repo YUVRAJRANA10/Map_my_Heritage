@@ -174,6 +174,162 @@
         .global-rating i {
             color: #FFD700;
         }
+                /* Footer Styles */
+        .heritage-footer {
+            background-color: #212529;
+            color: #f8f9fa;
+            position: relative;
+        }
+        
+        .footer-heading {
+            position: relative;
+            padding-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #FF9933, #138808);
+        }
+        
+        .footer-links {
+            padding: 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #FF9933;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover::before {
+            background-color: #138808;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #FF9933;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .newsletter-form .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+        }
+        
+        .newsletter-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .footer-bottom-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .footer-bottom-links li {
+            margin-left: 20px;
+        }
+        
+        .footer-bottom-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+        
+        /* Tricolor border at the bottom of the footer */
+        .tricolor-border {
+            display: flex;
+            height: 5px;
+            width: 100%;
+        }
+        
+        .orange-section {
+            flex: 1;
+            background-color: #FF9933;
+        }
+        
+        .white-section {
+            flex: 1;
+            background-color: #FFFFFF;
+        }
+        
+        .green-section {
+            flex: 1;
+            background-color: #138808;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-bottom-links {
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+            
+            .footer-bottom-links li {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -312,6 +468,113 @@
             </div>
         </div>
     </main>
+
+        <!-- Replace the existing footer with this one for consistency across all pages -->
+    <footer class="heritage-footer pt-5 mt-5">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row">
+                <!-- Brand and Description -->
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand d-flex align-items-center mb-3">
+                        <img src="images/logo2-removebg-preview.png" alt="Map my Heritage Logo" height="50">
+                        <span class="brand-text ml-2">Map my Heritage</span>
+                    </div>
+                    <p class="text-white-50">Discover India's rich cultural heritage through carefully curated travel experiences. Explore ancient monuments, UNESCO sites, and historical wonders with expert guides.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <h5 class="text-white footer-heading">Explore</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Place1.html">Destinations</a></li>
+                        <li><a href="BlogPage.html">Blogs</a></li>
+                        <li><a href="ContactPage.html">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Heritage Sites -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <h5 class="text-white footer-heading">Heritage Sites</h5>
+                    <ul class="footer-links">
+                        <li><a href="Unesco_Page.html">UNESCO Sites</a></li>
+                        <li><a href="Ancient_ruins_page.html">Ancient Ruins</a></li>
+                        <li><a href="museums.html">Museums</a></li>
+                        <li><a href="Monuments.html">Monuments</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Tour Packages -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <h5 class="text-white footer-heading">Tour Packages</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">North India Heritage</a></li>
+                        <li><a href="#">South India Temples</a></li>
+                        <li><a href="#">UNESCO Wonders</a></li>
+                        <li><a href="#">Custom Tours</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Information -->
+                <div class="col-lg-2 col-md-4 col-6 mb-4">
+                    <h5 class="text-white footer-heading">Contact Us</h5>
+                    <address class="text-white-50">
+                        <p class="mb-1"><i class="fas fa-map-marker-alt mr-2"></i>123 Heritage Lane, New Delhi</p>
+                        <p class="mb-1"><i class="fas fa-phone-alt mr-2"></i>+91 98765 43210</p>
+                        <p class="mb-1"><i class="fas fa-envelope mr-2"></i>info@mapmyheritage.com</p>
+                    </address>
+                </div>
+            </div>
+    
+            <!-- Newsletter -->
+            <div class="row newsletter-section py-4 my-4">
+                <div class="col-md-6">
+                    <h5 class="text-white mb-0">Subscribe to Our Newsletter</h5>
+                    <p class="text-white-50">Get the latest news and special offers</p>
+                </div>
+                <div class="col-md-6">
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    
+            <!-- Bottom Footer -->
+            <div class="footer-bottom py-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-0 text-white-50">&copy; 2024 Map my Heritage. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-right">
+                        <ul class="footer-bottom-links">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Tricolor Footer Border -->
+        <div class="tricolor-border">
+            <div class="orange-section"></div>
+            <div class="white-section"></div>
+            <div class="green-section"></div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
