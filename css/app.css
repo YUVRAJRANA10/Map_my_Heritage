@@ -1447,31 +1447,65 @@ h2:after {
 
 .map-sidebar {
     height: 500px;
-    background-color: #fff;
+    background: linear-gradient(to bottom, #ffffff, #f8f8f8);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     overflow-y: auto;
     position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.map-filters {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.map-filters h5 {
+    position: relative;
+    padding-bottom: 8px;
+    color: #434A54;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
-/* Filter icons in map sidebar */
+.map-filters h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+}
+/* Better filter icons */
 .filter-icon {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    border: 2px solid transparent;
+}
+
+/* Enhanced filter checkbox items */
+.custom-control {
+    padding-left: 2.5rem;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.custom-control:hover {
+    background-color: rgba(0,0,0,0.03);
 }
 
 .custom-control-label {
     flex-grow: 1;
     padding-left: 5px;
-}
-
-.custom-control {
-    padding-left: 2rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 
 /* Region buttons with images */
