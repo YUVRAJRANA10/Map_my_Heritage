@@ -267,3 +267,322 @@ box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
     text-align: center;
 }
 }
+/* Enhanced common _navfot.css with improved styling for all heritage site pages */
+
+/* Improved Container Styles for Heritage Site Pages */
+.container {
+    padding: 30px 20px;
+    max-width: 1200px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #434A54;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9933, #138808);
+    border-radius: 3px;
+}
+
+/* Enhanced Image Carousel */
+.carousel {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}
+
+.carousel-inner img {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 153, 51, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    margin: 0 15px;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* Map Container */
+.map {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.map iframe {
+    width: 100%;
+    border: none;
+    height: 280px;
+}
+
+/* 360° View Container */
+.view-360 {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.view-360:hover {
+    transform: translateY(-5px);
+}
+
+.view-360 p {
+    margin-top: 12px;
+    color: #FF9933;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Text Content Styling */
+.text-justify {
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #555;
+}
+
+ul.text-justify li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+}
+
+ul.text-justify li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #FF9933;
+}
+
+ul.text-justify li:nth-child(even)::before {
+    color: #138808;
+}
+
+/* Enhanced Section for Hotels & Restaurants */
+.sub-section-title {
+    font-size: 18px;
+    color: #FF9933;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.list-unstyled li {
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.list-unstyled li:last-child {
+    border-bottom: none;
+}
+
+.list-unstyled li strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #434A54;
+}
+
+.list-unstyled .text-muted {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #FF9933;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.newsletter-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 12px 15px;
+    height: auto;
+}
+
+.newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form .btn {
+    background: linear-gradient(135deg, #FF9933 0%, #FF7E33 100%);
+    border: none;
+    padding: 12px 20px;
+    font-weight: 600;
+}
+
+.footer-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-bottom-links li {
+    margin-left: 20px;
+}
+
+.footer-bottom-links a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #fff;
+}
+
+/* Tricolor border at the bottom of the footer */
+.tricolor-border {
+    display: flex;
+    height: 5px;
+    width: 100%;
+}
+
+.orange-section {
+    flex: 1;
+    background-color: #FF9933;
+}
+
+.white-section {
+    flex: 1;
+    background-color: #FFFFFF;
+}
+
+.green-section {
+    flex: 1;
+    background-color: #138808;
+}
+
+/* Enhanced Row Styling */
+.row {
+    margin-bottom: 30px;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.97);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .navbar-nav .btn-primary {
+        margin-top: 15px;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .carousel-inner img {
+        height: 250px;
+    }
+    
+    .map iframe {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .footer-bottom-links {
+        justify-content: flex-start;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .footer-bottom-links li {
+        margin-left: 0;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .carousel-inner img {
+        height: 200px;
+    }
+}
+
+/* Hover animations for visual appeal */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.footer-brand img:hover {
+    animation: pulse 1s infinite;
+}
