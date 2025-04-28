@@ -1,6 +1,6 @@
 # Map My Heritage
 
-![Map My Heritage Banner](images/Screenshot 2025-04-27 191938.png)
+![Map My Heritage Banner](images/"Screenshot 2025-04-27 191938.png")
 
 ## Overview
 
