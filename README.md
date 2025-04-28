@@ -1,6 +1,6 @@
 # Map My Heritage
 
-![Map My Heritage Banner](images/"Screenshot 2025-04-27 191938.png")
+![Map My Heritage Banner](https://github.com/YUVRAJRANA10/Map_my_Heritage/blob/main/images/Screenshot%202025-04-27%20191938.png)
 
 ## Overview
 
